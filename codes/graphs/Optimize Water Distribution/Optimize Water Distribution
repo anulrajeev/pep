@@ -1,0 +1,188 @@
+// using adjacency matrix
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+ #ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w", stdout);
+ #endif
+	_main();
+	return 0;
+}
+
+int primsAlgo(vvi &graph, int V)
+{
+	bool included[V]={false};
+	vi dist(V,INT_MAX);
+	dist[0]=0;
+
+	int res=0;
+
+	for(int i=0;i<V;i++)
+	{
+		int u=-1;
+		for(int j=0;j<V;j++)
+			if(included[j]==false && (u==-1 || dist[j]<dist[u]))
+				u=j;
+
+		res+=dist[u];
+		included[u]=true;
+
+		for(int v=0;v<V;v++)
+			if(included[v]==false && graph[u][v])
+				dist[v]=min(dist[v], graph[u][v]);
+	}
+
+	return res;
+}
+
+
+void _main()
+{
+  	int V,E;
+  	int u,v,wt;
+  	cin>>V>>E;
+  	V++;
+  	vvi graph(V,vi(V,0));
+  	cout<<graph.size()<<' '<<graph[0].size()<<'\n';
+ 	for(int i=1;i<V;i++)
+  	{
+  		cin>>wt;
+  		graph[i][0]=graph[0][i]=wt;
+  	}
+
+  	for(int i=0;i<E;i++)
+  		{
+  			cin>>u>>v>>wt;
+  			graph[u][v]=graph[v][u]=wt;
+  		}
+
+
+  	// for(int i=0;i<V;i++)
+  	// {	for(int j=0;j<V;j++)
+  	// 		cout<<graph[i][j]<<' ';
+  	// 	cout<<'\n';
+  	// }
+  	cout<<primsAlgo(graph,V);
+
+}
+
+
+
+
+//using adjacency list
+
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+ #ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w", stdout);
+ #endif
+  _main();
+  return 0;
+}
+
+int primsAlgo(vector<pii> adj[], int V)
+{
+  bool included[V]={false};
+  vi dist(V,INT_MAX);
+  dist[0]=0;
+
+  int res=0;
+
+  for(int i=0;i<V;i++)
+  {
+    int u=-1;
+    for(int j=0;j<V;j++)
+      if(included[j]==false && (u==-1 || dist[j]<dist[u]))
+        u=j;
+
+    res+=dist[u];
+    included[u]=true;
+
+    for(auto p : adj[u])
+    {
+      int v=p.first, wt=p.second;
+      dist[v]=min(dist[v], wt);
+    }
+  }
+
+  return res;
+}
+
+
+void _main()
+{
+    int V,E;
+    int u,v,wt;
+    cin>>V>>E;
+    V++;
+    vector<pii> adj[V];
+
+    
+  for(int i=1;i<V;i++)
+      {
+        cin>>wt;
+        adj[0].push_back({i,wt});
+      }
+
+    for(int i=0;i<E;i++)
+      {
+        cin>>u>>v>>wt;
+        adj[u].push_back({v,wt});
+        adj[v].push_back({u,wt});
+      }
+
+
+    // for(int i=0;i<V;i++)
+    // {
+    //  cout<<i<<" --> ";
+      
+    //  for(int j=0;j<adj[i].size();j++)
+    //    cout<<"{"<<adj[i][j].first<<','<<adj[i][j].second<<"}, ";
+    //  cout<<'\n';
+    // }
+
+    cout<<primsAlgo(adj,V);
+
+}
+

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en-US">
+
+<head>
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109728305-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+
+    gtag('config', 'UA-109728305-1');
+    gtag('config', 'AW-10793397502');
+  </script>
+  <meta name="google-site-verification" content="p2kNyH1NDKhkZLl2aBdmmvosWqHZOxD0rmvS1n8LcDA" />
+  <meta name="google-signin-client_id"
+    content="458958442206-nstdi8m8r1ru8qbfd9qmpmhllq5gbui7.apps.googleusercontent.com">
+  <title>404 - Page Not Found</title>
+  <meta name="description" content="Sorry, page not found">
+  <link rel="shortcut icon" href="/images/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" href="/images/apple-touch-icon.png" />
+  <meta property="og:url" content="https://www.pepcoding.com/404">
+  <meta property="title" content="404 - Page Not Found">
+  <meta property="og:title" content="404 - Page Not Found">
+  <meta property="og:description" content="Sorry, page not found">
+  <meta property="og:image" content="https://www.pepcoding.com/images/logo.png">
+  <meta property="og:alt" content="pepcoding">
+  <meta property="og:type" content="website" />
+  <script type="application/ld+json">
+{
+  "@context" : "http://schema.org",
+  "@type": "EducationalOrganization",
+  "name" : "Pepcoding",
+  "url" : "https://www.pepcoding.com",
+  "logo":"https://www.pepcoding.com/images/logo.png",
+  "description": "Free online videos of Data Structure using Java and C++. Best coding institute in Delhi, Best computer programming institute in Delhi, Best java training classes, Coding classes in Delhi, Coding courses in Delhi, best computer programming institute in Delhi-NCR, Delhi's best programming institute offers courses in Java, C++, Web Development, Nodejs.",
+ "sameAs" : [
+   "https://www.facebook.com/pepcoding/",
+   "https://www.youtube.com/results?search_query=pepcoding",
+   "https://www.instagram.com/pepcoding/",
+   "https://in.linkedin.com/company/pepcoding-education",
+   "https://twitter.com/pepcoding"
+   ],
+
+ "openingHours": "Mo 08:30-21:30 Tu, We 08:00-21:30 Th, Fr, Sa, Su 08:00-09:30",
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "011-40194461",
+    "contactType": "Reception desk"
+  },
+ "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "PepCoding, 3rd Floor, 15 Vaishali, Pitampura Opposite",
+    "addressLocality": "Pitampura",
+    "addressRegion": "Delhi",
+    "postalCode": "110034",
+    "addressCountry": "India"
+  },
+   "hasMap": "https://www.google.com/maps/place/PepCoding.com/@28.699367,77.138281,17z/data=!4m5!3m4!1s0x0:0x4fd0fdfc3f27ffaf!8m2!3d28.6993666!4d77.1382814?hl=en-US"
+}
+</script>
+  <link rel="stylesheet" href="/css/site.css?v1.2.9">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body class=" theme2">
+  <nav>
+    <div class="nav-wrapper">
+      <div class="container med row  site-nav">
+        <a href="https://www.pepcoding.com" class="brand-logo ">
+          <img class="logo" src="/images/logo2.png" alt="logo">
+        </a>
+        <div id="mobile-nav" onclick="openCloseSideNav()" class="hide-on-large-only  mobile-nav right">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+              <ul class="site-nav-ul right hide-on-med-and-down">
+                            <li class=""  >
+                                         <i class="fa fa-sun-o  dropdown-trigger" href="#changeSiteTheme" style="    height: inherit;
+                                            line-height: inherit;"></i>
+                                      </li>
+                            <ul id='changeSiteTheme' class='dropdown-content changeSiteTheme'>
+                                        <li>
+                                            <a href="#"  onclick="siteThemeSelect('theme1')">
+                                               <div class="row   " >
+                                                    <div class="col l1  heart theme1"></div> 
+                                                 <div class="col l4" >Theme1</div>
+                                               </div>
+                                            </a>
+                                         </li>
+                                         
+                                        <li>
+                                            <a href="#"  onclick="siteThemeSelect('theme2')">
+                                               <div class="row   " >
+                                                    <div class="col l1  heart theme2"></div> 
+                                                 <div class="col l4" >Theme2</div>
+                                               </div>
+                                            </a>
+                                         </li>
+                                          <li>
+                                            <a href="#"  onclick="siteThemeSelect('theme3')">
+                                               <div class="row   " >
+                                                    <div class="col l1  heart theme3"></div> 
+                                                 <div class="col l4" >Theme3</div>
+                                               </div>
+                                            </a>
+                                         </li>
+                                          <li>
+                                            <a href="#"  onclick="siteThemeSelect('theme4')">
+                                               <div class="row   " >
+                                                    <div class="col l1  heart theme4"></div> 
+                                                 <div class="col l4" >Theme4</div>
+                                               </div>
+                                            </a>
+                                         </li>
+                                      </ul>                  <li role="presentation"> <a class='dropdown-trigger' href='#' data-target='ddlUserProfile'>
+                      <i class="svg-user svg-header"></i>
+                    </a></li>
+              </ul>
+                      <ul id='ddlUserProfile' class="dropdown-content">
+            <li>
+              <a href="/profile" class="setting">
+                <div class="row  col l12" style="height: 100%;padding: 0px;margin: 0px;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;">
+                  <i class="col l4 s2 m2 svg-user svg-header"></i>
+                  <span class="col l8 s8 m8 lp-dropdown">Profile</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="#" class="setting" onclick="PEP.Utilities.signOut();">
+                  <div class="row  col l12" style="height: 100%;padding: 0px;margin: 0px;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;">
+                    <i class="col l4 s2 m2 svg-logout svg-header"></i>
+                  <span class="col l8 s8 m8 lp-dropdown">Logout</span>
+                </div>
+              </a>
+            </li>
+          </ul>      </div>
+    </div>
+  </nav>
+  <ul id="mobile-demo" class="sidenav-menu slide hide-on-large">
+      <li><a href="/trainings">
+          <h2>Trainings</h2>
+        </a></li>
+      <li class="nav-new-li"><a href="/placementprogram#">
+          <h2>GJP<span class="nav-new   bold">New</span></h2>
+        </a></li>
+      <li><a href="/contactus">
+          <h2>ContactUs</h2>
+        </a></li>
+      <li><a href="/resources" target="_blank">
+          <h2>Resources</h2>
+        </a></li>
+        <li role="presentation"><a href="/profile">
+            <h2 class="cyan-text">Anul Rajeev</h2>
+          </a></li>
+        <li>
+          <a href="#" onclick="PEP.Utilities.signOut();">
+            <h2>Logout</h2>
+          </a>
+        </li>
+      </ul>
+  <!-- /nav section -->
+  <div class="container full valing-wrapper error-page">
+    <div class="section">
+        <div class="center row">
+
+            <h1 class="col l4 s12 m4 row red-text error-heading-font">
+                <div class="col s12 l12">4<i class="fa fa-grav fa-2x" aria-hidden="true"></i>4</div>
+            </h1>
+            <div class="col l8 s12 m8">
+                <h1 class="row red-text center txt-page-not-found ">Page Not Found</h1>
+
+                <h2 class="row center"> Sorry, we could not find the page you are looking for. </h2>
+                <h3 class="row "> Take me to
+                </h3>
+
+                <div class="row">
+                    <a href="/" class="btn l4 s4 m4 btn-large-base"> Home Page</a>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>
+<footer class="container full page-footer main-d" data-scroll-section>
+  <div class="row">
+    <div class="col l5 s12 m5 grey-text text-lighten-1 ">
+      <h2><b>PEP</b>CODING</h2>
+      <p>Pepcoding, founded in 2017 with the vision to bring in "The Great Indian Coding Renaissance". We specialise in
+        teaching Data Structure & Algorithms ,Web Development, Data Science ,CORE, CBSE, GATE & Business Analytics and
+        getting the best results out of these courses with more than 1000 placements in the past 2 years.
+      </p>
+      </br>
+      <div class="row">
+        <h3 class="col l12 s12 m12"> FOLLOW US </h3>
+        <div class="col l12 s12 m12">
+          <a href="mailto:contact@pepcoding.com">
+            <div class="btn-contact center btn-floating ">
+              <svg x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve" width="17px" height="17px">
+                <g>
+                  <g>
+                    <polygon style="fill:#F2F2F2;"
+                      points="484.973,122.808 452.288,451.017 59.712,451.017 33.379,129.16 256,253.802  "
+                      data-original="#F2F2F2" class=""></polygon>
+                    <polygon style="fill:#F2F2F2;" points="473.886,60.983 256,265.659 38.114,60.983 256,60.983  "
+                      data-original="#F2F2F2" class=""></polygon>
+                  </g>
+                  <path style="fill:#F14336;"
+                    d="M59.712,155.493v295.524H24.139C10.812,451.017,0,440.206,0,426.878V111.967l39,1.063L59.712,155.493  z"
+                    data-original="#F14336" class=""></path>
+                  <path style="fill:#D32E2A"
+                    d="M512,111.967v314.912c0,13.327-10.812,24.139-24.152,24.139h-35.56V155.493l19.692-46.525  L512,111.967z"
+                    data-original="#D32E2A" class="active-path"></path>
+                  <path style="fill:#F14336;"
+                    d="M512,85.122v26.845l-59.712,43.526L256,298.561L59.712,155.493L0,111.967V85.122  c0-13.327,10.812-24.139,24.139-24.139h13.975L256,219.792L473.886,60.983h13.962C501.188,60.983,512,71.794,512,85.122z"
+                    data-original="#F14336" class=""></path>
+                  <polygon style="fill:#D32E2A" points="59.712,155.493 0,146.235 0,111.967 " data-original="#D32E2A"
+                    class="active-path"></polygon>
+                </g>
+              </svg>
+            </div>
+          </a>
+          <a href="https://www.facebook.com/pepcoding/" target="_blank">
+            <div class="btn-contact center btn-floating ">
+              <svg x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve" width="17px" height="17px">
+                <g>
+                  <path
+                    d="M134.941,272.691h56.123v231.051c0,4.562,3.696,8.258,8.258,8.258h95.159  c4.562,0,8.258-3.696,8.258-8.258V273.78h64.519c4.195,0,7.725-3.148,8.204-7.315l9.799-85.061c0.269-2.34-0.472-4.684-2.038-6.44  c-1.567-1.757-3.81-2.763-6.164-2.763h-74.316V118.88c0-16.073,8.654-24.224,25.726-24.224c2.433,0,48.59,0,48.59,0  c4.562,0,8.258-3.698,8.258-8.258V8.319c0-4.562-3.696-8.258-8.258-8.258h-66.965C309.622,0.038,308.573,0,307.027,0  c-11.619,0-52.006,2.281-83.909,31.63c-35.348,32.524-30.434,71.465-29.26,78.217v62.352h-58.918c-4.562,0-8.258,3.696-8.258,8.258  v83.975C126.683,268.993,130.379,272.691,134.941,272.691z"
+                    data-original="#385C8E" class="active-path" fill="#385C8E"></path>
+                </g>
+              </svg>
+            </div>
+          </a>
+          <a href="https://www.instagram.com/pepcoding/" target="_blank">
+            <div class="btn-contact center  btn-floating">
+              <svg x="0px" y="0px" viewBox="0 0 512 512" xml:space="preserve" width="17px" height="17px">
+                <g>
+                  <g>
+                    <g>
+                      <path
+                        d="M352,0H160C71.648,0,0,71.648,0,160v192c0,88.352,71.648,160,160,160h192c88.352,0,160-71.648,160-160V160    C512,71.648,440.352,0,352,0z M464,352c0,61.76-50.24,112-112,112H160c-61.76,0-112-50.24-112-112V160C48,98.24,98.24,48,160,48    h192c61.76,0,112,50.24,112,112V352z"
+                        data-original="#000000" class="active-path" data-old_color="#000000" fill="#D91616"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <path
+                        d="M256,128c-70.688,0-128,57.312-128,128s57.312,128,128,128s128-57.312,128-128S326.688,128,256,128z M256,336    c-44.096,0-80-35.904-80-80c0-44.128,35.904-80,80-80s80,35.872,80,80C336,300.096,300.096,336,256,336z"
+                        data-original="#000000" class="active-path" data-old_color="#000000" fill="#D91616"></path>
+                    </g>
+                  </g>
+                  <g>
+                    <g>
+                      <circle cx="393.6" cy="118.4" r="17.056" data-original="#000000" class="active-path"
+                        data-old_color="#000000" fill="#D91616"></circle>
+                    </g>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </a>
+          <a href="https://www.youtube.com/pepcoding" target="_blank">
+            <div class="btn-contact center  btn-floating">
+              <svg id="Layer_1" x="0px" y="0px" viewBox="0 0 461.001 461.001" xml:space="preserve" width="17px"
+                height="17px">
+                <g>
+                  <path
+                    d="M365.257,67.393H95.744C42.866,67.393,0,110.259,0,163.137v134.728  c0,52.878,42.866,95.744,95.744,95.744h269.513c52.878,0,95.744-42.866,95.744-95.744V163.137  C461.001,110.259,418.135,67.393,365.257,67.393z M300.506,237.056l-126.06,60.123c-3.359,1.602-7.239-0.847-7.239-4.568V168.607  c0-3.774,3.982-6.22,7.348-4.514l126.06,63.881C304.363,229.873,304.298,235.248,300.506,237.056z"
+                    data-original="#F61C0D" class="active-path" fill="#F61C0D"></path>
+                </g>
+              </svg>
+            </div>
+          </a>
+          <a href="https://twitter.com/pepcoding" target="_blank">
+            <div class="btn-contact center  btn-floating">
+              <svg id="Layer_1" x="0px" y="0px" viewBox="0 0 410.155 410.155" xml:space="preserve" width="17px"
+                height="17px">
+                <g>
+                  <path
+                    d="M403.632,74.18c-9.113,4.041-18.573,7.229-28.28,9.537c10.696-10.164,18.738-22.877,23.275-37.067  l0,0c1.295-4.051-3.105-7.554-6.763-5.385l0,0c-13.504,8.01-28.05,14.019-43.235,17.862c-0.881,0.223-1.79,0.336-2.702,0.336  c-2.766,0-5.455-1.027-7.57-2.891c-16.156-14.239-36.935-22.081-58.508-22.081c-9.335,0-18.76,1.455-28.014,4.325  c-28.672,8.893-50.795,32.544-57.736,61.724c-2.604,10.945-3.309,21.9-2.097,32.56c0.139,1.225-0.44,2.08-0.797,2.481  c-0.627,0.703-1.516,1.106-2.439,1.106c-0.103,0-0.209-0.005-0.314-0.015c-62.762-5.831-119.358-36.068-159.363-85.14l0,0  c-2.04-2.503-5.952-2.196-7.578,0.593l0,0C13.677,65.565,9.537,80.937,9.537,96.579c0,23.972,9.631,46.563,26.36,63.032  c-7.035-1.668-13.844-4.295-20.169-7.808l0,0c-3.06-1.7-6.825,0.485-6.868,3.985l0,0c-0.438,35.612,20.412,67.3,51.646,81.569  c-0.629,0.015-1.258,0.022-1.888,0.022c-4.951,0-9.964-0.478-14.898-1.421l0,0c-3.446-0.658-6.341,2.611-5.271,5.952l0,0  c10.138,31.651,37.39,54.981,70.002,60.278c-27.066,18.169-58.585,27.753-91.39,27.753l-10.227-0.006  c-3.151,0-5.816,2.054-6.619,5.106c-0.791,3.006,0.666,6.177,3.353,7.74c36.966,21.513,79.131,32.883,121.955,32.883  c37.485,0,72.549-7.439,104.219-22.109c29.033-13.449,54.689-32.674,76.255-57.141c20.09-22.792,35.8-49.103,46.692-78.201  c10.383-27.737,15.871-57.333,15.871-85.589v-1.346c-0.001-4.537,2.051-8.806,5.631-11.712c13.585-11.03,25.415-24.014,35.16-38.591  l0,0C411.924,77.126,407.866,72.302,403.632,74.18L403.632,74.18z"
+                    data-original="#76A9EA" class="active-path" fill="#76A9EA"></path>
+                </g>
+              </svg>
+            </div>
+          </a>
+          <a href="https://www.linkedin.com/company/pepcoding-education/" target="_blank">
+            <div class="btn-contact center  btn-floating ">
+              <svg height="17px" viewBox="0 0 24 24" width="17px">
+                <g>
+                  <g fill="#0077b5">
+                    <path
+                      d="m23.994 24v-.001h.006v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07v-2.185h-4.773v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243v7.801z"
+                      data-original="#0077B5" class="active-path" fill="#0077B5"></path>
+                    <path d="m.396 7.977h4.976v16.023h-4.976z" data-original="#0077B5" class="active-path"
+                      fill="#0077B5">
+                    </path>
+                    <path
+                      d="m2.882 0c-1.591 0-2.882 1.291-2.882 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909c-.001-1.591-1.292-2.882-2.882-2.882z"
+                      data-original="#0077B5" class="active-path" fill="#0077B5"></path>
+                  </g>
+                </g>
+              </svg>
+            </div>
+          </a>
+          <a href="https://www.quora.com/search?q=pepcoding" target="_blank">
+            <div class=" btn-contact center btn-floating ">
+              <svg x="0px" y="0px" viewBox="0 0 427.671 427.671" xml:space="preserve" width="17px" height="17px">
+                <g>
+                  <path
+                    d="M386.516,335.593c0,0-2.093,30.699-30.001,30.699c-21.553,0-36.272-16.439-50.055-37.786  c39.148-34.171,64.008-85.199,64.008-142.221C370.469,83.403,289.565,0,189.765,0S9.061,83.403,9.061,186.286  s80.904,186.286,180.704,186.286c18.112,0,35.595-2.759,52.092-7.871c20.871,33.157,47.366,62.97,88.843,62.97  c84.421,0,87.91-92.077,87.91-92.077h-32.094L386.516,335.593L386.516,335.593z M189.765,341.873  c-58.185,0-105.353-69.659-105.353-155.587S131.58,30.699,189.765,30.699s105.352,69.659,105.352,155.587  c0,34.169-7.464,65.759-20.108,91.426c-14.283-20.392-31.428-37.757-55.941-43.285c-43.485-9.805-80.933,9.768-92.794,19.536  l11.163,23.024c0,0,11.285-6.488,39.267-0.008c17.631,4.083,31.332,28.551,47.034,56.623  C213.08,338.962,201.653,341.873,189.765,341.873z"
+                    data-original="#CF2217" class="active-path" fill="#CF2217"></path>
+                </g>
+              </svg>
+            </div>
+          </a>
+          <a href="https://t.me/joinchat/RLq0aBpM0J-RyJBGF702Cg" target="_blank">
+            <div class="btn-contact center btn-floating ">
+              <svg enable-background="new 0 0 24 24" height="16" viewBox="0 0 24 24" width="16">
+                <path
+                  d="m9.417 15.181-.397 5.584c.568 0 .814-.244 1.109-.537l2.663-2.545 5.518 4.041c1.012.564 1.725.267 1.998-.931l3.622-16.972.001-.001c.321-1.496-.541-2.081-1.527-1.714l-21.29 8.151c-1.453.564-1.431 1.374-.247 1.741l5.443 1.693 12.643-7.911c.595-.394 1.136-.176.691.218z"
+                  fill="#039be5" />
+              </svg>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <div class="col l2 s6 m2">
+      <h4>ABOUT US</h4>
+      <ul class="footer-links">
+        <li><a class=" grey-text text-lighten-1" href="/refundpolicy">Refund Policy</a></li>
+        <li><a class=" grey-text text-lighten-1" href="/privacyPolicy">Privacy Policy</a></li>
+        <li><a class=" grey-text text-lighten-1" href="/placements">Placements</a></li>
+        <li><a class=" grey-text text-lighten-1" href="/reviews">Reviews</a></li>
+        <li><a class=" grey-text text-lighten-1" href="/events">Events</a></li>
+        <li><a class=" grey-text text-lighten-1" href="/team">Team</a></li>
+        <li><a class=" grey-text text-lighten-1" href="/contactus">Contact Us</a></li>
+        <li><a class=" grey-text text-lighten-1" href="/resources/" target="_blank">Resources</a></li>
+        <li><a class=" grey-text text-lighten-1" href="/about">Why</a></li>
+      </ul>
+    </div>
+    <div class="col l2 s6 m2">
+
+    </div>
+    <div class="col l3 s12 m3">
+      <h4>CONTACT US</h4><a class="white-text" href="tel:+917048971481"><i
+          class="fa-icon fa fa-phone white-text"></i> +91 7048971481</a>
+      <h5 class="grey-text">Other Number: +91 7048994628 
+      </h5>
+    </div>
+  </div>
+  <div class="row no-margin footer-copyright">
+    <h4 class="col l12 s12 m12 grey-text center">© Copyright 2019. All Rights Reserved.</h4>
+    <br>
+  </div>
+</footer>
+  <input type="hidden" value="" id="storyType">
+  <div id="siteOverlay" class="loader-overlay hide">
+  </div>
+  <div id="siteLoader" class="loader hide">
+    <div class="preloader-wrapper active">
+      <div class="spinner-layer spinner-red-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+<link href="https://fonts.googleapis.com/css?family=Merienda:400" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Sans:300,400,500,700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-alpha.3/js/materialize.min.js'></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script type="text/javascript" src="/js/bundle/common.js?v1.3.3"></script>
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+  _atrk_opts = { atrk_acct: "pU35u1SZw320l9", domain: "pepcoding.com", dynamic: true };
+  (function () { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://certify-js.alexametrics.com/atrk.js"; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://certify.alexametrics.com/atrk.gif?account=pU35u1SZw320l9" style="display:none" height="1"
+    width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->
+<script type="text/javascript">
+
+  function handlePageScrolled() {
+    var doc = document.documentElement;
+    var top = (window.pageYOffset || doc.scrollTop) - (doc.clientTop || 0);
+
+
+    if (top >= 100) {
+      document.getElementsByClassName('nav-wrapper')[0].classList.add('page-scrolled');
+    }
+    else {
+      document.getElementsByClassName('nav-wrapper')[0].classList.remove('page-scrolled');
+    }
+  }
+  window.onscroll = function (ev) {
+    handlePageScrolled();
+  };
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag('js', new Date());
+  gtag('config', 'UA-145245404-1');
+
+
+  $(document).ready(function () {
+
+    setTimeout(twakTo, 1000);
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+
+    showDeferedData();
+    handlePageScrolled();
+    aos_init();
+    var storyType = document.getElementById('storyType').value;
+    if (storyType) {
+      ajaxGet('/stories/' + storyType, getStories);
+      ajaxGet('/companies', getCompanies);
+    }
+
+
+    // Init AOS
+    function aos_init() {
+      AOS.init({
+        duration: 1000,
+        easing: "ease-in-out",
+        once: true,
+        mirror: false
+      });
+    }
+    $('.collapsible').collapsible({ inDuration: 100, outDuration: 100 });
+
+    var modals = document.querySelectorAll('.modal')
+    for (var i = 0; i < modals.length; i++) {
+      M.Modal.init(modals[i]);
+    }
+  });
+
+
+  function siteThemeSelect(theme) {
+    PEP.createCookie('theme', theme, 365, true);
+    document.body.classList.remove('theme1');
+    document.body.classList.remove('theme2');
+    document.body.classList.remove('theme3');
+    document.body.classList.remove('theme4');
+    document.body.classList.add(theme);
+    saveUserPreferences(theme);
+  }
+
+  function showDeferedData() {
+    var imgDefer = document.getElementsByTagName('img');
+    for (var i = 0; i < imgDefer.length; i++) {
+      if (imgDefer[i].getAttribute('data-src')) {
+        imgDefer[i].setAttribute('src', imgDefer[i].getAttribute('data-src'));
+      }
+    }
+  }
+
+  function ajaxGet(url, onSuccess) {
+    var xmlhttp = new XMLHttpRequest();
+    xmlhttp.onreadystatechange = function () {
+      if (this.readyState == 4 && this.status == 200) {
+        xmlhttp.getResponseHeader("Cache-Control", "public, max-age=2592000");
+        var expires = new Date(Date.now() + 259200000).toUTCString();
+        xmlhttp.getResponseHeader("Expires", expires);
+        onSuccess(this.responseText)
+      }
+    };
+    xmlhttp.open("GET", url, true);
+    xmlhttp.send();
+  }
+
+
+  function getStories(data) {
+    var myArr = JSON.parse(data);
+    document.getElementById("storiesCardSec").parentElement.innerHTML = myArr.data;
+  }
+
+  function getCompanies(data) {
+
+    if (document.getElementById("companiesSec")) {
+      var myArr = JSON.parse(data);
+
+      document.getElementById("companiesSec").parentElement.innerHTML = myArr.data;
+    }
+  }
+
+
+  function openCloseSideNav(open) {
+    var mobNav = document.getElementById("mobile-nav");
+    var overlay = document.getElementById('sidenavOerlay');
+    var target = document.getElementById('mobile-demo');
+    if (mobNav.classList.contains('open')) {
+      mobNav.classList.remove('open');
+      target.classList.remove('show');
+      overlay.style = "";
+    }
+    else {
+      mobNav.classList.add('open');
+      target.classList.add('show');
+      overlay.style.display = "block";
+      overlay.style.opacity = "1";
+    }
+
+  }
+
+
+
+  function showPreview(objFileInput) {
+    if (objFileInput.files[0]) {
+      var fileReader = new FileReader();
+      fileReader.onload = function (e) {
+        $('#blah').attr('src', e.target.result);
+        $("#targetLayer").html('<img src="' + e.target.result + '" width="200px" height="200px" class="upload-preview circle" />');
+      }
+      fileReader.readAsDataURL(objFileInput.files[0]);
+    }
+  }
+
+
+</script>
+<script type="text/javascript">
+  var Tawk_API = {
+    onLoad: function () {
+      Tawk_API.minimize();
+
+
+    },
+
+  };
+  var Tawk_LoadStart = new Date();
+  var twakTo = (function () {
+    var s1 = document.createElement("script"),
+      s0 = document.getElementsByTagName("script")[0];
+
+    s1.async = true;
+    s1.src = 'https://embed.tawk.to/5acdc6464b401e45400e8742/default';
+    s1.charset = 'UTF-8';
+    s1.setAttribute('crossorigin', '*');
+    s0.parentNode.insertBefore(s1, s0);
+  });
+
+
+</script>
+<div id="sidenavOerlay" onclick="openCloseSideNav();" class="sidenav-overlay"></div>
+<!--End of Tawk.to Script-->
+
+
+</html>

@@ -1,0 +1,60 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+	_main();
+	return 0;
+}
+
+
+void twoSum(int A[], int n, int target)
+{
+	sort(A,A+n);
+	int left=0, right=n-1;
+	
+	while(left<right)
+	{
+	    if(left!=0 && A[left]==A[left-1])
+	    {   left++; continue; } 
+		int sum=A[left]+A[right];
+		if(sum==target)
+			{
+				cout<<A[left]<<' '<<A[right]<<'\n';
+			
+				left++, right--;
+			}	
+		else if(sum<target)
+			left++;
+		else
+			right--;
+	}
+
+}
+
+void _main()
+{
+  	int n;
+  	cin>>n;
+  	int A[n];
+  	for(int i=0;i<n;i++)
+  		cin>>A[i];
+  	int target;
+  	cin>>target;
+  	twoSum(A,n,target);
+}
+

@@ -1,0 +1,85 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+ #ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w", stdout);
+ #endif
+  _main();
+  return 0;
+}
+
+
+bool checkPalindrome(string s, char ch)
+{
+      
+      for(int i=0, j=s.length()-1;i<j;)
+          if(s[i]==ch)
+              i++;
+          else if(s[j]==ch)
+              j--;
+          else if(s[i++]!=s[j--])
+              return false;
+      return true;      
+
+}
+
+bool validPalindrome2(string str)
+{
+    unordered_set<char> s;
+    for(auto x : str)
+      if(s.count(x))
+        s.erase(x);
+      else
+        s.insert(x);
+    if(s.size()>2)
+      return false;
+
+    if(checkPalindrome(str,'-'))
+        return true;
+
+    if(s.size())
+    {
+      char ch=*(s.begin());
+      s.erase(s.begin());
+      if(checkPalindrome(str,ch))
+           return true;
+    }
+
+    if(s.size())
+    {
+      char ch=*(s.begin());
+      s.erase(s.begin());
+      if(checkPalindrome(str,ch))
+           return true;
+    }   
+
+    return false;
+}
+
+void _main()
+{
+    string s;
+    cin>>s;
+    cout<<(validPalindrome2(s)?"true":"false");
+
+}
+

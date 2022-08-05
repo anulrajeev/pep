@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int A[n], Lmax[n], Rmin[n];
+    for(int i=0;i<n;i++)
+        cin>>A[i];
+    
+    Lmax[0]=A[0];
+    for(int i=1;i<n;i++)
+        Lmax[i]=max(A[i],Lmax[i-1]);
+    
+    Rmin[n-1]=A[n-1];
+    for(int i=n-2;i>=0;i--)
+        Rmin[i]=min(A[i],Rmin[i+1]);
+        
+    for(int i=0;i<n-1;i++)
+        if(Lmax[i]<=Rmin[i+1])
+        {
+            cout<<i+1;
+            break;
+        }
+    return 0;
+}

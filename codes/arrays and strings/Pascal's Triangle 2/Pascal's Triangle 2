@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+
+void Pascals(int n)
+{
+    int val=1;
+    cout<<val<<' ';
+    
+    for(int i=0;i<n;i++)
+    {
+        val=val*(n-i)/(i+1);
+        cout<<val<<' ';
+    }
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    Pascals(n);
+    return 0;
+}

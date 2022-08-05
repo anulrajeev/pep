@@ -1,0 +1,56 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void wiggle2(int A[], int n)
+{
+    sort(A,A+n);
+    int B[n], index=1, j=n-1;
+    
+    while(index<n)
+    {
+        B[index]=A[j];
+        index+=2, j--;
+    }   
+    
+    index=0;
+    while(index<n)
+    {
+        B[index]=A[j];
+        index+=2, j--;
+    }
+    
+    for(int i=0;i<n;i++)
+        A[i]=B[i];
+}
+
+bool checkWiggle2(int A[], int n)
+{
+    for(int i=0;i<n-1;i++)
+      switch(i%2)
+        {
+            case 0 : if(A[i]<A[i+1])
+                        continue;
+                     else
+                        return false;
+            case 1 : if(A[i]>A[i+1])
+                        continue;
+                     else
+                        return false;
+        }
+    return true;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    int A[n];
+    for(int i=0;i<n;i++)
+        cin>>A[i];
+    
+    wiggle2(A,n);
+        
+    cout<<(checkWiggle2(A,n)?"true":"false");
+    
+    return 0;
+}

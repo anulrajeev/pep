@@ -1,0 +1,31 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int m,n;
+    cin>>m>>n;
+    vector<int> x_coordinate,y_coordinate;
+    vector<vector<int>> grid(m,vector<int>(n,0));
+    
+    for(int i=0;i<m;i++)
+        for(int j=0;j<n;j++)
+        {
+            cin>>grid[i][j];
+            if(grid[i][j])
+                x_coordinate.push_back(i), y_coordinate.push_back(j);
+        }
+        
+    sort(x_coordinate.begin(), x_coordinate.end());
+    sort(y_coordinate.begin(), y_coordinate.end());
+    
+    int x = x_coordinate[x_coordinate.size()/2];
+    int y = y_coordinate[y_coordinate.size()/2];
+    
+    int res=0;
+    for(int i=0;i<m;i++)
+        for(int j=0;j<n;j++)
+            if(grid[i][j])
+                res+=abs(x-i)+abs(y-j);
+    cout<<res;
+    return 0;
+}

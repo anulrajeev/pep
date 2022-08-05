@@ -1,0 +1,105 @@
+/*
+Pepcoder And Reversing
+Medium  Prev   Next
+
+You are given 2 integers N and M , N is the number of vertices, M is the number of edges. You'll also be given ai and bi where ai and bi represents an edge from a vertex ai to a vertex bi.
+
+You have to find the minimum number of edges you have to reverse in order to have atleast one path from vertex 1 to N, where the vertices are numbered from 1 to N.
+
+Input Format
+First line contains two space separated integers,N and M. Then M lines follow, each line has 2 space separated integers ai and bi.
+
+Output Format
+Print the minimum number of edges we need to revert. If there is no way of having at least one path from 1 to N, print -1.
+
+Constraints
+1<= N <= 10^4
+1<= M <= 10^6
+1<= ai, bi <= N
+Sample Input
+7 7
+1 2 
+3 2
+3 4
+7 4
+6 2
+5 6
+7 5
+Sample Output
+2
+*/
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+ #ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w", stdout);
+ #endif
+	_main();
+	return 0;
+}
+
+int minEdges(vector<pii> adj[], int V)
+{
+	deque<pii> dq;
+	bool visited[V]={false};
+	dq.push_front({0,1});
+	visited[1]=true;
+	while(dq.size())
+	{
+		int d = dq.front().first, u = dq.front().second;
+		if(u==V-1)
+			return d;
+		dq.pop_front();
+		for(pii p : adj[u])
+		{
+			int v = p.first, wt=p.second;
+			if(!visited[v])
+			{
+				if(wt==0)
+					dq.push_front({d,v});
+				else
+					dq.push_back({d+1,v});
+				visited[v]=true;
+			}
+		}
+
+	}
+
+	return -1;
+}
+
+void _main()
+{
+  	int V,E;
+  	cin>>V>>E;
+  	int u,v;
+  	vector<pii> adj[++V];
+  	for(int i=0;i<E;i++)	
+  	{
+  		cin>>u>>v;
+  		adj[u].push_back({v,0});
+  		adj[v].push_back({u,1});
+  	}	
+  	cout<<minEdges(adj,V);
+}
+

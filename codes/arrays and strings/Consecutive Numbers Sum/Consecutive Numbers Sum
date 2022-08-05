@@ -1,0 +1,44 @@
+
+/*
+https://leetcode.com/problems/consecutive-numbers-sum/discuss/129015/5-lines-C%2B%2B-solution-with-detailed-mathematical-explanation.
+N = a+(a+1)+(a+2)+(a+3)+(a+4)+......+(a+L)
+  = (L+1)*a + (1+2+3+...+L)
+  = (L+1)*a + L*(L+1)/2
+  
+a = { N-L*(L+1)/2 }/(L+1)
+
+L ∈ {0,1,2,3,....,sqrt(n)}
+
+(Lmax+1)(Lmax+2)/2=N  @ a=1
+=>(L+1)(L+2)/2<=N @ any a
+
+For different L, check which all a are integers
+
+*/
+
+#include<iostream>
+using namespace std;
+
+int getCount(int n)
+{
+    int count=0;
+    for(int L=0;(L+1)*(L+2)/2<=n;L++)
+    {
+        float a = 1.0*(n-L*(L+1)/2.0)/(L+1);
+        if(a==int(a))
+        {
+            // cout<<L<<' '<<a<<'\n';
+            count++;   
+        }
+            
+    }
+    return count;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    cout<<getCount(n);
+    return 0;
+}

@@ -1,0 +1,79 @@
+ #include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+ #ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w", stdout);
+ #endif
+	_main();
+	return 0;
+}
+
+vi initialise(int n)
+{
+	vi sieve(n+1,1);
+	sieve[0]=sieve[1]=0;
+	for(int i=0;i*i<=n;i++)
+		if(sieve[i])
+			for(int j=2*i;j<=n;j+=i)
+				if(sieve[j])
+					sieve[j]=0;
+
+	vi v;
+	for(int i=0;i<=n;i++)
+		if(sieve[i])
+			v.push_back(i);
+	return v;
+}
+
+vi getPrimes(int a, int b, vi &v)
+{
+	vi sieve(b-a+1,1);
+	for(auto x : v)
+	{
+		int multiple = ceil(1.0*a/x);
+		if(multiple==1)
+			multiple++;
+		int index = multiple*x-a;
+		for(int j=index;j<=(b-a);j+=x)
+			sieve[j]=0;
+
+	}
+	if(a==1)
+		sieve[0]=0;
+	
+	vi res;
+	for(int i=0;i<=b-a;i++)
+		if(sieve[i])
+			res.push_back(i+a);
+	return res;
+}
+
+void _main()
+{
+  	int a,b;
+  	cin>>a>>b;
+  	vi v = initialise(sqrt(b));
+  	vi res = getPrimes(a,b,v);
+  	for(auto x : res)
+  		cout<<x<<'\n';
+}
+

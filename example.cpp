@@ -27,48 +27,31 @@ int main(){
 	return 0;
 }
 
-int minMoves(string str)
+int f(int A[], int n)
 {
-	int count=0;
-	queue<string> q;
-	unordered_set<string> s;
-	vvi possible_indices={ {1,3}, {0,2,4}, {1,5}, {0,4}, {1,3,5}, {2,4} };
-	
-	q.push(str);
-	s.insert(str);
-
-
-	while(q.size())
+	sort(A,A+n);
+	long long ans=0;
+	long long power[n]={1};
+	for(int i=1;i<n;i++)
 	{
-		int size=q.size();
-		for(int t=0;t<size;t++)
-		{
-			str = q.front(); q.pop();
-			if(str=="123450")
-				return count;
-			int idx=0;
-			while(str[idx]!='0')
-				idx++;
-			for(auto index : possible_indices[idx])
-			{
-				swap(str[index], str[idx]);
-				if(!s.count(str))
-					q.push(str), s.insert(str);
-				swap(str[index], str[idx]);
-			}
-		}
-		count++;
+		power[i]=(power[i-1]*2)%mod;
+		cout<<power[i]<<'\n';
 	}
-	return -1;
+
+	for(int i=0;i<n;i++)
+		ans=( ans + (power[i]-power[n-i-1] )*A[i] )%mod;
+	return (int)ans;
+
 }
 
 void _main()
 {
-  	string s(6,'.');
-  	for(int i=0;i<6;i++)	
-  		cin>>s[i];
-  	
-  	cout<<minMoves(s);
+  	int n;
+  	cin>>n;
+  	int A[n];
+  	for(int i=0;i<n;i++)
+  		cin>>A[i];
+  	cout<<f(A,n);
 
 }
 
