@@ -1,0 +1,80 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class TreeNode
+{
+public:
+    int val = 0;
+    TreeNode *left = nullptr;
+    TreeNode *right = nullptr;
+
+    TreeNode(int val)
+    {
+        this->val = val;
+    }
+};
+
+int width(TreeNode *root)
+{
+    int min_val=INT_MAX, max_val=INT_MIN;
+    
+    queue<pair<TreeNode*,int>> q;
+    q.push({root,0});
+    while(q.size())
+    {
+            TreeNode *temp=q.front().first;
+            int d=q.front().second;
+            q.pop();
+            
+            min_val=min(min_val,d);
+            max_val=max(max_val,d);
+            if(temp->left)
+                q.push({temp->left,d-1});
+            if(temp->right)
+                q.push({temp->right,d+1});
+            
+        }
+        
+    
+    return max_val-min_val+1;
+}
+
+// input_section=================================================
+
+TreeNode *createTree(vector<int> &arr, vector<int> &IDX)
+{
+
+    if (IDX[0] > arr.size() || arr[IDX[0]] == -1)
+    {
+        IDX[0]++;
+        return nullptr;
+    }
+
+    TreeNode *node = new TreeNode(arr[IDX[0]++]);
+    node->left = createTree(arr, IDX);
+    node->right = createTree(arr, IDX);
+
+    return node;
+}
+
+void solve()
+{
+    int n;
+    cin >> n;
+    vector<int> arr(n, 0);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    vector<int> IDX(1, 0);
+    TreeNode *root = createTree(arr, IDX);
+
+    cout << width(root) << endl;
+}
+
+int main()
+{
+    solve();
+    return 0;
+}

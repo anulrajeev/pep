@@ -1,0 +1,20 @@
+
+void preOrder(Node* root, vi &v)
+{
+    if(root==NULL)
+        return;
+    
+    v.push_back(root->val);
+    for(auto child : root->children)
+        preOrder(child,v);
+}
+
+// Encodes a tree to a single string.
+vi serialize(Node* root)
+{
+    vi v;
+    preOrder(root,v);
+    for(auto x : v)
+        cout<<x<<' ';
+    return v;
+}

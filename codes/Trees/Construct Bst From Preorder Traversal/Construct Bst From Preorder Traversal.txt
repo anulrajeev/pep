@@ -1,0 +1,76 @@
+#include <bits/stdc++.h>
+#include <vector>
+using namespace std;
+
+class TreeNode
+{
+public:
+    int val = 0;
+    TreeNode *left = nullptr;
+    TreeNode *right = nullptr;
+
+    TreeNode(int val)
+    {
+        this->val = val;
+    }
+};
+
+
+TreeNode* cTree(vector<int> &pre, int &preIndex, int min_val, int max_val)
+{
+    if(preIndex==pre.size())
+        return NULL;
+    else if(min_val<=pre[preIndex]&&pre[preIndex]<=max_val)
+    {
+        TreeNode *temp=new TreeNode(pre[preIndex++]);
+        temp->left=cTree(pre,preIndex,min_val,temp->val);
+        temp->right=cTree(pre,preIndex,temp->val,max_val);
+        return temp;
+    }
+    else
+        return NULL;
+}
+
+TreeNode *bstFromPreorder(vector<int> &preorder)
+{
+    int preIndex=0;
+    return cTree(preorder,preIndex,INT_MIN,INT_MAX);
+}
+
+// input_Section_====================================================================
+
+void display(TreeNode *node)
+{
+    if (node == nullptr)
+        return;
+
+    string str = "";
+    str += ((node->left != nullptr ? to_string(node->left->val) : "."));
+    str += (" -> " + to_string(node->val) + " <- ");
+    str += ((node->right != nullptr ? to_string(node->right->val) : "."));
+
+    cout << str << endl;
+
+    display(node->left);
+    display(node->right);
+}
+
+void solve()
+{
+    int n;
+    cin >> n;
+    vector<int> pre(n, 0);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> pre[i];
+    }
+
+    TreeNode *root = bstFromPreorder(pre);
+    display(root);
+}
+
+int main()
+{
+    solve();
+    return 0;
+}

@@ -1,0 +1,133 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef vector<int> vi;
+class TreeNode
+{
+public:
+    int val = 0;
+    TreeNode *left = nullptr;
+    TreeNode *right = nullptr;
+
+    TreeNode(int val)
+    {
+        this->val = val;
+    }
+};
+
+
+void preOrder(TreeNode* root, vi &v)
+{
+    if(root==NULL)
+        v.push_back(-1);
+    else
+    {   
+        v.push_back(root->val);
+        preOrder(root->left,v);
+        preOrder(root->right,v);
+        
+    }
+}
+
+// Encodes a tree to a single string.
+vi serialize(TreeNode *root)
+{
+    vi v;
+    preOrder(root,v);
+    return v;
+}
+
+// Decodes your encoded data to tree.
+TreeNode *deserialize(vi v)
+{
+    TreeNode *root=new TreeNode(v[0]);
+    stack<pair<TreeNode*,int>> st;
+    st.push({root,0});
+    for(int i=1;i<v.size();i++)
+    {
+        int x=v[i];
+        TreeNode *temp=st.top().first;
+        int &state=st.top().second;
+        if(state==0)
+        {
+            state++;
+            if(x==-1)
+                continue;
+            else
+            {
+                temp->left=new TreeNode(x);
+                st.push({temp->left,0});
+            }
+        }
+        else if(state==1)
+        {
+            st.pop();
+            if(x==-1)
+                continue;
+            else
+            {
+                temp->right=new TreeNode(x);
+                st.push({temp->right,0});
+            }
+            
+        }
+        
+    }
+    return root;
+}
+
+// input_Section_====================================================================
+
+void display(TreeNode *node)
+{
+    if (node == nullptr)
+        return;
+
+    string str = "";
+    str += ((node->left != nullptr ? to_string(node->left->val) : "."));
+    str += (" -> " + to_string(node->val) + " <- ");
+    str += ((node->right != nullptr ? to_string(node->right->val) : "."));
+
+    cout << str << endl;
+
+    display(node->left);
+    display(node->right);
+}
+
+TreeNode *createTree(vector<int> &arr, vector<int> &IDX)
+{
+
+    if (IDX[0] > arr.size() || arr[IDX[0]] == -1)
+    {
+        IDX[0]++;
+        return nullptr;
+    }
+
+    TreeNode *node = new TreeNode(arr[IDX[0]++]);
+    node->left = createTree(arr, IDX);
+    node->right = createTree(arr, IDX);
+
+    return node;
+}
+
+void solve()
+{
+    int n;
+    cin >> n;
+    vector<int> arr(n, 0);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    vector<int> IDX(1, 0);
+    TreeNode *root = createTree(arr, IDX);
+
+    vi v = serialize(root);
+    display(deserialize(v));
+}
+
+int main()
+{
+    solve();
+    return 0;
+}

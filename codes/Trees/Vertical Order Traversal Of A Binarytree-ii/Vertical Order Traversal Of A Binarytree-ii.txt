@@ -1,0 +1,107 @@
+//O(nlogn), O(n)
+
+#include<bits/stdc++.h>
+using namespace std;
+typedef pair<int,int> pii;
+class TreeNode
+{
+public:
+    int val = 0;
+    TreeNode *left = nullptr;
+    TreeNode *right = nullptr;
+
+    TreeNode(int val)
+    {
+        this->val = val;
+    }
+};
+
+vector<vector<int>> verticalOrderTraversal(TreeNode *root)
+{
+    
+    queue<pair<TreeNode*,pii>> q;
+    q.push({root,{0,0}});
+    unordered_map<int,vector<pii>> m;
+    int min_val=INT_MAX,max_val=INT_MIN;
+    while(q.size())
+    {
+        TreeNode *temp=q.front().first;
+        int d = q.front().second.first;
+        int v = q.front().second.second;
+        q.pop();
+        
+        m[d].push_back({v,temp->val});
+        min_val=min(min_val,d);
+        max_val=max(max_val,d);
+        
+        if(temp->left)
+            q.push({temp->left,{d-1,v+1}});
+        
+        if(temp->right)
+            q.push({temp->right,{d+1,v+1}});
+        
+    }
+    
+    
+    vector<vector<int>> res(m.size());
+    for(int i=min_val;i<=max_val;i++)
+    {
+        sort(m[i].begin(), m[i].end());
+        for(auto p : m[i])
+            res[i-min_val].push_back(p.second);
+        
+    }
+        
+        
+    return res;        
+}
+
+// input_section=================================================
+
+TreeNode *createTree(vector<int> &arr, vector<int> &IDX)
+{
+
+    if (IDX[0] > arr.size() || arr[IDX[0]] == -1)
+    {
+        IDX[0]++;
+        return nullptr;
+    }
+
+    TreeNode *node = new TreeNode(arr[IDX[0]++]);
+    node->left = createTree(arr, IDX);
+    node->right = createTree(arr, IDX);
+
+    return node;
+}
+
+void solve()
+{
+    int n;
+    cin >> n;
+    vector<int> arr(n, 0);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    vector<int> IDX(1, 0);
+    TreeNode *root = createTree(arr, IDX);
+
+    vector<vector<int>> ans = verticalOrderTraversal(root);
+    int idx = 0;
+    for (vector<int> &i : ans)
+    {
+        cout << idx++ << " -> ";
+        for (int j : i)
+        {
+            cout << j << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main()
+{
+    solve();
+    return 0;
+}

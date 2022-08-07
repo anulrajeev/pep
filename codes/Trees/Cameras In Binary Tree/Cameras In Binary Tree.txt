@@ -1,0 +1,74 @@
+#include <iostream>
+#include <vector>
+using namespace std;
+
+class TreeNode
+{
+public:
+    int val = 0;
+    TreeNode *left = nullptr;
+    TreeNode *right = nullptr;
+
+    TreeNode(int val)
+    {
+        this->val = val;
+    }
+};
+
+int cameraCount(TreeNode *root, int & count)
+{
+    if(root==NULL)
+        return 1;
+    int l=cameraCount(root->left,count), r=cameraCount(root->right,count);
+    if(l==-1 || r==-1)
+        { count++; return 0;}
+    if(l==0 || r==0)
+            return 1;
+    return -1;
+}
+
+int MinCamerasInBT(TreeNode *root)
+{
+    int count=0;
+    if(cameraCount(root, count)==-1)
+        count++;
+    return count;
+}
+
+// input_Section_====================================================================
+
+TreeNode *createTree(vector<int> &arr, vector<int> &IDX)
+{
+    if (IDX[0] > arr.size() || arr[IDX[0]] == -1)
+    {
+        IDX[0]++;
+        return nullptr;
+    }
+
+    TreeNode *node = new TreeNode(arr[IDX[0]++]);
+    node->left = createTree(arr, IDX);
+    node->right = createTree(arr, IDX);
+
+    return node;
+}
+
+void solve()
+{
+    int n;
+    cin >> n;
+    vector<int> arr(n, 0);
+    for (int i = 0; i < n; i++)
+    {
+        cin >> arr[i];
+    }
+
+    vector<int> IDX(1, 0);
+    TreeNode *root = createTree(arr, IDX);
+    cout << MinCamerasInBT(root) << endl;
+}
+
+int main()
+{
+    solve();
+    return 0;
+}
