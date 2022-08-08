@@ -1,0 +1,125 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+class TreeNode
+{
+public:
+  int val = 0;
+  TreeNode* left = nullptr;
+  TreeNode* right = nullptr;
+
+  TreeNode(int val)
+  {
+    this->val = val;
+  }
+};
+
+
+vector<TreeNode*> nodeToRootPath(TreeNode* root, int data)
+{
+    stack<pair<TreeNode*,int>> st;
+    st.push({root,0});
+    while(st.size())
+    {
+        if(st.top().first->val==data)
+            break;
+        TreeNode *temp=st.top().first;
+        int &state=st.top().second;
+      
+        if(state==0)
+        {
+            state++;
+            if(temp->left)
+                st.push({temp->left,0});
+        }
+        else if(state==1)
+        {
+            state++;
+            if(temp->right)
+                st.push({temp->right,0});
+        }
+        else
+            st.pop();
+    }
+    
+    vector<TreeNode*> res;
+    while(st.size())
+    {
+        res.push_back(st.top().first);
+        st.pop();
+    }
+    return res;
+}
+
+void printKLevelsDown(TreeNode *root, int k, vector<TreeNode*> &res, TreeNode *prev)
+{
+    if(root==NULL || k<0)
+        return;
+    if(k==0)
+        res.push_back(root);
+    else
+    {
+        if(root->left!=prev)
+            printKLevelsDown(root->left,k-1,res,root);
+        if(root->right!=prev)
+            printKLevelsDown(root->right,k-1,res,root);
+    }
+}
+
+vector<TreeNode*> distanceK(TreeNode* root, int target, int k)
+{
+    vector<TreeNode*> res;
+    vector<TreeNode*> v = nodeToRootPath(root,target);
+    
+    for(int i=0;i<v.size();i++)
+        printKLevelsDown(v[i],k-i,res,(i>0?v[i-1]:NULL));
+    return res;
+}
+
+// input_section=================================================
+
+TreeNode* createTree(vector<int>& arr, vector<int>& IDX)
+{
+
+  if (IDX[0] > arr.size() || arr[IDX[0]] == -1)
+  {
+    IDX[0]++;
+    return nullptr;
+  }
+
+  TreeNode* node = new TreeNode(arr[IDX[0]++]);
+  node->left = createTree(arr, IDX);
+  node->right = createTree(arr, IDX);
+
+  return node;
+}
+
+void solve()
+{
+  int n;
+  cin >> n;
+  vector<int> arr(n, 0);
+  for (int i = 0; i < n; i++)
+  {
+    cin >> arr[i];
+  }
+
+  vector<int> IDX(1, 0);
+  TreeNode* root = createTree(arr, IDX);
+
+  int target, k;
+  cin >> target >> k;
+  vector<TreeNode*> ans = distanceK(root, target, k);
+  if (ans.size() == 0)
+    cout << endl;
+  for (TreeNode* node : ans)
+  {
+    cout << node->val <<'\n';
+  }
+}
+
+int main()
+{
+  solve();
+  return 0;
+}

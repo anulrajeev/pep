@@ -1,0 +1,120 @@
+// #include <iostream>
+// #include <vector>
+// #include <queue>
+// #include <stringstream>
+#include <bits/stdc++.h>
+using namespace std;
+
+class TreeNode
+{
+public:
+  int val = 0;
+  TreeNode* left = nullptr;
+  TreeNode* right = nullptr;
+
+  TreeNode(int val)
+  {
+    this->val = val;
+  }
+};
+
+int widthOfBinaryTree(TreeNode* root)
+{
+    int res=0;
+    queue<pair<TreeNode*,int>> q;
+    q.push({root,0});
+    while(q.size())
+    {
+        int size=q.size();
+        int max_val=INT_MIN, min_val=INT_MAX;
+        
+        for(int i=0;i<size;i++)
+        {
+            TreeNode *temp=q.front().first;
+            int index = q.front().second;
+            // cout<<index<<' ';
+            q.pop();
+            min_val=min(min_val,index);
+            max_val=max(max_val,index);
+            
+            if(temp->left)
+                q.push({temp->left,2*index+1});
+            if(temp->right)
+                q.push({temp->right,2*index+2});
+        }
+        res=max(res,max_val-min_val+1);
+    }
+    return res;
+    
+}
+
+// input_Section_====================================================================
+
+void display(TreeNode* node)
+{
+  if (node == nullptr)
+    return;
+
+  string str = "";
+  str += ((node->left != nullptr ? to_string(node->left->val) : "."));
+  str += (" -> " + to_string(node->val) + " <- ");
+  str += ((node->right != nullptr ? to_string(node->right->val) : "."));
+
+  cout << str << endl;
+
+  display(node->left);
+  display(node->right);
+}
+
+int idx = 0;
+TreeNode* deserialize(vector<string>& arr)
+{
+  if (idx >= arr.size() || arr[idx].compare("null") == 0)
+  {
+    idx++;
+    return nullptr;
+  }
+
+  TreeNode* node = new TreeNode(stoi(arr[idx++]));
+  node->left = deserialize(arr);
+  node->right = deserialize(arr);
+
+  return node;
+}
+
+TreeNode* deserialize(string s)
+{
+  stringstream ss(s);
+  string word;
+  vector<string> arr;
+  while (ss >> word)
+  {
+    arr.push_back(word);
+  }
+  return deserialize(arr);
+}
+
+void preOrder(TreeNode *root)
+{
+    if(root==NULL)
+        return;
+    cout<<root->val<<' ';
+    preOrder(root->left);
+    preOrder(root->right);
+}
+
+void solve()
+{
+  string s;
+  getline(cin,s);
+  TreeNode* root = deserialize(s);
+
+//   preOrder(root);
+  cout << widthOfBinaryTree(root) << endl;
+}
+
+int main()
+{
+  solve();
+  return 0;
+}

@@ -1,0 +1,4 @@
+Given a binary tree, with each next call, you are expected to return the immediate succesor of the previously accessed element (leftmost element for the first call) and hasNext return if there is a successor for the last accessed element.
+
+
+Basically there exist an invisible pointer which moves according to the inorder traversal

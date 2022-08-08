@@ -1,0 +1,2 @@
+- Get nodeToRootPath
+- find the max depth of subtree starting with each element from the above vector such that one subtree doesn't enter into the previously accessed subtree
