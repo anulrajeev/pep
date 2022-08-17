@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int findElement(int A[], int n, int ele)
+{
+    int beg=0, end=n-1;
+    while(beg<=end)
+    {
+        int mid=beg+(end-beg)/2;
+        if(A[mid]==ele)
+            return mid;
+        else if(A[mid]<A[end])
+        {
+            //right sorted
+            if(A[mid]<=ele && ele<=A[end])
+                beg=mid+1;
+            else
+                end=mid-1;
+        }
+        else
+        {
+            //left sorted
+            if(A[beg]<=ele && ele<=A[mid])
+                end=mid-1;
+            else 
+                beg=mid+1;
+        }
+    }
+    return -1;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    int A[n];
+    for(int i=0;i<n;i++)
+        cin>>A[i];
+    int ele;
+    cin>>ele;
+    cout<<findElement(A,n,ele);
+    
+    return 0;
+}

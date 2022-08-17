@@ -1,0 +1,38 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+struct Student
+{
+	int p,c,m;
+};
+
+bool myComp(Student a, Student b)
+{
+	if(a.p!=b.p)
+		return a.p<b.p;
+	else
+	{
+		if(a.c!=b.c)
+			return a.c>b.c;
+		else
+			return a.m<b.m;
+	}
+}
+
+int main()
+{
+  	int n;
+  	cin>>n;
+  	Student S[n];
+  	for(int i=0;i<n;i++)
+  		cin>>S[i].p;  	
+  	for(int i=0;i<n;i++)
+  		cin>>S[i].c;
+  	for(int i=0;i<n;i++)
+  		cin>>S[i].m;	
+  	sort(S,S+n,myComp);
+  	for(int i=0;i<n;i++)
+  		cout<<S[i].p<<' '<<S[i].c<<' '<<S[i].m<<'\n';
+  	return 0;
+}
+

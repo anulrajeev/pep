@@ -1,0 +1,34 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int minK(int A[], int n, int h)
+{
+    int beg=0, end=*max_element(A,A+n), res=-1;
+    while(beg<=end)
+    {
+        int mid=beg+(end-beg)/2;
+        int k=mid, timeReqd=0;
+        for(int i=0;i<n;i++)
+            timeReqd+=ceil(1.0*A[i]/k);
+            
+        // cout<<k<<' '<<timeReqd<<'\n';
+        if(timeReqd<=h)
+            res=k, end=mid-1;
+        else
+            beg=mid+1;
+    }
+    return res;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    int A[n];
+    for(int i=0;i<n;i++)
+        cin>>A[i];
+    int h;
+    cin>>h;
+    cout<<minK(A,n,h);
+    return 0;
+}

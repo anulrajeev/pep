@@ -1,0 +1,52 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool isFeasible(int A[], int n, int m, int capacity)
+{
+    int count=1, curr_cap=0;
+    for(int i=0;i<n;i++)
+        if(A[i]+curr_cap<=capacity)
+            curr_cap+=A[i];
+        else
+        {
+            count++;
+            curr_cap=0;
+            if(A[i]<capacity)
+                curr_cap=A[i];
+            else
+                return false;
+        }
+    // cout<<' '<<count;
+    return (count<=m);
+}
+
+int allocateBooks(int A[], int n, int m)
+{
+    if(n<m)
+        return -1;
+    int beg=*max_element(A,A+n), end=accumulate(A,A+n,0),res;
+    while(beg<=end)
+    {
+        int mid=beg+(end-beg)/2;
+        // cout<<mid;
+        if(isFeasible(A,n,m,mid))
+             res=mid, end=mid-1; //  cout<<"  F";}
+        else
+            beg=mid+1;
+        // cout<<'\n';
+    }
+    return res;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    int A[n];
+    for(int i=0;i<n;i++)
+        cin>>A[i];
+    int m;
+    cin>>m;
+    cout<<allocateBooks(A,n,m);
+    return 0;
+}

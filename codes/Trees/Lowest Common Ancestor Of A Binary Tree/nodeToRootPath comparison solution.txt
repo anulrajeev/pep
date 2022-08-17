@@ -1,0 +1,135 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+class TreeNode
+{
+public:
+  int val = 0;
+  TreeNode* left = nullptr;
+  TreeNode* right = nullptr;
+
+  TreeNode(int val)
+  {
+    this->val = val;
+  }
+};
+
+
+
+vector<TreeNode*> nodeToRoot(TreeNode* root, int n)
+{
+    stack<pair<TreeNode*,int>> st;
+    st.push({root,0});
+    while(st.size())
+    {
+        TreeNode *temp=st.top().first;
+        int &state=st.top().second;
+        if(temp->val==n)
+            break;
+        if(state==0)
+        {
+            state++;
+            if(temp->left)
+                st.push({temp->left,0});
+        }
+        else if(state==1)
+        {
+            state++;
+            if(temp->right)
+                st.push({temp->right,0});
+        }
+        else
+            st.pop();
+    }
+    
+    vector<TreeNode*> res;
+    while(st.size())
+        {
+            res.push_back(st.top().first);
+            st.pop();
+        }
+    reverse(res.begin(), res.end());
+    return res;
+}
+
+TreeNode* lowestCommonAncestor(TreeNode* root, int p, int q)
+{
+    vector<TreeNode*> v1=nodeToRoot(root,p);
+    vector<TreeNode*> v2=nodeToRoot(root,q);
+    int i=0, n=min(v1.size(),v2.size());
+    while(i<n)
+    {
+    //   cout<<v1[i]->val<<' '<<v2[i]->val<<'\n';
+        if(v1[i]!=v2[i])
+            break;
+       i++;
+    }
+    return v1[i-1];
+}
+
+// input_Section_====================================================================
+
+void display(TreeNode* node)
+{
+  if (node == nullptr)
+    return;
+
+  string str = "";
+  str += ((node->left != nullptr ? to_string(node->left->val) : "."));
+  str += (" -> " + to_string(node->val) + " <- ");
+  str += ((node->right != nullptr ? to_string(node->right->val) : "."));
+
+  cout << str << endl;
+
+  display(node->left);
+  display(node->right);
+}
+
+int idx = 0;
+TreeNode* deserialize(vector<string>& arr)
+{
+  if (idx >= arr.size() || arr[idx].compare("null") == 0)
+  {
+    idx++;
+    return nullptr;
+  }
+
+  TreeNode* node = new TreeNode(stoi(arr[idx++]));
+  node->left = deserialize(arr);
+  node->right = deserialize(arr);
+
+  return node;
+}
+
+TreeNode* deserialize(string s)
+{
+  stringstream ss(s);
+  string word;
+  vector<string> arr;
+  while (ss >> word)
+  {
+    arr.push_back(word);
+  }
+  return deserialize(arr);
+}
+
+void solve()
+{
+  string s;
+  getline(cin,s);
+  TreeNode* root = deserialize(s);
+  int p, q;
+  cin >> p >> q;
+  
+  TreeNode* ans = lowestCommonAncestor(root, p, q);
+  if(ans)
+    cout<<ans->val;
+  else
+    cout<<"null";
+}
+
+int main()
+{
+  solve();
+  return 0;
+}

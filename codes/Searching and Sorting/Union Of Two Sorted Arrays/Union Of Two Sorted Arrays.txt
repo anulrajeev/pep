@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int m,n;
+    cin>>m;
+    int A[m];
+    for(int i=0;i<m;i++)
+        cin>>A[i];
+    
+    cin>>n;
+    int B[n];
+    for(int j=0;j<n;j++)
+        cin>>B[j];
+    
+    int i=0,j=0;
+    while(i<m&&j<n)
+    {
+        while(i>0&&i<m&&A[i]==A[i-1])
+            i++;
+        while(j>0&&j<n&&B[j]==B[j-1])
+            j++;
+        if(A[i]==B[j])
+        {
+            cout<<A[i]<<' ';
+            i++,j++;
+        }
+        else if(A[i]<B[j])
+            cout<<A[i++]<<' ';
+        else
+            cout<<B[j++]<<' ';
+    }
+    
+    while(i<m)
+    {
+       while(i>0&&i<m&&A[i]==A[i-1])
+            i++;
+        if(i<m)
+            cout<<A[i++]<<' ';  
+    }
+    
+    while(j<n)
+    {
+        while(j>0&&j<n&&B[j]==B[j-1])
+            j++;
+        if(j<n)
+            cout<<B[j++]<<' ';
+    }
+    return 0;
+}

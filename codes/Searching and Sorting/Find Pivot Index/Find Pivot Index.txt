@@ -1,0 +1,32 @@
+#include<iostream>
+using namespace std;
+
+int pivot(int A[], int n, int rsum)
+{
+    int lsum=0;
+    for(int i=0;i<n;i++)
+        if(lsum==rsum-A[i])
+            return i;
+        else
+            {
+                lsum+=A[i];
+                rsum-=A[i];
+            }
+    return -1;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    int A[n], sum=0, lsum=0;
+    
+    for(int i=0;i<n;i++)
+    {
+        cin>>A[i];
+        sum+=A[i];
+    }
+    cout<<pivot(A,n,sum);
+        
+    return 0;
+}

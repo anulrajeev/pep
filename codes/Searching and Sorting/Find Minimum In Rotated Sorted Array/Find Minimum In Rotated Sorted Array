@@ -1,0 +1,41 @@
+#include <bits/stdc++.h>
+using namespace std;
+int minElement(int A[], int n)
+{
+	if(n==1)
+		return A[0];
+	if(n==2)
+		return min(A[0],A[1]);
+
+	int beg=0, end=n-1;
+	while(beg<=end)
+	{
+		int mid = beg+(end-beg)/2;
+		if(mid==0)
+			return min(A[0],A[1]);
+		if(A[mid]<A[mid-1])
+			return A[mid];
+		else if(A[mid]<A[end])
+			end=mid-1;
+		else 
+			beg=mid+1;
+	}
+}
+
+
+int main(){
+ #ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w", stdout);
+ #endif
+	int n;
+  	cin>>n;
+  	int A[n];
+  	for(int i=0;i<n;i++)
+  		cin>>A[i];
+  	cout<<minElement(A,n);
+	return 0;
+}
+

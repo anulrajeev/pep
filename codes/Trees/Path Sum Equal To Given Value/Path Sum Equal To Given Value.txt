@@ -1,0 +1,109 @@
+// #include <iostream>
+// #include <vector>
+// #include <queue>
+// #include <stringstream>
+#include <bits/stdc++.h>
+using namespace std;
+
+class TreeNode
+{
+public:
+  int val = 0;
+  TreeNode* left = nullptr;
+  TreeNode* right = nullptr;
+
+  TreeNode(int val)
+  {
+    this->val = val;
+  }
+};
+
+void preOrder(TreeNode *root,vector<int> &prefix, int target, int &count)
+{
+    if(root==NULL)
+        return;
+    if(prefix.size()==0)
+        prefix.push_back(root->val);
+    else
+        prefix.push_back(root->val+prefix.back());
+    int prefixSum = prefix.back();
+    if(prefixSum==target)
+        count++;
+    for(int i=0;i<prefix.size()-1;i++)
+        if(prefixSum-prefix[i]==target)
+            count++;
+    preOrder(root->left ,prefix,target,count);
+    preOrder(root->right,prefix,target,count);
+    prefix.pop_back();
+}
+
+int pathSum(TreeNode* root, int sum)
+{
+    int count=0;
+    vector<int> prefix;
+    preOrder(root,prefix,sum,count);
+    return count;
+}
+
+// input_Section_====================================================================
+
+void display(TreeNode* node)
+{
+  if (node == nullptr)
+    return;
+
+  string str = "";
+  str += ((node->left != nullptr ? to_string(node->left->val) : "."));
+  str += (" -> " + to_string(node->val) + " <- ");
+  str += ((node->right != nullptr ? to_string(node->right->val) : "."));
+
+  cout << str << endl;
+
+  display(node->left);
+  display(node->right);
+}
+
+int idx = 0;
+TreeNode* deserialize(vector<string>& arr)
+{
+  if (idx >= arr.size() || arr[idx].compare("null") == 0)
+  {
+    idx++;
+    return nullptr;
+  }
+
+  TreeNode* node = new TreeNode(stoi(arr[idx++]));
+  node->left = deserialize(arr);
+  node->right = deserialize(arr);
+
+  return node;
+}
+
+TreeNode* deserialize(string s)
+{
+  stringstream ss(s);
+  string word;
+  vector<string> arr;
+  while (ss >> word)
+  {
+    arr.push_back(word);
+  }
+  return deserialize(arr);
+}
+
+void solve()
+{
+  string s;
+  getline(cin,s);
+  TreeNode* root = deserialize(s);
+  int tar;
+  cin >> tar;
+
+  cout << pathSum(root, tar) << endl;
+}
+
+int main()
+{
+  solve();
+  return 0;
+}

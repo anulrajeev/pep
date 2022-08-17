@@ -1,0 +1,22 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    int n;
+    cin>>n;
+    int A[n], val=0;
+    for(int i=0;i<n;i++)
+        { 
+            cin>>A[i];
+            val+=i*A[i];   
+        }
+    int sum = accumulate(A,A+n,0);
+    int res=val;
+    for(int i=0;i<n;i++)
+        {
+            val = val - (sum-A[i]) + A[i]*(n-1);
+            res=max(res,val);
+        }
+    cout<<res;
+    return 0;
+}

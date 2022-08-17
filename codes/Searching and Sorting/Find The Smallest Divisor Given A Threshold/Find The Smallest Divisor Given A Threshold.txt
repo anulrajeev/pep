@@ -1,0 +1,32 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int getDivisor(int A[], int n, int threshold)
+{
+    int beg=1, end=*max_element(A,A+n), res;
+    while(beg<=end)
+    {
+        int mid=beg+(end-beg)/2;
+        int d=mid, sum=0;
+        for(int i=0;i<n;i++)
+            sum+=ceil(1.0*A[i]/d);
+        if(sum<=threshold)
+            res=d, end=mid-1;
+        else
+            beg=mid+1;
+    }
+    return res;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    int A[n];
+    for(int i=0;i<n;i++)
+        cin>>A[i];
+    int threshold;
+    cin>>threshold;
+    cout<<getDivisor(A,n,threshold);
+    return 0;
+}
