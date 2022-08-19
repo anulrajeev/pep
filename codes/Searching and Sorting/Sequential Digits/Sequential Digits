@@ -1,0 +1,66 @@
+#include <bits/stdc++.h>
+	using namespace std;
+	typedef long long ll;
+	typedef unsigned long long ull;
+	typedef vector<int> vi;
+	typedef vector<vi> vvi;
+	typedef vector<ll> vll;
+	typedef vector<vll> vvll;
+	typedef vector<bool> vb;
+	typedef vector<vb> vvb;
+	typedef vector<string> vs;
+	typedef vector<char> vc;
+	typedef vector<vc> vvc;
+	typedef pair<int, int> pii;
+
+	ll mod = 1000000007;
+
+	void _main();
+	int main(){
+	 #ifndef ONLINE_JUDGE
+	    // for getting input from input.txt
+	    freopen("input.txt", "r", stdin);
+	    // for writing output to output.txt
+	    freopen("output.txt", "w", stdout);
+	 #endif
+		_main();
+		return 0;
+	}
+
+	void initialise(queue<int> &q)
+	{
+		q.push(12),q.push(23),q.push(34),q.push(45),q.push(56),q.push(67),q.push(78),q.push(89);
+	}
+
+	vi getList(int low, int high)
+	{
+		queue<int> q;
+		initialise(q);
+		vi res;
+		while(q.size())
+		{
+			int size=q.size();
+			for(int i=0;i<size;i++)
+			{
+				int num = q.front(); q.pop();
+				int d=num%10;
+				if(num>=low&&num<=high)
+				{
+					res.push_back(num);
+					if(d!=9)
+						q.push(num*10+d+1);
+				}
+			}
+		}
+		return res;
+	}
+
+	void _main()
+	{
+	  	int low,high;
+	  	cin>>low>>high;
+	  	vi v = getList(low,high);
+	  	for(auto x : v)
+	  			cout<<x<<' ';
+	}
+

@@ -1,0 +1,27 @@
+#include<iostream>
+using namespace std;
+
+int transitionPoint(int A[], int n)
+{
+    int res=-1, beg=0, end=n-1;
+    while(beg<=end)
+    {
+        int mid=beg+(end-beg)/2;
+        if(A[mid]==1)
+            res=mid, end=mid-1;
+        else
+            beg=mid+1;
+    }
+    return res;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    int A[n];
+    for(int i=0;i<n;i++)
+        cin>>A[i];
+    cout<<transitionPoint(A,n);
+    return 0;
+}

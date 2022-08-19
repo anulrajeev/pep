@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000007;
+
+void _main();
+int main(){
+	_main();
+	return 0;
+}
+
+int getRadius(vi &house, vi &heater)
+{
+	int res=0;
+	int m=house.size(), n=heater.size();
+	sort(heater.begin(), heater.end());
+	for(auto h : house)
+	{
+		int r = lower_bound(heater.begin(), heater.end(),h)-heater.begin();
+		int l=r-1;
+		int left_dist = (l>=0?h-heater[l]:INT_MAX);
+		int right_dist= (r==n?INT_MAX:heater[r]-h);
+		int dist=min(left_dist,right_dist);
+		res=max(res,dist);
+		// cout<<h<<' '<<left_dist<<' '<<right_dist<<'\n';
+	}
+	return res;
+}
+
+void _main()
+{
+  	int m,n;
+  	cin>>m;
+  	vi house(m);
+  	for(int i=0;i<m;i++)	
+  		cin>>house[i];
+  	cin>>n;
+  	vi heater(n);
+  	for(int j=0;j<n;j++)
+  		cin>>heater[j];
+  	cout<<getRadius(house,heater);
+}
+

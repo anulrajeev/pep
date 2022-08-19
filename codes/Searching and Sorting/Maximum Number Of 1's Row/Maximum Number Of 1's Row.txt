@@ -1,0 +1,57 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+
+//lower_bound stl not working in this portal
+
+int firstOcc(vi &v)
+{
+    int beg=0, end=v.size()-1;
+    while(beg<=end)
+    {
+        int mid=beg+(end-beg)/2;
+        if(v[mid]==1)
+        {
+            if(mid==0 || v[mid-1]==0)
+                return mid;
+            end=mid-1;
+        }
+        else
+            beg=mid+1;
+    }
+    return -1;
+}
+
+int countOnes(vi &v)
+{
+    return v.size()-firstOcc(v);
+}
+
+int getRow(vvi &grid)
+{
+	int maxOnes=0, res=0, m=grid.size(), n=grid[0].size();
+	for(int i=0;i<m;i++)
+		{
+		    int count = countOnes(grid[i]);
+		    if(count>maxOnes)
+		    {
+		        maxOnes=count;
+		        res=i;
+		    }
+		}
+	return res;
+}
+
+int main()
+{
+   int m,n;
+   cin>>m>>n;
+   vvi grid(m,vi(n));	
+   for(int i=0;i<m;i++)
+   		for(int j=0;j<n;j++)
+   			cin>>grid[i][j];
+   	cout<<getRow(grid);
+   	return 0;
+}
+

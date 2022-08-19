@@ -1,0 +1,46 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+typedef pair<int,int> pii;
+
+float classAvg(pii student[], int n)
+{
+    unordered_map<int,int> m;
+    for(int i=0;i<n;i++)
+        for(int j=0;j<n-i-1;j++)
+            if(student[j].first>student[j+1].first)
+                {
+                    if(student[j].second)
+                        student[j].second--;
+                    
+                    if(student[j+1].second)
+                        student[j+1].second--;
+                    
+                    swap(student[j],student[j+1]);
+                }
+    int sum=0;
+    for(int i=0;i<n;i++)
+        sum+=student[i].second;
+    return 1.0*sum/n;
+}
+
+
+bool canPunish(pii student[],int n, int min_avg)
+{
+    return classAvg(student,n)>=min_avg;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    pair<int,int> student[n];
+    for(int i=0;i<n;i++)
+        cin>>student[i].first;
+    for(int i=0;i<n;i++)
+        cin>>student[i].second;
+    int min_avg;
+    cin>>min_avg;
+    cout<<(canPunish(student,n,min_avg)?"true":"false");    
+    return 0;
+}

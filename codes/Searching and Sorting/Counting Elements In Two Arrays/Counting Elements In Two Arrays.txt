@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> getCount(vector<int> A, vector<int> B)
+{
+    vector<int> C=A;
+    
+    sort(A.begin(),A.end());
+    sort(B.begin(),B.end());
+    
+    int i=0, j=0, m=A.size(), n=B.size();
+    unordered_map<int,int> mp;
+    
+    while(i<m && j<n)
+    {
+        while(j<n && B[j]<=A[i])
+            j++;
+            
+        mp[A[i]]=j;
+        i++;
+    }
+    
+    while(i<m)
+        mp[A[i++]]=j;
+    
+    vector<int> res(m);
+    for(auto x : C)
+        res.push_back(mp[x]);
+    return res;
+}
+
+int main()
+{
+    int m,n;
+    cin>>m;
+    vector<int> A(m);
+    for(int i=0;i<m;i++)
+        cin>>A[i];
+    cin>>n;
+    vector<int> B(n);
+    for(int j=0;j<n;j++)
+        cin>>B[j];
+    vector<int> res = getCount(A,B);
+    for(auto x : res)
+        cout<<x<<' ';
+    return 0;
+}

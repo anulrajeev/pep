@@ -1,0 +1,30 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+vector<int> getLeaders(int A[], int n)
+{
+    vector<int> res;
+    res.push_back(A[n-1]);
+    int prev=n-1;
+    for(int i=n-2;i>=0;i--)
+        if(A[i]>=A[prev])
+            {
+                res.push_back(A[i]);
+                prev=i;
+            }
+    reverse(res.begin(), res.end());
+    return res;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    int A[n];
+    for(int i=0;i<n;i++)
+        cin>>A[i];
+    vector<int> leaders = getLeaders(A,n);
+    for(auto leader : leaders)
+        cout<<leader<<' ';
+    return 0;
+}

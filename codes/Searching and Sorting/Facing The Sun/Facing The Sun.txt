@@ -1,0 +1,26 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+int getCount(int A[], int n)
+{
+    int count=1;
+    int prev=0;
+    for(int i=1;i<n;i++)
+        if(A[i]>=A[prev])
+            {
+                count++;
+                prev=i;
+            }
+    return count;
+}
+
+int main()
+{
+    int n;
+    cin>>n;
+    int A[n];
+    for(int i=0;i<n;i++)
+        cin>>A[i];
+    cout<<getCount(A,n);
+    return 0;
+}
