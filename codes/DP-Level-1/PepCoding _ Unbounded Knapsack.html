@@ -1,0 +1,2739 @@
+<!DOCTYPE html>
+<!-- saved from url=(0128)https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion -->
+<html dir="ltr" lang="en-US"><script type="text/javascript" async="" src="./PepCoding _ Unbounded Knapsack_files/analytics.js.download"></script><script type="text/javascript" async="" src="./PepCoding _ Unbounded Knapsack_files/js"></script><script>(function(){window['_docs_annotate_canvas_by_ext']='kohfgcgbkjodfcfkcackpagifgbcmimk';})();</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async="" src="./PepCoding _ Unbounded Knapsack_files/js(1)"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-109728305-1');
+   </script>
+   <meta name="google-site-verification" content="p2kNyH1NDKhkZLl2aBdmmvosWqHZOxD0rmvS1n8LcDA">
+   <meta name="google-signin-client_id" content="458958442206-nstdi8m8r1ru8qbfd9qmpmhllq5gbui7.apps.googleusercontent.com">
+         
+         
+         
+   <title>PepCoding | Unbounded Knapsack</title>
+   <link rel="shortcut icon" href="https://www.pepcoding.com/images/favicon.ico">
+   <link rel="apple-touch-icon-precomposed" href="https://www.pepcoding.com/images/apple-touch-icon.png">
+   <meta property="og:url" content="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion">
+   <meta property="title" content="PepCoding | Unbounded Knapsack">
+   <meta property="og:title" content="PepCoding | Unbounded Knapsack">
+   <meta property="keywords" content="">
+   <meta property="og:image" content="https://www.pepcoding.com/images/logo.png">
+   <meta property="og:alt" content="pepcoding">
+   <meta property="og:type" content="website">
+   <meta name="description" content="unbounded knapsack, knapsack problem dp, knapsack problem dynamic programming, dp interview questions, dp hard questions">
+   <meta property="og:description" content="unbounded knapsack, knapsack problem dp, knapsack problem dynamic programming, dp interview questions, dp hard questions">
+   <script type="application/ld+json">
+         {
+           "@context" : "http://schema.org",
+           "@type": "EducationalOrganization",
+           "name" : "Pepcoding",
+           "url" : "https://www.pepcoding.com",
+           "logo":"https://www.pepcoding.com/images/logo.png",
+           "description": "Free online videos of Data Structure using Java and C++. Best coding institute in Delhi, Best computer programming institute in Delhi, Best java training classes, Coding classes in Delhi, Coding courses in Delhi, best computer programming institute in Delhi-NCR, Delhi's best programming institute offers courses in Java, C++, Web Development, Nodejs.",
+          "sameAs" : [
+            "https://www.facebook.com/pepcoding/",
+            "https://www.youtube.com/results?search_query=pepcoding",
+            "https://www.instagram.com/pepcoding/",
+            "https://in.linkedin.com/company/pepcoding-education",
+            "https://twitter.com/pepcoding"
+            ],
+         
+          "openingHours": "Mo 08:30-21:30 Tu, We 08:00-21:30 Th, Fr, Sa, Su 08:00-09:30",
+           "contactPoint": {
+             "@type": "ContactPoint",
+             "telephone": "011-40194461",
+             "contactType": "Reception desk"
+           },
+          "address": {
+             "@type": "PostalAddress",
+             "streetAddress": "PepCoding, 3rd Floor, 15 Vaishali, Pitampura Opposite",
+             "addressLocality": "Pitampura",
+             "addressRegion": "Delhi",
+             "postalCode": "110034",
+             "addressCountry": "India"
+           },
+            "hasMap": "https://www.google.com/maps/place/PepCoding.com/@28.699367,77.138281,17z/data=!4m5!3m4!1s0x0:0x4fd0fdfc3f27ffaf!8m2!3d28.6993666!4d77.1382814?hl=en-US"
+         }
+      </script>
+   <link rel="stylesheet" href="./PepCoding _ Unbounded Knapsack_files/site.css">
+   <link rel="stylesheet" href="./PepCoding _ Unbounded Knapsack_files/video.css">
+   
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="./PepCoding _ Unbounded Knapsack_files/css" rel="stylesheet">
+   <link href="./PepCoding _ Unbounded Knapsack_files/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body class=" resource theme2">
+   <header>
+         <nav>
+            <div class="nav-wrapper page-scrolled">
+               <div class="container med row  site-nav">
+                  <a href="https://www.pepcoding.com/" class="brand-logo small">
+                     <img class="logo" src="./PepCoding _ Unbounded Knapsack_files/logo2.png" alt="logo">
+                  </a>
+                  <div class="hide-on-med-and-down nav-breadcrumb">
+                        <a class="breadcrumb  " data-target="ddls0" href="https://www.pepcoding.com/resources/">
+                           home
+                        </a>
+                        <a class="breadcrumb  " data-target="ddls1" href="https://www.pepcoding.com/resources/online-java-foundation/">
+                           online-java-foundation
+                        </a>
+                        <a class="breadcrumb  " data-target="ddls2" href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/">
+                           dynamic-programming-and-greedy
+                        </a>
+                        <a class="breadcrumb  " data-target="ddls3" href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/">
+                           unbounded-knapsack-official
+                        </a>
+                  </div>
+                        <a href="https://classroom.pepcoding.com/myClassroom" class="class-mode">My ClassRoom </a>
+                  <ul id="ddlUserProfile" class="dropdown-content">
+                    <li>
+                      <a href="https://www.pepcoding.com/profile" class="setting">
+                        <div class="row  col l12" style="height: 100%;padding: 0px;margin: 0px;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;">
+                          <i class="col l4 s2 m2 svg-user svg-header"></i>
+                          <span class="col l8 s8 m8 lp-dropdown">Profile</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#" class="setting" onclick="PEP.Utilities.signOut();">
+                          <div class="row  col l12" style="height: 100%;padding: 0px;margin: 0px;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;">
+                            <i class="col l4 s2 m2 svg-logout svg-header"></i>
+                          <span class="col l8 s8 m8 lp-dropdown">Logout</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>                  <ul id="ddlFeatures" class="dropdown-content">
+                     <li>
+                        <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#" class=" setting sidenav-trigger theme-cutomizer-trigger no-margin" data-target="editor-support-out" id="31924">
+                           <div class="row  col l12 no-padding no-margin" style="height: 100%;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;">
+                              <i class="fa fa-code" aria-hidden="true"></i>
+                              <span class="col l8 s8 m8 lp-dropdown">Editor</span>
+                           </div>
+                        </a>
+                     </li>
+                  </ul>
+                     <a class="dropdown-trigger dashboard-burger" href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#" data-target="ddlFeatures">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 384 384">
+                           <path d="M0 384v-43h384v43H0zm0-277l85 85l-85 85V107zm171 192v-43h213v43H171zM0 0h384v43H0V0zm171 128V85h213v43H171zm0 85v-42h213v42H171z" fill="currentColor"></path>
+                        </svg>
+                     </a>
+                              <div class="changeTheme">
+                                          <i class="fa fa-sun-o  dropdown-trigger" href="#changeSiteTheme" style="    height: inherit;
+                                             line-height: inherit;"></i>
+                               </div>
+                             <ul id="changeSiteTheme" class="dropdown-content changeSiteTheme">
+                                         <li>
+                                             <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#" onclick="siteThemeSelect(&#39;theme1&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme1"></div> 
+                                                  <div class="col l4">Theme1</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                          
+                                         <li>
+                                             <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#" onclick="siteThemeSelect(&#39;theme2&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme2"></div> 
+                                                  <div class="col l4">Theme2</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                           <li>
+                                             <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#" onclick="siteThemeSelect(&#39;theme3&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme3"></div> 
+                                                  <div class="col l4">Theme3</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                           <li>
+                                             <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#" onclick="siteThemeSelect(&#39;theme4&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme4"></div> 
+                                                  <div class="col l4">Theme4</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                       </ul>                     <a class="dropdown-trigger dashboard-user" href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#" data-target="ddlUserProfile">
+                        <i class="svg-user svg-header"></i>
+                     </a>
+               </div>
+            </div>
+         </nav>
+   </header>
+   <main>
+      <div id="siteOverlay" class="loader-overlay hide">
+      </div>
+      <div id="siteLoader" class="loader hide">
+         <div class="preloader-wrapper active">
+            <div class="spinner-layer spinner-red-only">
+               <div class="circle-clipper left">
+                  <div class="circle"></div>
+               </div>
+               <div class="gap-patch">
+                  <div class="circle"></div>
+               </div>
+               <div class="circle-clipper right">
+                  <div class="circle"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="siteOverlay-nados" class="loader-overlay-nados hide"></div>
+      <div id="siteLoader-nados" class="load-container d-flex flex-center valign-wrapper hide">
+         <h2 class="center loader-h2 bolder white-text">Redirecting to <br> NADOS
+         <div class="timmer-nados"></div></h2>
+         <div class="loader-nados"></div>
+      </div>
+      <input type="hidden" id="isShowDoubtSupport" value="false">
+         <input type="hidden" id="tawkKey" value="5e1ef6557e39ea1242a4b602">
+      <div class="container full  ">
+
+
+    <div class="section full no-padding">
+        <div class="row" style="display: flex; flex-flow: column;">
+            <div id="side-open-nav" class="sidenav sidenav-fixed sidenav-res search-nav row  " style="">
+            
+              <div class="col l1 s1 m1 no-padding">
+            
+                <span class="sidenav-icon open">
+            
+            
+                  <div id="toggleResourceNav" class=" mobile-nav menu-ico ">
+                    <span class="side-nav"></span>
+                    <span class="side-nav"></span>
+                    <span class="side-nav"></span>
+                  </div>
+            
+                </span>
+            
+                <span class="hide " style="margin-top:200px; position: absolute;">
+            
+                  <div id="resourceNotice " class="resource-notice">
+            
+                    <i class="fa fa-flag-o " aria-hidden="true"></i>
+                  </div>
+            
+                </span>
+            
+              </div>
+            
+              <div class="col l11 s11 m11 ">
+                <ul class="row col l12 s12 m12  no-padding" style="    height: 8vh;">
+            
+                  <li class="search-container">
+                    <i class="search-icon fa fa-search"></i>
+                    <input id="searchBox" type="text" placeholder=" search" class=" row col l9 s9 autocomplete search searchBox">
+            
+                  </li>
+            
+                </ul>
+            
+            
+                <ul class="row col l12 s12 m12  no-padding" style="    height: 92vh;
+                overflow-y: scroll;">
+            
+            
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/fibonacci_dp/topic">
+            
+                      
+            
+            
+            
+                      <span title="Fibonacci-dp" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Fibonacci-dp
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/fibonacci-dp-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Fibonacci-dp" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Fibonacci-dp
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/climb_stairs/topic">
+            
+                      
+            
+            
+            
+                      <span title="Climb Stairs" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Climb Stairs
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/climb-stairs-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Climb Stairs" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Climb Stairs
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/climb_stairs_with_variable_jumps/topic">
+            
+                      
+            
+            
+            
+                      <span title="Climb Stairs With Variable Jumps" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Climb Stairs With Variable Jumps
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/climb-stairs-with-variable-jumps-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Climb Stairs With Variable Jumps" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Climb Stairs With Variable Jumps
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/climb_stairs_with_minimum_moves/topic">
+            
+                      
+            
+            
+            
+                      <span title="Climb Stairs With Minimum Moves" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Climb Stairs With Minimum Moves
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/climb-stairs-with-minimum-moves-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Climb Stairs With Minimum Moves" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Climb Stairs With Minimum Moves
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/min_cost_in_maze_traversal/topic">
+            
+                      
+            
+            
+            
+                      <span title="Min cost In Maze Traversal" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Min cost In Maze Traversal
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/min-cost-maze-traversal-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Min Cost In Maze Traversal" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Min Cost In Maze Traversal
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/goldmine/topic">
+            
+                      
+            
+            
+            
+                      <span title="Goldmine" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Goldmine
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/goldmine-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Goldmine" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Goldmine
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/target_sum_subsets_dp/topic">
+            
+                      
+            
+            
+            
+                      <span title="Target Sum Subsets - DP" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Target Sum Subsets - DP
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/target-sum-subsets-dp-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Target Sum Subsets - Dp" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Target Sum Subsets - Dp
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/coin_change_combinations/topic">
+            
+                      
+            
+            
+            
+                      <span title="Coin Change Combinations" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Coin Change Combinations
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/coin-change-combination-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Coin Change Combination" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Coin Change Combination
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/coin_change_permutations/topic">
+            
+                      
+            
+            
+            
+                      <span title="Coin Change Permutations" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Coin Change Permutations
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/coin-change-permutations-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Coin Change Permutations" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Coin Change Permutations
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/zero_one_knapsack/topic">
+            
+                      
+            
+            
+            
+                      <span title="Zero One Knapsack" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Zero One Knapsack
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/zero-one-knapsack-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Zero One Knapsack" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Zero One Knapsack
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded_knapsack/topic">
+            
+                      
+            
+            
+            
+                      <span title="Unbounded Knapsack" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Unbounded Knapsack
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow active">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Unbounded Knapsack" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Unbounded Knapsack
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/fractional-knapsack-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Fractional Knapsack - Official" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Fractional Knapsack - Official
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/count_binary_strings/topic">
+            
+                      
+            
+            
+            
+                      <span title="Count Binary Strings" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Count Binary Strings
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/count-binary-strings-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Count Binary Strings" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Count Binary Strings
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/arrange_buildings/topic">
+            
+                      
+            
+            
+            
+                      <span title="Arrange Buildings" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Arrange Buildings
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/arrange-buildings-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Arrange Buildings" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Arrange Buildings
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/count_encodings/topic">
+            
+                      
+            
+            
+            
+                      <span title="Count Encodings" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Count Encodings
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/count-encodings-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Count Encodings" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Count Encodings
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/count_a_+_b_+_c_subsequences/topic">
+            
+                      
+            
+            
+            
+                      <span title="Count A+B+C subsequences" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Count A+B+C subsequences
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/count-a+b+c+subsequences-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Count A+b+c+ Subsequences" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Count A+b+c+ Subsequences
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/maximum_sum_non_adjacent_elements/topic">
+            
+                      
+            
+            
+            
+                      <span title="Maximum Sum Non Adjacent Elements" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Maximum Sum Non Adjacent Elements
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/maximum-sum-non-adjacent-elements-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Maximum Sum Non Adjacent Elements" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Maximum Sum Non Adjacent Elements
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/paint_house/topic">
+            
+                      
+            
+            
+            
+                      <span title="Paint House" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Paint House
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/paint-house-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Paint House" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Paint House
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/paint_house_many_colors/topic">
+            
+                      
+            
+            
+            
+                      <span title="Paint House-Many colors" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Paint House-Many colors
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/paint-house-many-colors-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Paint House - Many Colors" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Paint House - Many Colors
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/paint_fence/topic">
+            
+                      
+            
+            
+            
+                      <span title="Paint Fence" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Paint Fence
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/paint-fence-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Paint Fence" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Paint Fence
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/tilling_with_2_*_1_tiles/topic">
+            
+                      
+            
+            
+            
+                      <span title="Tiling with 2*1 Tiles" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Tiling with 2*1 Tiles
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/tiling1-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Tiling With 2 * 1 Tiles" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Tiling With 2 * 1 Tiles
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/tiling_with_mx1_tiles/topic">
+            
+                      
+            
+            
+            
+                      <span title="Tiling with M*1 Tiles" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Tiling with M*1 Tiles
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/tiling2-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Tiling With M * 1 Tiles" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Tiling With M * 1 Tiles
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/friends_pairing/topic">
+            
+                      
+            
+            
+            
+                      <span title="Friends Pairing" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Friends Pairing
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/friends-pairing-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Friends Pairing" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Friends Pairing
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/partition_into_subsets/topic">
+            
+                      
+            
+            
+            
+                      <span title="Partition Into Subsets" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Partition Into Subsets
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/partition-into-subsets-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Partition Into Subsets" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Partition Into Subsets
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/buy_and_sell_stocks_1_transaction_allowed/topic">
+            
+                      
+            
+            
+            
+                      <span title="Buy And Sell Stocks - 1 Transaction Allowed" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Buy And Sell Stocks - 1 Transaction Allowed
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/buy-and-sell-stocks-ota-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Buy And Sell Stocks - One Transaction Allowed" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Buy And Sell Stocks - One Transaction Allowed
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/buy_and_sell_stocks_infinite_transaction_allowed/topic">
+            
+                      
+            
+            
+            
+                      <span title="Buy and sell Stocks - Infinite Transaction Allowed" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Buy and sell Stocks - Infinite Transaction Allowed
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/buy-and-sell-stocks-ita-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Buy And Sell Stocks - Infinite Transactions Allowed" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Buy And Sell Stocks - Infinite Transactions Allowed
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/buy_&amp;_sell_stocks_with_transaction_fee/topic">
+            
+                      
+            
+            
+            
+                      <span title="Buy &amp; Sell Stocks With Transaction Fee - Infinite Transactions Allowed" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Buy &amp; Sell Stocks With Transaction Fee - Infinite Transactions Allowed
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/buy-sell-stocks-transaction-fee-ita-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Buy And Sell Stocks With Transaction Fee - Infinite Transactions Allowed" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Buy And Sell Stocks With Transaction Fee - Infinite Transactions Allowed
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/buy_&amp;_sell_stock_cooldown/topic">
+            
+                      
+            
+            
+            
+                      <span title="Buy &amp; Sell Stock - Cooldown" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Buy &amp; Sell Stock - Cooldown
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/buy-and-sell-stocks-cooldown-ita-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Buy And Sell Stocks With Cooldown - Infinite Transaction Allowed" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Buy And Sell Stocks With Cooldown - Infinite Transaction Allowed
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/buy_and_sell_stocks_two_transactions_allowed/topic">
+            
+                      
+            
+            
+            
+                      <span title="Buy and Sell Stocks- Two Transactions Allowed" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Buy and Sell Stocks- Two Transactions Allowed
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/buy-sell-stocks-tta-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Buy And Sell Stocks - Two Transactions Allowed" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Buy And Sell Stocks - Two Transactions Allowed
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/buy_and_sell_stocks_k_transactions_allowed/topic">
+            
+                      
+            
+            
+            
+                      <span title="Buy and Sell Stocks- K Transactions Allowed" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Buy and Sell Stocks- K Transactions Allowed
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/buy-and-sell-stocks-kta-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Buy And Sell Stocks - K Transactions Allowed" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Buy And Sell Stocks - K Transactions Allowed
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+            
+            </div>            
+            <div id="resource-card" class="resource-card no-margin flex  ">
+                    <div class="  no-margin no-padding" id="splitQuestion">
+                        <div class="card-tabs  header">
+                            <ul id="resourceNavTabs" class="tabs tab-border valign-wrapper    tabs-fixed-width   " style="height:100%">
+
+                            <li class="tab bold queTab active "><a class="active " action="showQuestion" href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#resource"><i class="fa fa-file-code-o" aria-hidden="true"></i> &nbsp; Question</a>
+                                </li>
+
+                            <li class="tab bold historyTab  "><a action="showHistory" href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#history"><i class="fa fa-history" aria-hidden="true"></i> &nbsp; History </a>
+                                </li>
+                                <input type="hidden" id="marks" value="10">
+
+                                <li class="tab bold editorTab  ">
+                                    <a class="lang" action="showSolution" href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#solutionContainer">
+                                        <div><i class="fa fa-flask" aria-hidden="true"></i> &nbsp; Solution</div>
+                                    </a>
+
+                                </li>
+                            <li class="tab bold modalTab "><a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#statsContainer" action="showStats"> <i class="fa fa-hourglass-start" aria-hidden="true"></i> &nbsp;
+                                        Stats</a></li>
+
+                                <i class="fa fa-arrows-alt code-fullscreen  " id="fullScreenQuestion"></i>
+
+
+                            </ul>
+                        </div>
+
+                        <div id="resourceContent" style="margin:0px 0px 10px 50px;">
+                            <div id="resource" class="resource-content card-content   no-padding active row " style="margin-right:0px;">
+                                <div class="col  l12 s12 m8 ">
+                                    <h1 class="row   bold" style="margin-top:30px;font-size:1.3rem">
+                                        <div class=" col l10 s12  ">Unbounded Knapsack</div>
+                                        <div class="col l2 s2 m2   ">
+                                            <div class="follow no-margin  " style="margin:0px">
+                                                <img class="course-icon-svg" height="20" width="20" alt="" src="./PepCoding _ Unbounded Knapsack_files/share.svg">
+                                                <span class="social-icons-on-hover ">
+                                                    <a href="https://www.facebook.com/sharer/sharer.php?u=https://www.pepcoding.com/resources" class="" target="_blank">
+                                                        <svg height="10" viewBox="0 0 24 24" width="10">
+                                                            <path d="m15.997 3.985h2.191v-3.816c-.378-.052-1.678-.169-3.192-.169-6.932 0-5.046 7.85-5.322 9h-3.487v4.266h3.486v10.734h4.274v-10.733h3.345l.531-4.266h-3.877c.188-2.824-.761-5.016 2.051-5.016z" fill="#3b5999"></path>
+                                                        </svg>
+                                                    </a>
+                                                    <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://www.pepcoding.com/resources" class="" target="_blank">
+                                                        <svg height="10" viewBox="0 0 24 24" width="10">
+                                                            <g fill="#0077b5">
+                                                                <path d="m23.994 24v-.001h.006v-8.802c0-4.306-.927-7.623-5.961-7.623-2.42 0-4.044 1.328-4.707 2.587h-.07v-2.185h-4.773v16.023h4.97v-7.934c0-2.089.396-4.109 2.983-4.109 2.549 0 2.587 2.384 2.587 4.243v7.801z"></path>
+                                                                <path d="m.396 7.977h4.976v16.023h-4.976z"></path>
+                                                                <path d="m2.882 0c-1.591 0-2.882 1.291-2.882 2.882s1.291 2.909 2.882 2.909 2.882-1.318 2.882-2.909c-.001-1.591-1.292-2.882-2.882-2.882z"></path>
+                                                            </g>
+                                                        </svg>
+                                                    </a>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </h1>
+                                    <div class="row">
+                                        <div class="col l8 s6 m3">
+                                            <span class="badge easy  login-badge card card-light" style="">
+                                                <i class=" fa fa-circle"> </i>easy
+                                            </span>
+                                        </div>
+                                        <div class="col l4 s6 m6  "> 
+                                
+                                            <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded_knapsack/topic" class="prev-link"> <i class=" fa fa-chevron-left red-text"> </i>&nbsp;&nbsp;Prev </a>
+                                
+                                
+                                
+                                            <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/fractional-knapsack-official/ojquestion" class="next-link"> <i class=" fa fa-chevron-right red-text"> </i>&nbsp;&nbsp;Next </a>
+                                
+                                
+                                        </div>
+                                    </div>
+                                    <div class="row divider"></div>
+                                        <div class="card hide ">
+                                            
+                                             
+                                            <p class="text-ellipses no-margin" style="-webkit-line-clamp:2;">
+                                                </p><h4 class="bold">Try First, Check Solution later</h4>1. You should first read the question and watch the question video.<br>2. Think of a solution approach, then try and submit the question on editor tab.<br>3. We strongly advise you to watch the solution video for prescribed approach.<br>
+                                            <p></p>
+                                        </div>
+                                    <pre class=" card">1. You are given a number n, representing the count of items.<br>2. You are given n numbers, representing the values of n items.<br>3. You are given n numbers, representing the weights of n items.<br>3. You are given a number "cap", which is the capacity of a bag you've.<br>4. You are required to calculate and print the maximum value that can be created in the bag without <br>    overflowing it's capacity.<br>Note -&gt; Each item can be taken any number of times. You are allowed to put the same item again <br>                  and again.</pre>
+                                    <span class="pre-heading   bolder"> Input Format</span>
+                                    <pre class="card">A number n<br>v1 v2 .. n number of elements<br>w1 w2 .. n number of elements<br>A number cap</pre>
+                                    <span class="pre-heading  bolder">Output Format</span>
+                                    <pre class="card">A number representing the maximum value that can be created in the bag without overflowing it's capacity</pre>
+                                    <span class="pre-heading  bolder">Question Video</span>
+                                    <div class="question-text-video card ">
+                                            
+                                            <iframe class="card-content no-padding" src="./PepCoding _ Unbounded Knapsack_files/jgps7MXtKRQ.html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen=""></iframe>
+                                             <input id="videoId" type="hidden" value="https://www.youtube.com/embed/jgps7MXtKRQ?end=133&amp;rel=0">
+                                            <div class="card-content no-padding">
+                                                    <div class="g-ytsubscribe" data-channelid="UC7rNzgC2fEBVpb-q_acpsmw" data-layout="default" data-count="default">
+                                                        </div>
+                                                    <i class="fa fa-thumbs-up likeVideo" aria-hidden="true" style="transform: scale(-2,2);margin:7px"></i>
+                                                    <button class="btn comment modal-trigger" data-target="videoComment" style="margin: 7px;">Comment</button>
+                                                        <div id="videoComment" class="modal">
+                                                            <div class="modal-content">
+                                                                <div class="row">
+                                                                    <div class="row no-margin">
+                                                                        <h1 class="col l10 s10 m10 center no-margin">Comment
+                                                                        </h1>
+                                                                        <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#!" class="col l2 s2 m2 modal-close waves-effect waves-green"><i class="svg-close svg-header"></i></a>
+                                                                    </div>
+                                                                    <textarea id="commentContent" required="">                                                        
+                                                                    </textarea>
+                                                                    <button class="btn" id="postYoutubeComment">Post Comment</button>
+                                                                </div>
+                                                            </div>
+                                                        </div>        </div>
+                                    
+                                    
+                                        </div>        <span class=" pre-heading  bolder">Constraints</span>
+                                        <pre class="card">1 &lt;= n &lt;= 20<br>0 &lt;= v1, v2, .. n elements &lt;= 50<br>0 &lt; w1, w2, .. n elements &lt;= 10<br>0 &lt; cap &lt;= 10</pre>
+                                        <span class="pre-heading  bolder question-text-sample-input">Sample Input</span>
+                                        <pre class="card question-text-sample-input">5<br>15 14 10 45 30<br>2 5 1 3 4<br>7<br></pre>
+                                    <input type="hidden" id="sampleInput" value="5&lt;br/&gt;15 14 10 45 30&lt;br/&gt;2 5 1 3 4&lt;br/&gt;7&lt;br/&gt;">
+                                        <span class="pre-heading  bolder question-text-sample-output">Sample Output</span>
+                                        <pre class="card question-text-sample-input">100</pre>
+                                    <input type="hidden" id="sampleOutput" value="100">
+                                    <br>
+                                    <br>
+                                    <ul class="  collapsible cl2 row " id="editorial">
+                                        <li class=" col l12 s12 m12 ">
+                                                <div class="collapsible-header"><i class="  fa fa-plus fa-str-bg1 s1 "></i>Asked in Companies</div>
+                                                <div class="collapsible-body">
+                                                    <div class=" flex-card" id="companiesList">
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        <li class=" col l12 s12 m12  ">
+                                            <div class="collapsible-header"><i class="  fa fa-plus fa-str-bg1 s1 "></i>Related Topics</div>
+                                            <div class="collapsible-body">
+                                                <div class="   flex-card" id="tagList">
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                    <br>
+                                    <br>
+                                        <div class="row card card-light col l12" id="buyNowFreeCourse">
+                                        </div>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <br>
+                                    <input type="hidden" value="1239" id="quesId">
+                                    <input type="hidden" value="20" id="completeProfilePromptThreshold">
+                                    <input type="hidden" value="false" id="isPrivate">
+                                </div>
+                                        <div id="updateProfileModal31924" class="modal small">
+                                            <div class="modal-content">
+                                                <div class="row">
+                                                    <div class="row no-margin">
+                                                        <h1 class="col l10 s10 m10 center no-margin">Update Your Profile</h1>
+                                                        <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#!" class="col l2 s2 m2 modal-close waves-effect waves-green"> <i class="svg-close svg-header"></i></a>
+                                                    </div>
+                                                    <div class="row">
+                                                        <div class="card">
+                                                            <div class="card-content">
+                                                                <br>
+                                                                <div class="row center">
+                                                                    <h3>Your profile is incomplete!</h3>
+                                                                    <br>
+                                                                    <h3>Please <a href="https://www.pepcoding.com/profile" target="_blank"><u>click here</u></a> to complete your profile
+                                                                        to continue submitting
+                                                                        questions.</h3>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div></div>
+                            
+                            
+                            
+                            <div id="solutionContainer" class="resource-content  row card-content resource-content no-padding">
+                                <div class="col l11 s11 m11  ">
+                            
+                            
+                                    <div class="row col l12 s12 m12 ">
+                            
+                                        <h1 class=" center">Video Solution </h1>
+                            
+                                        <iframe src="./PepCoding _ Unbounded Knapsack_files/jgps7MXtKRQ(1).html" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen="" height="350px" width="100%"></iframe>
+                            
+                                    </div>
+                            
+                                </div>
+                            
+                                <div class="col l11 s11 m11 ">
+                                    <div class="row col l12 s12 m12">
+                            
+                                        <h1 class=" center" style=" ">Code Solution </h1>
+                                      
+                                        <div class="code-container">
+                            
+                                                <div class=" selectLang  editorOptions showEditorOptions header  no-margin d-flex  ">
+                                                    <div class="item">
+                                                      <select id="solutionEditor_lang_select" class="code-lang-select text-upper" title="Select Language"></select>
+                                                    </div>
+                                                    <div class="item settings">
+                                                      <i class="fa fa-gear  modal-trigger" href="#solutionEditor_modalSetting"></i>
+                                                     
+                                                      <i id="solutionEditor_format_code" class="fa fa-format  format-code" aria-hidden="true" title="Format your code">{ } </i>
+                                                      <i id="solutionEditor_reset_code" class="fa fa-refresh  code-refresh" aria-hidden="true" title="Reset your code"></i>
+                                                      <i id="solutionEditor_full_screen" class="fa fa-arrows-alt code-fullscreen" aria-hidden="true" title="FullScreen"></i>
+                                                    </div>
+                                                    
+                                                    <div id="solutionEditor_modalSetting" class="modal small">
+                                                      <div class="modal-content">
+                                                        <h4 class="row col l12 s12 center">
+                                                          Editor Settings
+                                                        </h4>
+                                                        <div class="row">
+                                                          <h4 class="col l6">
+                                                            Font Size
+                                                          </h4>
+                                                          <select id="solutionEditor_font_select" title="Select Editor Font Size" class="code-font-select col l6"></select>
+                                                        </div>
+                                                        <div class="row">
+                                                          <h4 class="col l6">
+                                                            Key Binding
+                                                          </h4>
+                                                          <select id="solutionEditor_key_binding" title="Select Editor Key Binding" class="key-binding col l6"></select>
+                                                        </div>
+                                                        <div class="divider"></div>
+                                                        <div class="row">
+                                                          <h4 class="col l12 center">
+                                                            Keyboard Shortcut
+                                                          </h4>
+                                                        </div>
+                                                        <ul class="collection">
+                                                          <li class="collection-item list-item">
+                                                            <span class="col l6 s6">
+                                                              fold
+                                                            </span>
+                                                            <span class="col l6 s6">
+                                                              Alt-L|Ctrl-F1
+                                                            </span>
+                                                          </li>
+                                                          <li class="collection-item list-item">
+                                                            <span class="col l6 s6">
+                                                              unfold
+                                                            </span>
+                                                            <span class="col l6 s6">
+                                                              Alt-Shift-L|Ctrl-Shift-F1
+                                                            </span>
+                                                          </li>
+                                                          <li class="collection-item list-item">
+                                                            <span class="col l6 s6">
+                                                              Gotoend
+                                                            </span>
+                                                            <span class="col l6 s6">
+                                                              Ctrl-End
+                                                            </span>
+                                                          </li>
+                                                          <li class="collection-item list-item">
+                                                            <span class="col l6 s6">
+                                                              Gotostart
+                                                            </span>
+                                                            <span class="col l6 s6">
+                                                              Ctrl-Home
+                                                            </span>
+                                                          </li>
+                                                          <li class="collection-item list-item">
+                                                            <span class="col l6 s6">
+                                                              Movelinesup
+                                                            </span>
+                                                            <span class="col l6 s6">
+                                                              Alt-Up
+                                                            </span>
+                                                          </li>
+                                                          <li class="collection-item list-item">
+                                                            <span class="col l6 s6">
+                                                              Movelinesdown
+                                                            </span>
+                                                            <span class="col l6 s6">
+                                                              Alt-Down
+                                                            </span>
+                                                          </li>
+                                                          <li class="collection-item list-item">
+                                                            <span class="col l6 s6">
+                                                              Undo
+                                                            </span>
+                                                            <span class="col l6 s6">
+                                                              Ctrl-Z
+                                                            </span>
+                                                          </li>
+                                                          <li class="collection-item list-item">
+                                                            <span class="col l6 s6">
+                                                              Redo
+                                                            </span>
+                                                            <span class="col l6 s6">
+                                                              Ctrl-Shift-Z|Ctrl-Y
+                                                            </span>
+                                                          </li>
+                                                          <li class="collection-item list-item">
+                                                            <span class="col l6 s6">
+                                                              Replace
+                                                            </span>
+                                                            <span class="col l6 s6">
+                                                              Ctrl-H
+                                                            </span>
+                                                          </li>
+                                                          <li class="collection-item list-item">
+                                                            <span class="col l6 s6">
+                                                              Togglecomment
+                                                            </span>
+                                                            <span class="col l6 s6">
+                                                              Ctrl-/
+                                                            </span>
+                                                          </li>
+                                                          <li class="collection-item list-item">
+                                                            <span class="col l6 s6">
+                                                              ToggleBlockComment
+                                                            </span>
+                                                            <span class="col l6 s6">
+                                                              Ctrl-Shift-/
+                                                            </span>
+                                                          </li>
+                                                          <li class="collection-item list-item">
+                                                            <span class="col l6 s6">
+                                                              Removeline
+                                                            </span>
+                                                            <span class="col l6 s6">
+                                                              Ctrl-D
+                                                            </span>
+                                                          </li>
+                                                        </ul>
+                                                      </div>
+                                                    </div>                    </div>
+                                                 <input type="hidden" value="" id="solutionEditor_sample_code">
+                                                <div id="solutionEditor" class="editor " style="  margin-bottom:20px;height:280px;width:100%; ">
+                            
+                                                
+                                        </div>
+                                        </div>
+                                        
+                                    </div>
+                            
+                            
+                                </div>
+                            
+                            
+                            </div>
+                            
+                            <div id="history" class="card-content resource-content  no-padding">
+                                <div class="row col l12 s12 m12" purpose="questionsHistory">
+                                </div>
+                            </div>
+                            
+                            
+                            <div id="statsContainer" class="row resource-content ">
+                            </div>
+                            
+                            
+                        </div>
+                    </div>
+                    <div class="  no-margin no-padding" id="splitEditor">
+
+                        <div class=" selectLang  editorOptions showEditorOptions header  no-margin d-flex  ">
+                            <div class="item">
+                              <select id="codeEditor5089_lang_select" class="code-lang-select text-upper" title="Select Language"></select>
+                            </div>
+                            <div class="item settings">
+                              <i class="fa fa-gear  modal-trigger" href="#codeEditor5089_modalSetting"></i>
+                             
+                              <i id="codeEditor5089_format_code" class="fa fa-format  format-code" aria-hidden="true" title="Format your code">{ } </i>
+                              <i id="codeEditor5089_reset_code" class="fa fa-refresh  code-refresh" aria-hidden="true" title="Reset your code"></i>
+                              <i id="codeEditor5089_full_screen" class="fa fa-arrows-alt code-fullscreen" aria-hidden="true" title="FullScreen"></i>
+                            </div>
+                            <div class="item">
+                              <div class="">
+                                <i id="codeEditor5089_compile_code" class="fa fa-play code-run btn-compile" title="Run"></i>
+                                Run
+                              </div>
+                            </div>
+                            
+                            
+                            <div id="codeEditor5089_modalSetting" class="modal small">
+                              <div class="modal-content">
+                                <h4 class="row col l12 s12 center">
+                                  Editor Settings
+                                </h4>
+                                <div class="row">
+                                  <h4 class="col l6">
+                                    Font Size
+                                  </h4>
+                                  <select id="codeEditor5089_font_select" title="Select Editor Font Size" class="code-font-select col l6"></select>
+                                </div>
+                                <div class="row">
+                                  <h4 class="col l6">
+                                    Key Binding
+                                  </h4>
+                                  <select id="codeEditor5089_key_binding" title="Select Editor Key Binding" class="key-binding col l6"></select>
+                                </div>
+                                <div class="divider"></div>
+                                <div class="row">
+                                  <h4 class="col l12 center">
+                                    Keyboard Shortcut
+                                  </h4>
+                                </div>
+                                <ul class="collection">
+                                  <li class="collection-item list-item">
+                                    <span class="col l6 s6">
+                                      fold
+                                    </span>
+                                    <span class="col l6 s6">
+                                      Alt-L|Ctrl-F1
+                                    </span>
+                                  </li>
+                                  <li class="collection-item list-item">
+                                    <span class="col l6 s6">
+                                      unfold
+                                    </span>
+                                    <span class="col l6 s6">
+                                      Alt-Shift-L|Ctrl-Shift-F1
+                                    </span>
+                                  </li>
+                                  <li class="collection-item list-item">
+                                    <span class="col l6 s6">
+                                      Gotoend
+                                    </span>
+                                    <span class="col l6 s6">
+                                      Ctrl-End
+                                    </span>
+                                  </li>
+                                  <li class="collection-item list-item">
+                                    <span class="col l6 s6">
+                                      Gotostart
+                                    </span>
+                                    <span class="col l6 s6">
+                                      Ctrl-Home
+                                    </span>
+                                  </li>
+                                  <li class="collection-item list-item">
+                                    <span class="col l6 s6">
+                                      Movelinesup
+                                    </span>
+                                    <span class="col l6 s6">
+                                      Alt-Up
+                                    </span>
+                                  </li>
+                                  <li class="collection-item list-item">
+                                    <span class="col l6 s6">
+                                      Movelinesdown
+                                    </span>
+                                    <span class="col l6 s6">
+                                      Alt-Down
+                                    </span>
+                                  </li>
+                                  <li class="collection-item list-item">
+                                    <span class="col l6 s6">
+                                      Undo
+                                    </span>
+                                    <span class="col l6 s6">
+                                      Ctrl-Z
+                                    </span>
+                                  </li>
+                                  <li class="collection-item list-item">
+                                    <span class="col l6 s6">
+                                      Redo
+                                    </span>
+                                    <span class="col l6 s6">
+                                      Ctrl-Shift-Z|Ctrl-Y
+                                    </span>
+                                  </li>
+                                  <li class="collection-item list-item">
+                                    <span class="col l6 s6">
+                                      Replace
+                                    </span>
+                                    <span class="col l6 s6">
+                                      Ctrl-H
+                                    </span>
+                                  </li>
+                                  <li class="collection-item list-item">
+                                    <span class="col l6 s6">
+                                      Togglecomment
+                                    </span>
+                                    <span class="col l6 s6">
+                                      Ctrl-/
+                                    </span>
+                                  </li>
+                                  <li class="collection-item list-item">
+                                    <span class="col l6 s6">
+                                      ToggleBlockComment
+                                    </span>
+                                    <span class="col l6 s6">
+                                      Ctrl-Shift-/
+                                    </span>
+                                  </li>
+                                  <li class="collection-item list-item">
+                                    <span class="col l6 s6">
+                                      Removeline
+                                    </span>
+                                    <span class="col l6 s6">
+                                      Ctrl-D
+                                    </span>
+                                  </li>
+                                </ul>
+                              </div>
+                            </div>                        </div>
+
+                        <div id="codeContainer" class="row col l12 s12  card-content row code-container no-padding">
+                            <div id="codeEditor5089" class="col l12 s12 m8 editor "></div>
+
+                            <div class="col l12 no-margin no-padding  editor-footer no-padding ">
+                                <ul id="codeEditor5089_collapsible" class="collapsible no-margin colap-code  ">
+                                    <li class="no-margin">
+                                        <div class="collapsible-header  row no-margin console">
+                                            <div class="col l10 s10">
+                            
+                                                <span>&nbsp; &nbsp; <i class="fa fa-caret-up  downArrowToRotate"></i>
+                                                    <span class="hide-on-med-and-down">
+                            
+                                                    </span> Console
+                                                </span>
+                                                <span>
+                                                    <i class="fa  fa-clock-o"></i>
+                                                    <span id="codeEditor5089_compile_time" class="hide-on-med-and-down"> Time</span>
+                                                </span>
+                                                <span>
+                                                    <i class="fa fa-microchip"></i><span class="hide-on-med-and-down" id="codeEditor5089_compile_memory">
+                                                        Memory</span>
+                                                </span>
+                                                <span id="codeEditor5089_compile_status" class="op-heading">
+                                                    <i class="fa fa-check-circle"></i>
+                            
+                                                    <span id="codeEditor5089_message" class="hide-on-med-and-down">Status</span>
+                                            </span></div>
+                            
+                                            <div class="col l2">
+                            
+                            
+                                                <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#" id="codeEditor5089_submit_code" class="btn btn-submit  center red white-text  bolder " style="height: 35px;line-height:35px">
+                                                    &nbsp;Submit</a>
+                                            </div>
+                                        </div>
+                                        <div class="collapsible-body" style="padding: 0px 10px;">
+                            
+                            
+                                            <div class="row  " style="margin-bottom:2px">
+                                                <div class="col s12">
+                                                    <ul id="codeEditor5089_tab" class="tabs  output-tabs">
+                                                        <li id="codeEditor5089_tab_output" class="tab col s3 active">
+                                                            <a class="active bolder" href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#codeEditor5089_output_box">output</a>
+                                                        </li>
+                                                        <li id="codeEditor5089_tab_input" class="tab col s3"><a class="bolder" id="hello" href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#codeEditor5089_input_box">input</a>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                                <div id="codeEditor5089_output_box" class="col s12" style="height: 20vh">
+                                                    <pre id="codeEditor5089_compile_actual_output" placeholder="Add your own input here , else programe will run against default test case" class="output no-margin " style="height:100%;overflow-y:scroll" rows="6" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></pre>
+                            
+                                                    <div id="codeEditor5089_submit_actual_output">
+                                                    </div>
+                                                </div>
+                                                <div id="codeEditor5089_input_box" class="col s12" style="height: 100%;line-height: 1rem;width: 98%;">
+                                                    <textarea class="customArea no-margin" id="codeEditor5089_customInput" style="border:none;height: 100% " placeholder="Add your own input here , else programe will run against default test case" rows="6" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                                                </div>
+                                            </div>
+                            
+                                        </div>
+                                    </li>
+                            
+                                </ul>
+                                <input type="hidden" value="" id="codeEditor5089_compileOnly">
+                            </div>
+
+
+                        <input type="hidden" value="{&quot;cpp&quot;: {&quot;code&quot;: &quot;#include &lt;iostream&gt;\r\n#include &lt;vector&gt;\r\n\r\nusing namespace std;\r\n\r\nvoid unboundedKnapsack(int n, vector&lt;int&gt; val, vector&lt;int&gt; weight, int cap) {\r\n\r\n// write your code here\r\n\r\n}\r\n\r\n\r\nint main() {\r\n\r\n  int n;\r\n  cin &gt;&gt; n;\r\n  vector&lt;int&gt; val(n);\r\n  for (int i = 0; i &lt; n; i++) {\r\n\r\n    cin &gt;&gt; val[i];\r\n  }\r\n  vector&lt;int&gt; weight(n);\r\n  for (int i = 0; i &lt; n; i++) {\r\n    cin &gt;&gt; weight[i];\r\n  }\r\n  int cap;\r\n  cin &gt;&gt; cap;\r\n\r\n  unboundedKnapsack(n, val, weight, cap);\r\n\r\n\r\n}&quot;}, &quot;java&quot;: {&quot;code&quot;: &quot;\timport java.io.*;\r\n\timport java.util.*;\r\n\r\n\tpublic class Main {\r\n\r\n\t    public static void main(String[] args) throws Exception {\r\n\r\n\t    }\r\n\t}&quot;}, &quot;ruby&quot;: {&quot;code&quot;: &quot;&quot;}, &quot;python&quot;: {&quot;code&quot;: &quot;def unbounded_knapSack(cap, wt, val, n):\r\n\r\n# write your code here\r\n\r\nn = int(input())\r\n\r\nst1 = input()\r\nv=st1.split()\r\nval=[int(i) for i in v]\r\n\r\nst2 = input()\r\nw = st2.split()\r\nwt = [int(j) for j in w]\r\n\r\ncap = int(input()) \r\n \r\nprint(unbounded_knapSack(cap, wt, val, n))&quot;}, &quot;javascript&quot;: {&quot;code&quot;: &quot;&quot;}}" id="codeEditor5089_sample_code">
+
+                        </div>
+
+
+                    </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+   </main>
+   <div class="live-editor">
+       <div id="editor-support-out" class="sidenav  sidenav-editor-window editor-section black right-aligned">
+           <div class="row no-margin doubt-header">
+               <div class="col l1 s3 m3 row no-margin no-padding ">
+                   <a href="https://www.pepcoding.com/index" class="brand-logo">
+                       <img class="logo" src="./PepCoding _ Unbounded Knapsack_files/logo.png" alt="logo">
+                   </a>
+               </div>
+               <div class="col l2 s2 m2 no-padding " title="Save" style="display: inline-flex;">
+                   <div id="liveEditorId"></div>&nbsp;
+               </div>
+   
+   
+               <div class="col l6 s6 m6 no-padding">
+   
+                   <div class="selectLang d-flex editorOptions  ">
+                       <div class="item">
+                         <select id="liveEditor_lang_select" class="code-lang-select text-upper" title="Select Language"></select>
+                       </div>
+                       <div class="item settings">
+                         <i class="fa fa-gear  modal-trigger" href="#liveEditor_modalSetting"></i>
+                        
+                         <i id="liveEditor_format_code" class="fa fa-format  format-code" aria-hidden="true" title="Format your code">{ } </i>
+                         <i id="liveEditor_reset_code" class="fa fa-refresh  code-refresh" aria-hidden="true" title="Reset your code"></i>
+                         <i id="liveEditor_full_screen" class="fa fa-arrows-alt code-fullscreen" aria-hidden="true" title="FullScreen"></i>
+                       </div>
+                       <div class="item">
+                         <div class="">
+                           <i id="liveEditor_compile_code" class="fa fa-play code-run btn-compile" title="Run"></i>
+                           Run
+                         </div>
+                       </div>
+                       
+                       
+                       <div id="liveEditor_modalSetting" class="modal small">
+                         <div class="modal-content">
+                           <h4 class="row col l12 s12 center">
+                             Editor Settings
+                           </h4>
+                           <div class="row">
+                             <h4 class="col l6">
+                               Font Size
+                             </h4>
+                             <select id="liveEditor_font_select" title="Select Editor Font Size" class="code-font-select col l6"></select>
+                           </div>
+                           <div class="row">
+                             <h4 class="col l6">
+                               Key Binding
+                             </h4>
+                             <select id="liveEditor_key_binding" title="Select Editor Key Binding" class="key-binding col l6"></select>
+                           </div>
+                           <div class="divider"></div>
+                           <div class="row">
+                             <h4 class="col l12 center">
+                               Keyboard Shortcut
+                             </h4>
+                           </div>
+                           <ul class="collection">
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 fold
+                               </span>
+                               <span class="col l6 s6">
+                                 Alt-L|Ctrl-F1
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 unfold
+                               </span>
+                               <span class="col l6 s6">
+                                 Alt-Shift-L|Ctrl-Shift-F1
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Gotoend
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-End
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Gotostart
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-Home
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Movelinesup
+                               </span>
+                               <span class="col l6 s6">
+                                 Alt-Up
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Movelinesdown
+                               </span>
+                               <span class="col l6 s6">
+                                 Alt-Down
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Undo
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-Z
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Redo
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-Shift-Z|Ctrl-Y
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Replace
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-H
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Togglecomment
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-/
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 ToggleBlockComment
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-Shift-/
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Removeline
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-D
+                               </span>
+                             </li>
+                           </ul>
+                         </div>
+                       </div>                </div>
+               </div>
+               <div class="col l1 s1 m1 right" title="Close Editor">
+                   <a class="sidenav-close right " href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#">
+                       <i class="fa fa-times fa-2x " aria-hidden="true"></i>
+                   </a>
+               </div>
+   
+           </div>
+           <div id="liveCodeContainer" class="card-content row code-container">
+               <div id="liveEditor" class="col l12 s12 m12 editor "></div>
+   
+   
+               <div class="col l12 m12 s12 row  no-padding">
+                   <div class="col l12 no-margin no-padding  editor-footer no-padding ">
+                       <ul id="liveEditor_collapsible" class="collapsible no-margin colap-code  ">
+                           <li class="no-margin">
+                               <div class="collapsible-header  row no-margin console">
+                                   <div class="col l10 s10">
+                   
+                                       <span>&nbsp; &nbsp; <i class="fa fa-caret-up  downArrowToRotate"></i>
+                                           <span class="hide-on-med-and-down">
+                   
+                                           </span> Console
+                                       </span>
+                                       <span>
+                                           <i class="fa  fa-clock-o"></i>
+                                           <span id="liveEditor_compile_time" class="hide-on-med-and-down"> Time</span>
+                                       </span>
+                                       <span>
+                                           <i class="fa fa-microchip"></i><span class="hide-on-med-and-down" id="liveEditor_compile_memory">
+                                               Memory</span>
+                                       </span>
+                                       <span id="liveEditor_compile_status" class="op-heading">
+                                           <i class="fa fa-check-circle"></i>
+                   
+                                           <span id="liveEditor_message" class="hide-on-med-and-down">Status</span>
+                                   </span></div>
+                   
+                                   <div class="col l2">
+                   
+                                   </div>
+                               </div>
+                               <div class="collapsible-body" style="padding: 0px 10px;">
+                   
+                   
+                                   <div class="row  " style="margin-bottom:2px">
+                                       <div class="col s12">
+                                           <ul id="liveEditor_tab" class="tabs  output-tabs">
+                                               <li id="liveEditor_tab_output" class="tab col s3 active">
+                                                   <a class="active bolder" href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#liveEditor_output_box">output</a>
+                                               </li>
+                                               <li id="liveEditor_tab_input" class="tab col s3"><a class="bolder" id="hello" href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#liveEditor_input_box">input</a>
+                                               </li>
+                                           </ul>
+                                       </div>
+                                       <div id="liveEditor_output_box" class="col s12" style="height: 20vh">
+                                           <pre id="liveEditor_compile_actual_output" placeholder="Add your own input here , else programe will run against default test case" class="output no-margin " style="height:100%;overflow-y:scroll" rows="6" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></pre>
+                   
+                                           <div id="liveEditor_submit_actual_output">
+                                           </div>
+                                       </div>
+                                       <div id="liveEditor_input_box" class="col s12" style="height: 100%;line-height: 1rem;width: 98%;">
+                                           <textarea class="customArea no-margin" id="liveEditor_customInput" style="border:none;height: 100% " placeholder="Add your own input here , else programe will run against default test case" rows="6" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                                       </div>
+                                   </div>
+                   
+                               </div>
+                           </li>
+                   
+                       </ul>
+                       <input type="hidden" value="true" id="liveEditor_compileOnly">
+                   </div>
+               </div>
+   
+               <div id="slide-out-editorslist" style="transform: translateX(105%);width:36vw;top: 0;height: 90%;overflow:auto;" class="sidenav right white no-margin hide">
+   
+                   <table>
+                       <thead>
+                           <tr>
+                               <th>Id</th>
+                               <th>Name</th>
+                               <th>
+                                   <a href="https://www.pepcoding.com/resources/online-java-foundation/dynamic-programming-and-greedy/unbounded-knapsack-official/ojquestion#" class="sidenav-close">
+                                       <i class="fa fa-times vertical-text-middle" aria-hidden="true"></i>
+                                   </a>
+                               </th>
+                           </tr>
+                       </thead>
+                       <tbody id="liveEditorNotesList" class="black-text">
+                       </tbody>
+                   </table>
+               </div>
+           </div>
+       </div>
+   </div>   <script src="./PepCoding _ Unbounded Knapsack_files/jquery.min.js.download"></script>
+   <script src="./PepCoding _ Unbounded Knapsack_files/materialize.min.js.download"></script>
+   <iframe id="nr-ext-rsicon" style="position: absolute; display: none; width: 50px; height: 50px; z-index: 2147483647; border-style: none; background: transparent;" src="./PepCoding _ Unbounded Knapsack_files/saved_resource.html"></iframe></body></html>

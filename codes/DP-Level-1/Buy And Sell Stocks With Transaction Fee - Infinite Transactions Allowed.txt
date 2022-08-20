@@ -1,0 +1,31 @@
+#include <iostream>
+#include <vector>
+
+using namespace std;
+
+int transactions(vector<int> A, int fee) {
+
+    int ssp=0, bsp=-A[0];
+    for(int i=1;i<A.size();i++)
+        {
+            int new_ssp=max(bsp+A[i]-fee, ssp);
+            int new_bsp=max(bsp, ssp-A[i]);
+            ssp=new_ssp, bsp=new_bsp;
+        }
+    return ssp;
+    
+}
+int main() {
+  int n;
+  cin >> n;
+  vector<int> arr(n, 0);
+  for (int i = 0; i < arr.size(); i++) {
+    cin >> arr[i];
+  }
+  int fee;
+  cin >> fee;
+
+  cout<<transactions(arr, fee);
+
+  return 0;
+}

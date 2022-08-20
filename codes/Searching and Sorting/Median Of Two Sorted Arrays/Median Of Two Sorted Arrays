@@ -63,7 +63,10 @@
 	  		cin>>B[i];
 		float ans =getMedian(A,B);
 		if(ans==int(ans))
+		{
+			cout<<std::fixed;
 			cout<<setprecision(1)<<ans;
+		}
 		else
 			cout<<ans;
 	}
