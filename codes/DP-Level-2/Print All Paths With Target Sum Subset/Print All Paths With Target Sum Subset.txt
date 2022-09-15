@@ -1,0 +1,108 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+	_main();
+	return 0;
+}
+
+struct Path
+{
+	vi v;
+	int i, j;
+};
+
+void print(vi v)
+{
+	for(int i=v.size()-1;i>=0;i--)
+		cout<<v[i]<<' ';
+	cout<<'
+';
+}
+
+void targetSum(int A[], int n, int sum)
+{
+	int dp[n+1][sum+1];
+	for(int j=0;j<=sum;j++)
+		dp[0][j]=0;
+	for(int i=0;i<=n;i++)
+		dp[i][0]=1;
+	for(int i=1;i<=n;i++)
+		for(int j=1;j<=sum;j++)
+		{
+			dp[i][j]=dp[i-1][j];
+			if(A[i-1]<=j)
+				dp[i][j]=dp[i][j]||dp[i-1][j-A[i-1]];
+
+		}
+
+	cout<<(dp[n][sum]?"true":"false")<<'
+';
+
+
+	// for(int i=0;i<=n;i++)
+	// {
+	// 	for(int j=0;j<=sum;j++)
+	// 		cout<<dp[i][j]<<' ';
+	// 	cout<<'
+';
+	// }
+
+	queue<Path> q;
+
+	q.push({{},n,sum});
+	while(q.size())
+	{
+		vi v=q.front().v;
+		int i=q.front().i, j=q.front().j;
+		q.pop();
+		if(j==0 || i==0)
+			print(v);
+		
+		else{
+		if(A[i-1]<=j && dp[i-1][j-A[i-1]])
+		{
+			v.push_back(i-1);
+			q.push({v,i-1,j-A[i-1]});
+			v.pop_back();
+		}
+		if(dp[i-1][j])
+			q.push({v,i-1,j});
+		
+	}
+
+	}
+
+
+
+}
+
+void _main()
+{
+  	int n;
+  	cin>>n;
+  	int A[n];
+  	for(int i=0;i<n;i++)
+  		cin>>A[i];
+  	int sum;
+  	cin>>sum;
+
+  	targetSum(A,n,sum);
+  	// cout<<(found?"true":"false");
+
+}

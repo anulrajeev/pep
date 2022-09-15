@@ -1,0 +1,52 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+
+	_main();
+	return 0;
+}
+
+ll C(int n, int r)
+{
+	ll res=1;
+	for(int i=0;i<r;i++)
+	{
+		res=res*(n-i);
+		res=res/(i+1);
+	}
+	return res;
+}
+
+ll countBST(int n)
+{
+	int dp[n+1]={1,1};
+	for(int i=2;i<=n;i++)
+	    for(int j=0;j<i;j++)
+	        dp[i]+=dp[j]*dp[i-j-1];
+	 return dp[n];
+}
+
+void _main()
+{
+  	int n;
+  	cin>>n;
+  	cout<<countBST(n);
+
+
+}

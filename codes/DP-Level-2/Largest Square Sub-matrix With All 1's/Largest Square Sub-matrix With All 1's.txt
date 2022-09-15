@@ -1,0 +1,63 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+
+	_main();
+	return 0;
+}
+
+
+
+int largestSquare(vvi &grid)
+{
+	int m=grid.size(), n=grid[0].size();
+	int dp[m][n];
+
+	for(int i=0;i<m;i++)
+		dp[i][n-1]=grid[i][n-1];
+	for(int j=0;j<n;j++)
+		dp[m-1][j]=grid[m-1][j];
+
+	int res=0;
+	for(int i=m-2;i>=0;i--)
+		for(int j=n-2;j>=0;j--)
+			if(grid[i][j]==0)
+				dp[i][j]=0;
+			else
+				{
+					dp[i][j]=min({ dp[i][j+1], dp[i+1][j], dp[i+1][j+1] })+1;
+					res=max(res, dp[i][j]);
+				}
+
+
+	return res;
+
+}
+
+void _main()
+{
+  	int m,n;
+  	cin>>m>>n;
+  	vvi grid(m, vi(n, 0));
+  	for(int i=0;i<m;i++)
+  		for(int j=0;j<n;j++)
+  			cin>>grid[i][j];
+  	cout<<largestSquare(grid);
+
+}

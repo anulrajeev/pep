@@ -1,0 +1,110 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+
+	_main();
+	return 0;
+}
+
+
+struct Path
+{
+	vi v;
+	int i, j;
+
+};
+
+int knapSack(int value[], int weight[], int n, int cap)
+{
+	/*
+	if(n==0 ||cap==0)
+		return 0;
+	int exc = knapSack(value, weight, n-1, cap);
+	int inc = (weight[n-1]<=cap?knapSack(value,weight,n-1,cap-weight[n-1])+value[n-1]:0);
+	return max(inc,exc);
+	*/
+	vvi dp(n+1, vi(cap+1, 0));
+	for(int i=1;i<=n;i++)
+		for(int j=1;j<=cap;j++)
+		{
+			int exc = dp[i-1][j];
+			int inc = (weight[i-1]<=j?dp[i-1][j-weight[i-1]]+value[i-1]:0);
+			dp[i][j]=max(inc, exc);
+		}
+
+	// for(int i=0;i<=n;i++)
+	// {	for(int j=0;j<=cap;j++)
+	// 		cout<<dp[i][j]<<'	';
+	// 	cout<<'
+';
+	// }
+
+	cout<<dp[n][cap]<<'
+';
+
+
+	queue<Path> q;
+	q.push({{},n,cap});
+	while(q.size())
+	{
+		vi v=q.front().v;
+		int i=q.front().i, j=q.front().j;
+		q.pop();
+
+		if(i==0 || j==0)
+		{
+			for(int k=v.size()-1;k>=0;k--)
+				cout<<v[k]<<' ';
+			cout<<'
+';
+		}
+		else
+		{
+			if(j-weight[i-1]>=0)
+			{
+				int exc = dp[i-1][j], inc = dp[i-1][j-weight[i-1]];
+				if(exc==dp[i][j])
+					q.push({v,i-1,j});
+				if(inc+value[i-1]==dp[i][j])
+				{
+					v.push_back(i-1);
+					q.push({v,i-1,j-weight[i-1]});
+					v.pop_back();
+				}
+			}
+			else
+				q.push({v,i-1,j});
+		}
+	}
+
+}
+
+void _main()
+{
+  	int n;
+  	cin>>n;
+  	int value[n], weight[n], cap;
+  	for(int i=0;i<n;i++)
+  		cin>>value[i];
+  	for(int i=0;i<n;i++)
+  		cin>>weight[i];
+  	cin>>cap;
+  	knapSack(value,weight,n, cap);
+
+}

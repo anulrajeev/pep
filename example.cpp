@@ -27,27 +27,39 @@ int main(){
 	return 0;
 }
 
-int getPermutations(vi denomination, int sum)
+int f(string text)
 {
-	int dp[sum+1]={0};
-	dp[0]=1;
-	for(int i=1;i<=sum;i++)
-		for(auto x : denomination)
-			if(i-x>=0)
-				dp[i]+=dp[i-x];
-	return dp[sum];
+	int n=text.length();
+	int dp[n];
+	dp[0]=0;
+	unordered_set<string> taken;
+
+	for(int i=1;i<n;i++)
+	{
+		dp[i]=dp[i-1];
+		for(int j=i;j>=0;j--)
+			{
+				string s=text.substr(j,i-j+1);
+				string sub=s.substr(0, s.length()/2);
+				if(sub+sub==s && taken.count(s)==0)
+				{
+					dp[i]++;
+					taken.insert(s);
+				}
+			}
+	}
+
+	// for(int i=0;i<n;i++)
+		// cout<<dp[i]<<' ';  cout<<'\n';
+	// for(int i=0;i<n;i++)
+		// cout<<text[i]<<' ';  cout<<'\n';
+	return dp[n-1];
 }
 
 void _main()
 {
-	int n;
-	cin>>n;
-
-	vi denomination(n);
-	for(int i=0;i<n;i++)
-		cin>>denomination[i];
-	int sum;
-	cin>>sum;
-	cout<<getPermutations(denomination,sum);
+  	string s;
+  	cin>>s;
+  	cout<<f(s);
 }
 

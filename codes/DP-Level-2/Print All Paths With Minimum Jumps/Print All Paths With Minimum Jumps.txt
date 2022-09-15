@@ -1,0 +1,84 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+
+	_main();
+	return 0;
+}
+
+void printPath(int A[], int dp[], int n,  int i, vi asf)
+{
+	if(i+A[i]>=n-1)
+	{
+		for(auto x : asf)
+			cout<<x<<" -> ";
+		cout<<n-1<<" .
+";
+	}
+	else
+	{
+		int min_ele=INT_MAX;
+		for(int j=1;j<=A[i];j++)
+			min_ele=min(min_ele, dp[i+j]);
+		for(int j=1;j<=A[i];j++)
+			if(dp[i+j]==min_ele)
+			{
+				asf.push_back(i+j);
+				printPath(A,dp, n, i+j,asf);
+				asf.pop_back();
+			}
+	}
+}
+
+void getMinPaths(int A[], int n)
+{
+	int dp[n];
+	fill(dp,dp+n,INT_MAX);
+	dp[n-1]=0;
+
+	for(int i=n-2;i>=0;i--)
+	{
+		int min_ele=INT_MAX;
+		for(int j=1;j<=A[i];j++)
+			if(i+j<n)
+				min_ele=min(min_ele, dp[i+j]);
+		if(min_ele!=INT_MAX)
+			dp[i]=min_ele+1;
+
+
+	}
+
+	cout<<dp[0]<<'
+';
+
+	vi asf;
+	asf.push_back(0);
+	printPath(A,dp, n, 0,asf);
+
+}
+
+void _main()
+{
+  	int n;
+  	cin>>n;
+  	int A[n];
+  	for(int i=0;i<n;i++)
+  		cin>>A[i];
+  	getMinPaths(A,n);
+}

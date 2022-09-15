@@ -1,0 +1,94 @@
+/*
+
+-> this is similar to two people simultaneously starting from the beginning and ending simultaneously at the destination.
+
+-> a cherry picked by one person cannot be picked by another.
+
+-> since both move simultaneously, the manhattan distance r1+c1=r2+c2 at any moment => we need only 3 parameters, the fourth one can be deduced from the other three.
+
+-> from each place each of them can have two movements - left, right => total of 4 movements combined.
+
+-> they enter only if there are no thorns
+
+-> since the distance at any moment from origin is same for both, they reach destination simulatneously	
+
+
+*/
+
+
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000007;
+
+void _main();
+int main(){
+ #ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w", stdout);
+ #endif
+	_main();
+	return 0;
+}
+
+int dp[51][51][51];
+
+
+bool isValid(int n, int r1, int r2, int c1, int c2)
+{
+	return r2>=0&&r1>=0&&c1>=0&&c2>=0&&r1<n&&c1<n&&c2<n&&r2<n;
+}
+
+
+int helper(vvi &grid, int r1, int c1, int c2)
+{
+	int r2=r1+c1-c2, n=grid.size();
+	if(isValid(n,r1,r2,c1,c2) && grid[r1][c1]!=-1 && grid[r2][c2]!=-1)
+	{
+		// cout<<"r1 = "<<r1<<' '<<"c1 = "<<c1<<'\n'<<"r2 = "<<r2<<' '<<"c2 = "<<c2<<"\n\n";
+		if(dp[r1][c1][c2]!=-1)
+			return dp[r1][c1][c2];
+		if(r1==n-1 && c1==n-1)
+			return grid[r1][c1];
+		int ans = grid[r1][c1];
+		if(r1!=r2)
+			ans+=grid[r2][c2];
+		ans += max({ helper(grid,r1,c1+1,c2+1), helper(grid,r1+1,c1,c2), helper(grid,r1+1,c1,c2+1), helper(grid,r1,c1+1,c2)});
+		return dp[r1][c1][c2]=ans;
+	}
+
+	return INT_MIN;
+}
+
+int countCherries(vvi &grid)
+{
+	int n=grid.size();
+	memset(dp,-1,sizeof(dp));
+	return max(0,helper(grid,0,0,0));
+}
+
+void _main()
+{
+  	int n;
+  	cin>>n;
+  	vvi grid(n,vi(n));
+  	for(int i=0;i<n;i++)
+  		for(int j=0;j<n;j++)
+  			cin>>grid[i][j];
+  	cout<<countCherries(grid);
+}
+

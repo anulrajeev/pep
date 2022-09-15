@@ -1,0 +1,54 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000007;
+
+void _main();
+int main(){
+	_main();
+	return 0;
+}
+
+ll maxRevenue(int A[], int cost[], int n, int T)
+{
+	ll lis[n];
+	lis[0]=cost[0];
+	for(int i=1;i<n;i++)
+	{
+	    lis[i]=cost[i];
+	    for(int j=0;j<i;j++)
+	        if(A[i]-A[j]>T)
+	            lis[i]=max(lis[i], lis[j]+cost[i]);
+	}
+	return *max_element(lis,lis+n);
+}
+
+void _main()
+{
+  	int m,n;
+  	cin>>m>>n;
+  	int A[n], cost[n];
+  	for(int i=0;i<n;i++)
+  		cin>>A[i];
+  	for(int i=0;i<n;i++)
+  		cin>>cost[i];
+
+  	int T;
+  	cin>>T;
+
+  	cout<<maxRevenue(A,cost,n,T);
+
+}
+

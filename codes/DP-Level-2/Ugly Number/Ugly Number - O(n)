@@ -1,0 +1,101 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000007;
+
+void _main();
+int main(){
+ #ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w", stdout);
+ #endif
+	_main();
+	return 0;
+}
+
+long long ugly(int n)
+{
+	vector<long long> res;
+	int i=0,j=0,k=0;
+	res.push_back(1);
+	for(int t=1;t<n;t++)
+	{
+		long long ele = min({res[i]*2,res[j]*3,res[k]*5});
+		res.push_back(ele);
+
+		if(ele==res[i]*2)
+			i++;
+		if(ele==res[j]*3)
+			j++;
+		if(ele==res[k]*5)
+			k++;
+	}
+
+	// for(int i=0;i<n;i++)
+		// cout<<res[i]<<' '; cout<<'\n';
+	return res.back();
+}
+
+void _main()
+{
+	int n;
+	cin>>n;
+	cout<<ugly(n);  	
+
+}
+
+long long nthSuperUglyNumber(int n, vector<int>& primes) {
+        vector<long long> res;
+        res.push_back(1);
+        unordered_map<long long ,long long> index;
+        for(auto p : primes)
+            index[p]=0;
+        
+        for(int t=1;t<n;t++)
+        {
+            long long ele = INT_MAX;
+            for(auto p : primes)
+            {
+                int i=index[p];
+                ele=min(ele, p*res[i]);
+            }
+            
+            res.push_back(ele);
+            
+            for(auto p : primes)
+            {
+                int i = index[p];
+                if(ele==p*res[i])
+                    index[p]++;
+            }
+        }
+        return res.back();
+    }
+
+void _main()
+{
+    int k;
+    cin>>k;
+    vector<int> primes(k);
+    for(int i=0;i<k;i++)
+        cin>>primes[i];
+    int n;
+    cin>>n;
+    cout<<nthSuperUglyNumber(n,primes);
+    return 0;
+}
+

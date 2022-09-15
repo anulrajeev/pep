@@ -1,0 +1,30 @@
+class Solution {
+public:
+    int nthSuperUglyNumber(int n, vector<int>& primes) {
+        vector<long long> res;
+        res.push_back(1);
+        unordered_map<long long ,long long> index;
+        for(auto p : primes)
+            index[p]=0;
+        
+        for(int t=1;t<n;t++)
+        {
+            long long ele = INT_MAX;
+            for(auto p : primes)
+            {
+                int i=index[p];
+                ele=min(ele, p*res[i]);
+            }
+            
+            res.push_back(ele);
+            
+            for(auto p : primes)
+            {
+                int i = index[p];
+                if(ele==p*res[i])
+                    index[p]++;
+            }
+        }
+        return res.back();
+    }
+};

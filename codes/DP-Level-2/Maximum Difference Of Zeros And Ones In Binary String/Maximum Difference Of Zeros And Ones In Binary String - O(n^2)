@@ -1,0 +1,80 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000007;
+
+void _main();
+int main(){
+ #ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w", stdout);
+ #endif
+	_main();
+	return 0;
+}
+
+void print(vector<vector<pii>> &dp)
+{
+	int n=dp.size();
+	for(int i=0;i<n;i++)
+	{	for(int j=0;j<n;j++)
+			cout<<"{"<<dp[i][j].first<<", "<<dp[i][j].second<<"}  ";
+		cout<<'\n';
+	}
+}
+
+int maxDiff(string s)
+{
+	int n=s.length();
+	vector<vector<pii>> dp(n,vector<pii>(n));
+	for(int gap=0;gap<n;gap++)
+		for(int i=0;i+gap<n;i++)
+		{
+			int j=i+gap;
+
+			if(gap==0)
+				{
+					if(s[j]=='1')
+						dp[i][j]={0,1};
+					else
+						dp[i][j]={1,0};
+				}
+			else
+			{
+				dp[i][j]=dp[i][j-1];
+				if(s[j]=='1')
+					dp[i][j].second++;
+				else
+					dp[i][j].first++;
+			}
+		}
+
+	// print(dp);
+	int res=0;
+	for(int gap=0;gap<n;gap++)
+		for(int i=0;i+gap<n;i++)
+			res=max(res, abs(dp[i][i+gap].first-dp[i][i+gap].second));
+	return res;
+}
+
+void _main()
+{
+	string s;
+	cin>>s;
+	cout<<maxDiff(s);
+}
+

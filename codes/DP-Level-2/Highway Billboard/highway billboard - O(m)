@@ -1,0 +1,56 @@
+ 
+/*
+
+    int dp[m+1];
+
+    dp[i] => maxRevenue that can be generated upto ith distance;
+    
+    if there can be a board @i,
+        dp[i] = max(noBoard, yesBoard);
+        noBoard  => dp[i-1];
+        yesBoard => cost(ith board) +  revenue upto i-T-1 position
+    else
+        dp[i] = noBoard
+
+
+*/
+
+
+ #include<bits/stdc++.h>
+ using namespace std;
+ 
+ int maxRevenue(int A[], int cost[], int n, int m, int T)
+ {
+     int dp[m+1]={0};
+     dp[A[0]]=cost[0];
+     int index=1;
+     for(int i=A[0]+1;i<=m;i++)
+        if(index<n && i==A[index])
+            {
+                int noBoard=(i-T-1>=0?dp[i-T-1]:0)+cost[index];
+                int yesBoard =  dp[i-1];
+                dp[i]=max(noBoard,yesBoard);
+                index++;        
+            }
+        else
+            dp[i]=dp[i-1];
+    // for(int i=0;i<=m;i++)
+        // cout<<i<<" --> "<<dp[i]<<'\n';
+    return dp[m];
+ }
+ 
+ 
+ int main()
+ {
+     int m,n;
+     cin>>m>>n;
+     int A[n], cost[n];
+    for(int i=0;i<n;i++)
+        cin>>A[i];
+    for(int i=0;i<n;i++)
+        cin>>cost[i];
+    int T;
+    cin>>T;
+    cout<<maxRevenue(A,cost,n,m,T);
+     return 0;
+ }
