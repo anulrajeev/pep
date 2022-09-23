@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000007;
+
+void _main();
+int main(){
+ #ifndef ONLINE_JUDGE
+    // for getting input from input.txt
+    freopen("input.txt", "r", stdin);
+    // for writing output to output.txt
+    freopen("output.txt", "w", stdout);
+ #endif
+    _main();
+    return 0;
+}
+
+int dp[366];
+
+ int mincostTickets(vector<int> &days, vector<int> &cost, int i=0)
+ {
+    if(i>=days.size())
+        return 0;
+    if(dp[i]!=-1)
+        return dp[i];
+
+    int dayPass   = mincostTickets(days, cost,i+1) + cost[0];
+    int monthPass = mincostTickets(days, cost,upper_bound(days.begin(), days.end(), days[i]+6)-days.begin()) + cost[1];  
+    int yearPass  = mincostTickets(days, cost,upper_bound(days.begin(), days.end(), days[i]+29)-days.begin())+ cost[2];
+
+    return dp[i]=min({dayPass,monthPass,yearPass});
+ }
+ 
+
+void _main()
+{
+    int n;
+    cin>>n;
+    vector<int> days(n);
+    for (int i = 0; i < n; i++)
+        cin>>days[i];
+    vector<int> cost(3);
+    for (int i = 0; i < 3; i++)
+        cin>>cost[i];
+    sort(days.begin(), days.end());
+    memset(dp,-1,sizeof(dp));
+    cout<<mincostTickets(days, cost)<<endl;
+}
+

@@ -1,0 +1,27 @@
+class Solution {
+    vector<vector<long long>> dp;
+    
+    
+    long long f(vector<int> A, int i, int pos, int n)
+{
+	if(i==n)
+		return 0;
+    if(dp[i][pos]!=-1)
+        return dp[i][pos];
+	long long exc = f(A,i+1,pos,n);
+	long long inc = f(A,i+1,pos+1,n);
+	if(pos%2==0)
+		inc+=A[i];
+	else
+		inc-=A[i];
+	return dp[i][pos]=max(inc,exc);
+}	
+public:
+    
+    long long maxAlternatingSum(vector<int>& nums) {
+        int n=nums.size();
+        vector<vector<long long>> new_dp(n+1,vector<long long>(n+1,-1));
+        dp = new_dp;
+        return f(nums,0,0,nums.size());
+    }
+};
