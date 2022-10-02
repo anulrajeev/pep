@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<!-- saved from url=(0087)https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie -->
+<html dir="ltr" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script type="text/javascript" async="" src="./9.PepCoding _ Trie_files/analytics.js.download"></script><script type="text/javascript" async="" src="./9.PepCoding _ Trie_files/js"></script><script async="" src="./9.PepCoding _ Trie_files/js(1)"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-109728305-1');
+   </script>
+   <meta name="google-site-verification" content="p2kNyH1NDKhkZLl2aBdmmvosWqHZOxD0rmvS1n8LcDA">
+   <meta name="google-signin-client_id" content="458958442206-nstdi8m8r1ru8qbfd9qmpmhllq5gbui7.apps.googleusercontent.com">
+            
+            
+            
+   <title>PepCoding | Trie</title>
+   <link rel="shortcut icon" href="https://www.pepcoding.com/images/favicon.ico">
+   <link rel="apple-touch-icon-precomposed" href="https://www.pepcoding.com/images/apple-touch-icon.png">
+   <meta property="og:url" content="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie">
+   <meta property="title" content="PepCoding | Trie">
+   <meta property="og:title" content="PepCoding | Trie">
+   <meta property="keywords" content="">
+   <meta property="og:image" content="https://www.pepcoding.com/images/logo.png">
+   <meta property="og:alt" content="pepcoding">
+   <meta property="og:type" content="website">
+   <meta name="description" content="Trie">
+   <meta property="og:description" content="Trie">
+   <script type="application/ld+json">
+         {
+           "@context" : "http://schema.org",
+           "@type": "EducationalOrganization",
+           "name" : "Pepcoding",
+           "url" : "https://www.pepcoding.com",
+           "logo":"https://www.pepcoding.com/images/logo.png",
+           "description": "Free online videos of Data Structure using Java and C++. Best coding institute in Delhi, Best computer programming institute in Delhi, Best java training classes, Coding classes in Delhi, Coding courses in Delhi, best computer programming institute in Delhi-NCR, Delhi's best programming institute offers courses in Java, C++, Web Development, Nodejs.",
+          "sameAs" : [
+            "https://www.facebook.com/pepcoding/",
+            "https://www.youtube.com/results?search_query=pepcoding",
+            "https://www.instagram.com/pepcoding/",
+            "https://in.linkedin.com/company/pepcoding-education",
+            "https://twitter.com/pepcoding"
+            ],
+         
+          "openingHours": "Mo 08:30-21:30 Tu, We 08:00-21:30 Th, Fr, Sa, Su 08:00-09:30",
+           "contactPoint": {
+             "@type": "ContactPoint",
+             "telephone": "011-40194461",
+             "contactType": "Reception desk"
+           },
+          "address": {
+             "@type": "PostalAddress",
+             "streetAddress": "PepCoding, 3rd Floor, 15 Vaishali, Pitampura Opposite",
+             "addressLocality": "Pitampura",
+             "addressRegion": "Delhi",
+             "postalCode": "110034",
+             "addressCountry": "India"
+           },
+            "hasMap": "https://www.google.com/maps/place/PepCoding.com/@28.699367,77.138281,17z/data=!4m5!3m4!1s0x0:0x4fd0fdfc3f27ffaf!8m2!3d28.6993666!4d77.1382814?hl=en-US"
+         }
+      </script>
+   <link rel="stylesheet" href="./9.PepCoding _ Trie_files/site.css">
+   <link rel="stylesheet" href="./9.PepCoding _ Trie_files/video.css">
+   
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="./9.PepCoding _ Trie_files/css" rel="stylesheet">
+   <link href="./9.PepCoding _ Trie_files/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body class=" resource theme2">
+   <header>
+         <nav>
+            <div class="nav-wrapper page-scrolled">
+               <div class="container med row  site-nav">
+                  <a href="https://www.pepcoding.com/" class="brand-logo small">
+                     <img class="logo" src="./9.PepCoding _ Trie_files/logo2.png" alt="logo">
+                  </a>
+                  <div class="hide-on-med-and-down nav-breadcrumb">
+                        <a class="breadcrumb  " data-target="ddls0" href="https://www.pepcoding.com/resources/">
+                           home
+                        </a>
+                        <a class="breadcrumb  " data-target="ddls1" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/">
+                           data-structures-and-algorithms-in-java-levelup
+                        </a>
+                        <a class="breadcrumb  " data-target="ddls2" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie/">
+                           trie
+                        </a>
+                  </div>
+                        <a href="https://classroom.pepcoding.com/myClassroom" class="class-mode">My ClassRoom </a>
+                  <ul id="ddlUserProfile" class="dropdown-content">
+                    <li>
+                      <a href="https://www.pepcoding.com/profile" class="setting">
+                        <div class="row  col l12" style="height: 100%;padding: 0px;margin: 0px;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;">
+                          <i class="col l4 s2 m2 svg-user svg-header"></i>
+                          <span class="col l8 s8 m8 lp-dropdown">Profile</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie#" class="setting" onclick="PEP.Utilities.signOut();">
+                          <div class="row  col l12" style="height: 100%;padding: 0px;margin: 0px;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;">
+                            <i class="col l4 s2 m2 svg-logout svg-header"></i>
+                          <span class="col l8 s8 m8 lp-dropdown">Logout</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>                  <ul id="ddlFeatures" class="dropdown-content">
+                     <li>
+                        <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie#" class=" setting sidenav-trigger theme-cutomizer-trigger no-margin" data-target="editor-support-out" id="31924">
+                           <div class="row  col l12 no-padding no-margin" style="height: 100%;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;">
+                              <i class="fa fa-code" aria-hidden="true"></i>
+                              <span class="col l8 s8 m8 lp-dropdown">Editor</span>
+                           </div>
+                        </a>
+                     </li>
+                  </ul>
+                     <a class="dropdown-trigger dashboard-burger" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie#" data-target="ddlFeatures">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 384 384">
+                           <path d="M0 384v-43h384v43H0zm0-277l85 85l-85 85V107zm171 192v-43h213v43H171zM0 0h384v43H0V0zm171 128V85h213v43H171zm0 85v-42h213v42H171z" fill="currentColor"></path>
+                        </svg>
+                     </a>
+                              <div class="changeTheme">
+                                          <i class="fa fa-sun-o  dropdown-trigger" href="#changeSiteTheme" style="    height: inherit;
+                                             line-height: inherit;"></i>
+                               </div>
+                             <ul id="changeSiteTheme" class="dropdown-content changeSiteTheme">
+                                         <li>
+                                             <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie#" onclick="siteThemeSelect(&#39;theme1&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme1"></div> 
+                                                  <div class="col l4">Theme1</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                          
+                                         <li>
+                                             <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie#" onclick="siteThemeSelect(&#39;theme2&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme2"></div> 
+                                                  <div class="col l4">Theme2</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                           <li>
+                                             <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie#" onclick="siteThemeSelect(&#39;theme3&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme3"></div> 
+                                                  <div class="col l4">Theme3</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                           <li>
+                                             <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie#" onclick="siteThemeSelect(&#39;theme4&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme4"></div> 
+                                                  <div class="col l4">Theme4</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                       </ul>                     <a class="dropdown-trigger dashboard-user" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie#" data-target="ddlUserProfile">
+                        <i class="svg-user svg-header"></i>
+                     </a>
+               </div>
+            </div>
+         </nav>
+   </header>
+   <main>
+      <div id="siteOverlay" class="loader-overlay hide">
+      </div>
+      <div id="siteLoader" class="loader hide">
+         <div class="preloader-wrapper active">
+            <div class="spinner-layer spinner-red-only">
+               <div class="circle-clipper left">
+                  <div class="circle"></div>
+               </div>
+               <div class="gap-patch">
+                  <div class="circle"></div>
+               </div>
+               <div class="circle-clipper right">
+                  <div class="circle"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="siteOverlay-nados" class="loader-overlay-nados hide"></div>
+      <div id="siteLoader-nados" class="load-container d-flex flex-center valign-wrapper hide">
+         <h2 class="center loader-h2 bolder white-text">Redirecting to <br> NADOS
+         <div class="timmer-nados"></div></h2>
+         <div class="loader-nados"></div>
+      </div>
+      <input type="hidden" id="isShowDoubtSupport" value="false">
+         <input type="hidden" id="tawkKey" value="5e1ef6557e39ea1242a4b602">
+      <div class="container med">
+   <div class="section search-nav ">
+      <div class="row">
+         <div class="col l8 s12 m12">
+            <div class="card">
+               <div class="card-content">
+                  <div class="row">
+                     <h2 class="center bold no-margin col l12 s12"> Lectures Summary</h2>
+                  </div>
+                  <div class="row">
+                     <div class="col l4 s10 m10 search-container">
+                        <i class="search-icon fa fa-search"></i>
+                        <input id="searchBox" type="text" placeholder=" search" class="autocomplete search searchBox">
+                     </div>
+                     <div class="col l6 offset-l2">
+                        <div class="row right">
+                           <div class="col l4 s5 m4">
+                              <select id="queStatus" class="border resourcefilter-dropdown">
+                                 <option disabled="" selected="">Status</option>
+                                 <option value="">All</option>
+                                 <option value="2">To Do</option>
+                                 <option value="0">Attempted</option>
+                                 <option value="1">Solved</option>
+                              </select>
+                           </div>
+                           <div class="col l4 s5 m4">
+                              <select id="resourceType" class="border resourcefilter-dropdown">
+                                 <option disabled="" selected="">Resource Type </option>
+                                 <option value="">All</option>
+                                 <option value="video">Video</option>
+                                 <option value="ojquestion">Question</option>
+                                 <option value="mcq">MCQ</option>
+                                 <option value="topic">Topic</option>
+                              </select>
+                           </div>
+                           <div class="col l4 s4 m4">
+                              <select id="dificultyLevels" class="border resourcefilter-dropdown">
+                                 <option disabled="" selected="">Difficulty </option>
+                                 <option value="">All</option>
+                                 <option value="easy">easy</option>
+                                 <option value="medium">medium</option>
+                                 <option value="hard">hard</option>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="row allResources no-margin no-padding">
+                     <ul class="collection  resourceList ">
+                        
+                        
+                        
+                         
+                        <li resource-id="19498" resource-type-id="1979" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie/implement-trie-official/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Implement Trie" class=" name">
+                                        Implement Trie
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="19542" resource-type-id="1992" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie/design-add-and-search-words-data-structure-official/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Design Add And Search Words Data Structure" class=" name">
+                                        Design Add And Search Words Data Structure
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="19869" resource-type-id="2034" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="hardojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie/word-search-ii-official/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Word Search Ii" class=" name">
+                                        Word Search Ii
+                                    </span>
+                                </a>
+                        
+                                <span class="badge hard  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>hard
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="20944" resource-type-id="2087" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie/replace-words-official/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Replace Words" class=" name">
+                                        Replace Words
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="19499" resource-type-id="1980" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie/maximum-xor-of-two-numbers-in-an-array-official/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Maximum Xor Of Two Numbers In An Array" class=" name">
+                                        Maximum Xor Of Two Numbers In An Array
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="20392" resource-type-id="2071" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie/count-pairs-with-xor-in-a-range-official/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Count Pairs With Xor In A Range" class=" name">
+                                        Count Pairs With Xor In A Range
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="20270" resource-type-id="2064" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie/map-sum-pairs-official/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Map Sum Pairs" class=" name">
+                                        Map Sum Pairs
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="20110" resource-type-id="2060" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="hardojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie/concatenated-words-official/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Concatenated Words" class=" name">
+                                        Concatenated Words
+                                    </span>
+                                </a>
+                        
+                                <span class="badge hard  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>hard
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="20386" resource-type-id="2069" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie/longest-word-in-dictionary-official/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Longest Word In Dictionary" class=" name">
+                                        Longest Word In Dictionary
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="20391" resource-type-id="2070" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie/stream-of-characters-official/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Stream Of Characters" class=" name">
+                                        Stream Of Characters
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col l4 s12 m12">
+            <div class="card">
+               <div class="card-content">
+                  <div class="row" id="buyNowFreeCourse">
+                  </div>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-content">
+                  <div class="row">
+                     <div class="col l12 s12 m12">
+                        <div id="stats" class="row full-height-content" purpose="studentStats">
+                           <h2 class="bold center no-margin"> Stats</h2>
+                           <div class="col l12 s12 stats-container" id="statsContainer">
+                              <div class="d-flex flex-center">
+                                 <div class="preloader-wrapper active">
+                                    <div class="spinner-layer spinner-green-only">
+                                       <div class="circle-clipper left">
+                                          <div class="circle"></div>
+                                       </div>
+                                       <div class="gap-patch">
+                                          <div class="circle"></div>
+                                       </div>
+                                       <div class="circle-clipper right">
+                                          <div class="circle"></div>
+                                       </div>
+                                    </div>
+                                 </div>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                     <a class="offset-l4 col l5 s6 offset-s3 center bold view-more view-more-grey-base" href="https://www.pepcoding.com/data-structures-and-algorithms-in-java-levelup/67/trie/1151/stats/false">
+                     View all Stats <span class="view-more-arrow"> ⟶</span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<input type="hidden" id="courseId" name="courseId" value="67">
+<input type="hidden" id="lectureId" name="lectureId" value="1151">
+<input type="hidden" id="lectureCode" name="lectureCode" value="trie">
+<input type="hidden" id="maxIndex" value="11" <="" div="">
+
+   </main>
+   <div class="live-editor">
+       <div id="editor-support-out" class="sidenav  sidenav-editor-window editor-section black right-aligned">
+           <div class="row no-margin doubt-header">
+               <div class="col l1 s3 m3 row no-margin no-padding ">
+                   <a href="https://www.pepcoding.com/index" class="brand-logo">
+                       <img class="logo" src="./9.PepCoding _ Trie_files/logo.png" alt="logo">
+                   </a>
+               </div>
+               <div class="col l2 s2 m2 no-padding " title="Save" style="display: inline-flex;">
+                   <div id="liveEditorId"></div>&nbsp;
+               </div>
+   
+   
+               <div class="col l6 s6 m6 no-padding">
+   
+                   <div class="selectLang d-flex editorOptions  ">
+                       <div class="item">
+                         <select id="liveEditor_lang_select" class="code-lang-select text-upper" title="Select Language"></select>
+                       </div>
+                       <div class="item settings">
+                         <i class="fa fa-gear  modal-trigger" href="#liveEditor_modalSetting"></i>
+                        
+                         <i id="liveEditor_format_code" class="fa fa-format  format-code" aria-hidden="true" title="Format your code">{ } </i>
+                         <i id="liveEditor_reset_code" class="fa fa-refresh  code-refresh" aria-hidden="true" title="Reset your code"></i>
+                         <i id="liveEditor_full_screen" class="fa fa-arrows-alt code-fullscreen" aria-hidden="true" title="FullScreen"></i>
+                       </div>
+                       <div class="item">
+                         <div class="">
+                           <i id="liveEditor_compile_code" class="fa fa-play code-run btn-compile" title="Run"></i>
+                           Run
+                         </div>
+                       </div>
+                       
+                       
+                       <div id="liveEditor_modalSetting" class="modal small">
+                         <div class="modal-content">
+                           <h4 class="row col l12 s12 center">
+                             Editor Settings
+                           </h4>
+                           <div class="row">
+                             <h4 class="col l6">
+                               Font Size
+                             </h4>
+                             <select id="liveEditor_font_select" title="Select Editor Font Size" class="code-font-select col l6"></select>
+                           </div>
+                           <div class="row">
+                             <h4 class="col l6">
+                               Key Binding
+                             </h4>
+                             <select id="liveEditor_key_binding" title="Select Editor Key Binding" class="key-binding col l6"></select>
+                           </div>
+                           <div class="divider"></div>
+                           <div class="row">
+                             <h4 class="col l12 center">
+                               Keyboard Shortcut
+                             </h4>
+                           </div>
+                           <ul class="collection">
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 fold
+                               </span>
+                               <span class="col l6 s6">
+                                 Alt-L|Ctrl-F1
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 unfold
+                               </span>
+                               <span class="col l6 s6">
+                                 Alt-Shift-L|Ctrl-Shift-F1
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Gotoend
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-End
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Gotostart
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-Home
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Movelinesup
+                               </span>
+                               <span class="col l6 s6">
+                                 Alt-Up
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Movelinesdown
+                               </span>
+                               <span class="col l6 s6">
+                                 Alt-Down
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Undo
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-Z
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Redo
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-Shift-Z|Ctrl-Y
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Replace
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-H
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Togglecomment
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-/
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 ToggleBlockComment
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-Shift-/
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Removeline
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-D
+                               </span>
+                             </li>
+                           </ul>
+                         </div>
+                       </div>                </div>
+               </div>
+               <div class="col l1 s1 m1 right" title="Close Editor">
+                   <a class="sidenav-close right " href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie#">
+                       <i class="fa fa-times fa-2x " aria-hidden="true"></i>
+                   </a>
+               </div>
+   
+           </div>
+           <div id="liveCodeContainer" class="card-content row code-container">
+               <div id="liveEditor" class="col l12 s12 m12 editor "></div>
+   
+   
+               <div class="col l12 m12 s12 row  no-padding">
+                   <div class="col l12 no-margin no-padding  editor-footer no-padding ">
+                       <ul id="liveEditor_collapsible" class="collapsible no-margin colap-code  ">
+                           <li class="no-margin">
+                               <div class="collapsible-header  row no-margin console">
+                                   <div class="col l10 s10">
+                   
+                                       <span>&nbsp; &nbsp; <i class="fa fa-caret-up  downArrowToRotate"></i>
+                                           <span class="hide-on-med-and-down">
+                   
+                                           </span> Console
+                                       </span>
+                                       <span>
+                                           <i class="fa  fa-clock-o"></i>
+                                           <span id="liveEditor_compile_time" class="hide-on-med-and-down"> Time</span>
+                                       </span>
+                                       <span>
+                                           <i class="fa fa-microchip"></i><span class="hide-on-med-and-down" id="liveEditor_compile_memory">
+                                               Memory</span>
+                                       </span>
+                                       <span id="liveEditor_compile_status" class="op-heading">
+                                           <i class="fa fa-check-circle"></i>
+                   
+                                           <span id="liveEditor_message" class="hide-on-med-and-down">Status</span>
+                                   </span></div>
+                   
+                                   <div class="col l2">
+                   
+                                   </div>
+                               </div>
+                               <div class="collapsible-body" style="padding: 0px 10px;">
+                   
+                   
+                                   <div class="row  " style="margin-bottom:2px">
+                                       <div class="col s12">
+                                           <ul id="liveEditor_tab" class="tabs  output-tabs">
+                                               <li id="liveEditor_tab_output" class="tab col s3 active">
+                                                   <a class="active bolder" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie#liveEditor_output_box">output</a>
+                                               </li>
+                                               <li id="liveEditor_tab_input" class="tab col s3"><a class="bolder" id="hello" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie#liveEditor_input_box">input</a>
+                                               </li>
+                                           </ul>
+                                       </div>
+                                       <div id="liveEditor_output_box" class="col s12" style="height: 20vh">
+                                           <pre id="liveEditor_compile_actual_output" placeholder="Add your own input here , else programe will run against default test case" class="output no-margin " style="height:100%;overflow-y:scroll" rows="6" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></pre>
+                   
+                                           <div id="liveEditor_submit_actual_output">
+                                           </div>
+                                       </div>
+                                       <div id="liveEditor_input_box" class="col s12" style="height: 100%;line-height: 1rem;width: 98%;">
+                                           <textarea class="customArea no-margin" id="liveEditor_customInput" style="border:none;height: 100% " placeholder="Add your own input here , else programe will run against default test case" rows="6" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                                       </div>
+                                   </div>
+                   
+                               </div>
+                           </li>
+                   
+                       </ul>
+                       <input type="hidden" value="true" id="liveEditor_compileOnly">
+                   </div>
+               </div>
+   
+               <div id="slide-out-editorslist" style="transform: translateX(105%);width:36vw;top: 0;height: 90%;overflow:auto;" class="sidenav right white no-margin hide">
+   
+                   <table>
+                       <thead>
+                           <tr>
+                               <th>Id</th>
+                               <th>Name</th>
+                               <th>
+                                   <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/trie#" class="sidenav-close">
+                                       <i class="fa fa-times vertical-text-middle" aria-hidden="true"></i>
+                                   </a>
+                               </th>
+                           </tr>
+                       </thead>
+                       <tbody id="liveEditorNotesList" class="black-text">
+                       </tbody>
+                   </table>
+               </div>
+           </div>
+       </div>
+   </div>   <script src="./9.PepCoding _ Trie_files/jquery.min.js.download"></script></body></html>

@@ -1,0 +1,1843 @@
+<!DOCTYPE html>
+<!-- saved from url=(0094)https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list -->
+<html dir="ltr" lang="en-US"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script src="./7.PepCoding _ Linked List_files/twk-main.js.download" charset="UTF-8" crossorigin="*"></script><script src="./7.PepCoding _ Linked List_files/twk-vendor.js.download" charset="UTF-8" crossorigin="*"></script><script src="./7.PepCoding _ Linked List_files/twk-chunk-vendors.js.download" charset="UTF-8" crossorigin="*"></script><script src="./7.PepCoding _ Linked List_files/twk-chunk-common.js.download" charset="UTF-8" crossorigin="*"></script><script src="./7.PepCoding _ Linked List_files/twk-runtime.js.download" charset="UTF-8" crossorigin="*"></script><script src="./7.PepCoding _ Linked List_files/twk-app.js.download" charset="UTF-8" crossorigin="*"></script><script type="text/javascript" async="" src="./7.PepCoding _ Linked List_files/atrk.js.download"></script><script async="" src="./7.PepCoding _ Linked List_files/default" charset="UTF-8" crossorigin="*"></script><script type="text/javascript" async="" src="./7.PepCoding _ Linked List_files/analytics.js.download"></script><script type="text/javascript" async="" src="./7.PepCoding _ Linked List_files/js"></script><script async="" src="./7.PepCoding _ Linked List_files/js(1)"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-109728305-1');
+   </script>
+   <meta name="google-site-verification" content="p2kNyH1NDKhkZLl2aBdmmvosWqHZOxD0rmvS1n8LcDA">
+   <meta name="google-signin-client_id" content="458958442206-nstdi8m8r1ru8qbfd9qmpmhllq5gbui7.apps.googleusercontent.com">
+            
+            
+            
+   <title>PepCoding | Linked List</title>
+   <link rel="shortcut icon" href="https://www.pepcoding.com/images/favicon.ico">
+   <link rel="apple-touch-icon-precomposed" href="https://www.pepcoding.com/images/apple-touch-icon.png">
+   <meta property="og:url" content="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list">
+   <meta property="title" content="PepCoding | Linked List">
+   <meta property="og:title" content="PepCoding | Linked List">
+   <meta property="keywords" content="">
+   <meta property="og:image" content="https://www.pepcoding.com/images/logo.png">
+   <meta property="og:alt" content="pepcoding">
+   <meta property="og:type" content="website">
+   <meta name="description" content="Linked List">
+   <meta property="og:description" content="Linked List">
+   <script type="application/ld+json">
+         {
+           "@context" : "http://schema.org",
+           "@type": "EducationalOrganization",
+           "name" : "Pepcoding",
+           "url" : "https://www.pepcoding.com",
+           "logo":"https://www.pepcoding.com/images/logo.png",
+           "description": "Free online videos of Data Structure using Java and C++. Best coding institute in Delhi, Best computer programming institute in Delhi, Best java training classes, Coding classes in Delhi, Coding courses in Delhi, best computer programming institute in Delhi-NCR, Delhi's best programming institute offers courses in Java, C++, Web Development, Nodejs.",
+          "sameAs" : [
+            "https://www.facebook.com/pepcoding/",
+            "https://www.youtube.com/results?search_query=pepcoding",
+            "https://www.instagram.com/pepcoding/",
+            "https://in.linkedin.com/company/pepcoding-education",
+            "https://twitter.com/pepcoding"
+            ],
+         
+          "openingHours": "Mo 08:30-21:30 Tu, We 08:00-21:30 Th, Fr, Sa, Su 08:00-09:30",
+           "contactPoint": {
+             "@type": "ContactPoint",
+             "telephone": "011-40194461",
+             "contactType": "Reception desk"
+           },
+          "address": {
+             "@type": "PostalAddress",
+             "streetAddress": "PepCoding, 3rd Floor, 15 Vaishali, Pitampura Opposite",
+             "addressLocality": "Pitampura",
+             "addressRegion": "Delhi",
+             "postalCode": "110034",
+             "addressCountry": "India"
+           },
+            "hasMap": "https://www.google.com/maps/place/PepCoding.com/@28.699367,77.138281,17z/data=!4m5!3m4!1s0x0:0x4fd0fdfc3f27ffaf!8m2!3d28.6993666!4d77.1382814?hl=en-US"
+         }
+      </script>
+   <link rel="stylesheet" href="./7.PepCoding _ Linked List_files/site.css">
+   <link rel="stylesheet" href="./7.PepCoding _ Linked List_files/video.css">
+   
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="./7.PepCoding _ Linked List_files/css" rel="stylesheet">
+   <link href="./7.PepCoding _ Linked List_files/font-awesome.min.css" rel="stylesheet">
+<style id="ace_editor.css">.ace_editor {position: relative;overflow: hidden;font: 12px/normal 'Monaco', 'Menlo', 'Ubuntu Mono', 'Consolas', 'source-code-pro', monospace;direction: ltr;text-align: left;}.ace_scroller {position: absolute;overflow: hidden;top: 0;bottom: 0;background-color: inherit;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;cursor: text;}.ace_content {position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;min-width: 100%;}.ace_dragging .ace_scroller:before{position: absolute;top: 0;left: 0;right: 0;bottom: 0;content: '';background: rgba(250, 250, 250, 0.01);z-index: 1000;}.ace_dragging.ace_dark .ace_scroller:before{background: rgba(0, 0, 0, 0.01);}.ace_selecting, .ace_selecting * {cursor: text !important;}.ace_gutter {position: absolute;overflow : hidden;width: auto;top: 0;bottom: 0;left: 0;cursor: default;z-index: 4;-ms-user-select: none;-moz-user-select: none;-webkit-user-select: none;user-select: none;}.ace_gutter-active-line {position: absolute;left: 0;right: 0;}.ace_scroller.ace_scroll-left {box-shadow: 17px 0 16px -16px rgba(0, 0, 0, 0.4) inset;}.ace_gutter-cell {padding-left: 19px;padding-right: 6px;background-repeat: no-repeat;}.ace_gutter-cell.ace_error {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAABOFBMVEX/////////QRswFAb/Ui4wFAYwFAYwFAaWGAfDRymzOSH/PxswFAb/SiUwFAYwFAbUPRvjQiDllog5HhHdRybsTi3/Tyv9Tir+Syj/UC3////XurebMBIwFAb/RSHbPx/gUzfdwL3kzMivKBAwFAbbvbnhPx66NhowFAYwFAaZJg8wFAaxKBDZurf/RB6mMxb/SCMwFAYwFAbxQB3+RB4wFAb/Qhy4Oh+4QifbNRcwFAYwFAYwFAb/QRzdNhgwFAYwFAbav7v/Uy7oaE68MBK5LxLewr/r2NXewLswFAaxJw4wFAbkPRy2PyYwFAaxKhLm1tMwFAazPiQwFAaUGAb/QBrfOx3bvrv/VC/maE4wFAbRPBq6MRO8Qynew8Dp2tjfwb0wFAbx6eju5+by6uns4uH9/f36+vr/GkHjAAAAYnRSTlMAGt+64rnWu/bo8eAA4InH3+DwoN7j4eLi4xP99Nfg4+b+/u9B/eDs1MD1mO7+4PHg2MXa347g7vDizMLN4eG+Pv7i5evs/v79yu7S3/DV7/498Yv24eH+4ufQ3Ozu/v7+y13sRqwAAADLSURBVHjaZc/XDsFgGIBhtDrshlitmk2IrbHFqL2pvXf/+78DPokj7+Fz9qpU/9UXJIlhmPaTaQ6QPaz0mm+5gwkgovcV6GZzd5JtCQwgsxoHOvJO15kleRLAnMgHFIESUEPmawB9ngmelTtipwwfASilxOLyiV5UVUyVAfbG0cCPHig+GBkzAENHS0AstVF6bacZIOzgLmxsHbt2OecNgJC83JERmePUYq8ARGkJx6XtFsdddBQgZE2nPR6CICZhawjA4Fb/chv+399kfR+MMMDGOQAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: 2px center;}.ace_gutter-cell.ace_warning {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAmVBMVEX///8AAAD///8AAAAAAABPSzb/5sAAAAB/blH/73z/ulkAAAAAAAD85pkAAAAAAAACAgP/vGz/rkDerGbGrV7/pkQICAf////e0IsAAAD/oED/qTvhrnUAAAD/yHD/njcAAADuv2r/nz//oTj/p064oGf/zHAAAAA9Nir/tFIAAAD/tlTiuWf/tkIAAACynXEAAAAAAAAtIRW7zBpBAAAAM3RSTlMAABR1m7RXO8Ln31Z36zT+neXe5OzooRDfn+TZ4p3h2hTf4t3k3ucyrN1K5+Xaks52Sfs9CXgrAAAAjklEQVR42o3PbQ+CIBQFYEwboPhSYgoYunIqqLn6/z8uYdH8Vmdnu9vz4WwXgN/xTPRD2+sgOcZjsge/whXZgUaYYvT8QnuJaUrjrHUQreGczuEafQCO/SJTufTbroWsPgsllVhq3wJEk2jUSzX3CUEDJC84707djRc5MTAQxoLgupWRwW6UB5fS++NV8AbOZgnsC7BpEAAAAABJRU5ErkJggg==");background-position: 2px center;}.ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAAAAAA6mKC9AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAAJ0Uk5TAAB2k804AAAAPklEQVQY02NgIB68QuO3tiLznjAwpKTgNyDbMegwisCHZUETUZV0ZqOquBpXj2rtnpSJT1AEnnRmL2OgGgAAIKkRQap2htgAAAAASUVORK5CYII=");background-position: 2px center;}.ace_dark .ace_gutter-cell.ace_info {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQBAMAAADt3eJSAAAAJFBMVEUAAAChoaGAgIAqKiq+vr6tra1ZWVmUlJSbm5s8PDxubm56enrdgzg3AAAAAXRSTlMAQObYZgAAAClJREFUeNpjYMAPdsMYHegyJZFQBlsUlMFVCWUYKkAZMxZAGdxlDMQBAG+TBP4B6RyJAAAAAElFTkSuQmCC");}.ace_scrollbar {position: absolute;right: 0;bottom: 0;z-index: 6;}.ace_scrollbar-inner {position: absolute;cursor: text;left: 0;top: 0;}.ace_scrollbar-v{overflow-x: hidden;overflow-y: scroll;top: 0;}.ace_scrollbar-h {overflow-x: scroll;overflow-y: hidden;left: 0;}.ace_print-margin {position: absolute;height: 100%;}.ace_text-input {position: absolute;z-index: 0;width: 0.5em;height: 1em;opacity: 0;background: transparent;-moz-appearance: none;appearance: none;border: none;resize: none;outline: none;overflow: hidden;font: inherit;padding: 0 1px;margin: 0 -1px;text-indent: -1em;-ms-user-select: text;-moz-user-select: text;-webkit-user-select: text;user-select: text;white-space: pre!important;}.ace_text-input.ace_composition {background: inherit;color: inherit;z-index: 1000;opacity: 1;text-indent: 0;}.ace_layer {z-index: 1;position: absolute;overflow: hidden;word-wrap: normal;white-space: pre;height: 100%;width: 100%;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;pointer-events: none;}.ace_gutter-layer {position: relative;width: auto;text-align: right;pointer-events: auto;}.ace_text-layer {font: inherit !important;}.ace_cjk {display: inline-block;text-align: center;}.ace_cursor-layer {z-index: 4;}.ace_cursor {z-index: 4;position: absolute;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;border-left: 2px solid;transform: translatez(0);}.ace_slim-cursors .ace_cursor {border-left-width: 1px;}.ace_overwrite-cursors .ace_cursor {border-left-width: 0;border-bottom: 1px solid;}.ace_hidden-cursors .ace_cursor {opacity: 0.2;}.ace_smooth-blinking .ace_cursor {-webkit-transition: opacity 0.18s;transition: opacity 0.18s;}.ace_editor.ace_multiselect .ace_cursor {border-left-width: 1px;}.ace_marker-layer .ace_step, .ace_marker-layer .ace_stack {position: absolute;z-index: 3;}.ace_marker-layer .ace_selection {position: absolute;z-index: 5;}.ace_marker-layer .ace_bracket {position: absolute;z-index: 6;}.ace_marker-layer .ace_active-line {position: absolute;z-index: 2;}.ace_marker-layer .ace_selected-word {position: absolute;z-index: 4;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;}.ace_line .ace_fold {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;display: inline-block;height: 11px;margin-top: -2px;vertical-align: middle;background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi+P//fxgTAwPDBxDxD078RSX+YeEyDFMCIMAAI3INmXiwf2YAAAAASUVORK5CYII=");background-repeat: no-repeat, repeat-x;background-position: center center, top left;color: transparent;border: 1px solid black;border-radius: 2px;cursor: pointer;pointer-events: auto;}.ace_dark .ace_fold {}.ace_fold:hover{background-image:url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABEAAAAJCAYAAADU6McMAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAJpJREFUeNpi/P//PwOlgAXGYGRklAVSokD8GmjwY1wasKljQpYACtpCFeADcHVQfQyMQAwzwAZI3wJKvCLkfKBaMSClBlR7BOQikCFGQEErIH0VqkabiGCAqwUadAzZJRxQr/0gwiXIal8zQQPnNVTgJ1TdawL0T5gBIP1MUJNhBv2HKoQHHjqNrA4WO4zY0glyNKLT2KIfIMAAQsdgGiXvgnYAAAAASUVORK5CYII="),url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAA3CAYAAADNNiA5AAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACBJREFUeNpi+P//fz4TAwPDZxDxD5X4i5fLMEwJgAADAEPVDbjNw87ZAAAAAElFTkSuQmCC");}.ace_tooltip {background-color: #FFF;background-image: -webkit-linear-gradient(top, transparent, rgba(0, 0, 0, 0.1));background-image: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.1));border: 1px solid gray;border-radius: 1px;box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);color: black;max-width: 100%;padding: 3px 4px;position: fixed;z-index: 999999;-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;cursor: default;white-space: pre;word-wrap: break-word;line-height: normal;font-style: normal;font-weight: normal;letter-spacing: normal;pointer-events: none;}.ace_folding-enabled > .ace_gutter-cell {padding-right: 13px;}.ace_fold-widget {-moz-box-sizing: border-box;-webkit-box-sizing: border-box;box-sizing: border-box;margin: 0 -12px 0 1px;display: none;width: 11px;vertical-align: top;background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42mWKsQ0AMAzC8ixLlrzQjzmBiEjp0A6WwBCSPgKAXoLkqSot7nN3yMwR7pZ32NzpKkVoDBUxKAAAAABJRU5ErkJggg==");background-repeat: no-repeat;background-position: center;border-radius: 3px;border: 1px solid transparent;cursor: pointer;}.ace_folding-enabled .ace_fold-widget {display: inline-block;   }.ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAANElEQVR42m3HwQkAMAhD0YzsRchFKI7sAikeWkrxwScEB0nh5e7KTPWimZki4tYfVbX+MNl4pyZXejUO1QAAAABJRU5ErkJggg==");}.ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAGCAYAAAAG5SQMAAAAOUlEQVR42jXKwQkAMAgDwKwqKD4EwQ26sSOkVWjgIIHAzPiCgaqiqnJHZnKICBERHN194O5b9vbLuAVRL+l0YWnZAAAAAElFTkSuQmCCXA==");}.ace_fold-widget:hover {border: 1px solid rgba(0, 0, 0, 0.3);background-color: rgba(255, 255, 255, 0.2);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.7);}.ace_fold-widget:active {border: 1px solid rgba(0, 0, 0, 0.4);background-color: rgba(0, 0, 0, 0.05);box-shadow: 0 1px 1px rgba(255, 255, 255, 0.8);}.ace_dark .ace_fold-widget {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAHklEQVQIW2P4//8/AzoGEQ7oGCaLLAhWiSwB146BAQCSTPYocqT0AAAAAElFTkSuQmCC");}.ace_dark .ace_fold-widget.ace_end {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAFCAYAAACNbyblAAAAH0lEQVQIW2P4//8/AxQ7wNjIAjDMgC4AxjCVKBirIAAF0kz2rlhxpAAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget.ace_closed {background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAMAAAAFCAYAAACAcVaiAAAAHElEQVQIW2P4//+/AxAzgDADlOOAznHAKgPWAwARji8UIDTfQQAAAABJRU5ErkJggg==");}.ace_dark .ace_fold-widget:hover {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);background-color: rgba(255, 255, 255, 0.1);}.ace_dark .ace_fold-widget:active {box-shadow: 0 1px 1px rgba(255, 255, 255, 0.2);}.ace_fold-widget.ace_invalid {background-color: #FFB4B4;border-color: #DE5555;}.ace_fade-fold-widgets .ace_fold-widget {-webkit-transition: opacity 0.4s ease 0.05s;transition: opacity 0.4s ease 0.05s;opacity: 0;}.ace_fade-fold-widgets:hover .ace_fold-widget {-webkit-transition: opacity 0.05s ease 0.05s;transition: opacity 0.05s ease 0.05s;opacity:1;}.ace_underline {text-decoration: underline;}.ace_bold {font-weight: bold;}.ace_nobold .ace_bold {font-weight: normal;}.ace_italic {font-style: italic;}.ace_error-marker {background-color: rgba(255, 0, 0,0.2);position: absolute;z-index: 9;}.ace_highlight-marker {background-color: rgba(255, 255, 0,0.2);position: absolute;z-index: 8;}.ace_br1 {border-top-left-radius    : 3px;}.ace_br2 {border-top-right-radius   : 3px;}.ace_br3 {border-top-left-radius    : 3px; border-top-right-radius:    3px;}.ace_br4 {border-bottom-right-radius: 3px;}.ace_br5 {border-top-left-radius    : 3px; border-bottom-right-radius: 3px;}.ace_br6 {border-top-right-radius   : 3px; border-bottom-right-radius: 3px;}.ace_br7 {border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px;}.ace_br8 {border-bottom-left-radius : 3px;}.ace_br9 {border-top-left-radius    : 3px; border-bottom-left-radius:  3px;}.ace_br10{border-top-right-radius   : 3px; border-bottom-left-radius:  3px;}.ace_br11{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-left-radius:  3px;}.ace_br12{border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br13{border-top-left-radius    : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br14{border-top-right-radius   : 3px; border-bottom-right-radius: 3px; border-bottom-left-radius:  3px;}.ace_br15{border-top-left-radius    : 3px; border-top-right-radius:    3px; border-bottom-right-radius: 3px; border-bottom-left-radius: 3px;}
+/*# sourceURL=ace/css/ace_editor.css */</style><style id="ace-tm">.ace-tm .ace_gutter {background: #f0f0f0;color: #333;}.ace-tm .ace_print-margin {width: 1px;background: #e8e8e8;}.ace-tm .ace_fold {background-color: #6B72E6;}.ace-tm {background-color: #FFFFFF;color: black;}.ace-tm .ace_cursor {color: black;}.ace-tm .ace_invisible {color: rgb(191, 191, 191);}.ace-tm .ace_storage,.ace-tm .ace_keyword {color: blue;}.ace-tm .ace_constant {color: rgb(197, 6, 11);}.ace-tm .ace_constant.ace_buildin {color: rgb(88, 72, 246);}.ace-tm .ace_constant.ace_language {color: rgb(88, 92, 246);}.ace-tm .ace_constant.ace_library {color: rgb(6, 150, 14);}.ace-tm .ace_invalid {background-color: rgba(255, 0, 0, 0.1);color: red;}.ace-tm .ace_support.ace_function {color: rgb(60, 76, 114);}.ace-tm .ace_support.ace_constant {color: rgb(6, 150, 14);}.ace-tm .ace_support.ace_type,.ace-tm .ace_support.ace_class {color: rgb(109, 121, 222);}.ace-tm .ace_keyword.ace_operator {color: rgb(104, 118, 135);}.ace-tm .ace_string {color: rgb(3, 106, 7);}.ace-tm .ace_comment {color: rgb(76, 136, 107);}.ace-tm .ace_comment.ace_doc {color: rgb(0, 102, 255);}.ace-tm .ace_comment.ace_doc.ace_tag {color: rgb(128, 159, 191);}.ace-tm .ace_constant.ace_numeric {color: rgb(0, 0, 205);}.ace-tm .ace_variable {color: rgb(49, 132, 149);}.ace-tm .ace_xml-pe {color: rgb(104, 104, 91);}.ace-tm .ace_entity.ace_name.ace_function {color: #0000A2;}.ace-tm .ace_heading {color: rgb(12, 7, 255);}.ace-tm .ace_list {color:rgb(185, 6, 144);}.ace-tm .ace_meta.ace_tag {color:rgb(0, 22, 142);}.ace-tm .ace_string.ace_regex {color: rgb(255, 0, 0)}.ace-tm .ace_marker-layer .ace_selection {background: rgb(181, 213, 255);}.ace-tm.ace_multiselect .ace_selection.ace_start {box-shadow: 0 0 3px 0px white;}.ace-tm .ace_marker-layer .ace_step {background: rgb(252, 255, 0);}.ace-tm .ace_marker-layer .ace_stack {background: rgb(164, 229, 101);}.ace-tm .ace_marker-layer .ace_bracket {margin: -1px 0 0 -1px;border: 1px solid rgb(192, 192, 192);}.ace-tm .ace_marker-layer .ace_active-line {background: rgba(0, 0, 0, 0.07);}.ace-tm .ace_gutter-active-line {background-color : #dcdcdc;}.ace-tm .ace_marker-layer .ace_selected-word {background: rgb(250, 250, 255);border: 1px solid rgb(200, 200, 250);}.ace-tm .ace_indent-guide {background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAACCAYAAACZgbYnAAAAE0lEQVQImWP4////f4bLly//BwAmVgd1/w11/gAAAABJRU5ErkJggg==") right repeat-y;}
+/*# sourceURL=ace/css/ace-tm */</style><style>    .error_widget_wrapper {        background: inherit;        color: inherit;        border:none    }    .error_widget {        border-top: solid 2px;        border-bottom: solid 2px;        margin: 5px 0;        padding: 10px 40px;        white-space: pre-wrap;    }    .error_widget.ace_error, .error_widget_arrow.ace_error{        border-color: #ff5a5a    }    .error_widget.ace_warning, .error_widget_arrow.ace_warning{        border-color: #F1D817    }    .error_widget.ace_info, .error_widget_arrow.ace_info{        border-color: #5a5a5a    }    .error_widget.ace_ok, .error_widget_arrow.ace_ok{        border-color: #5aaa5a    }    .error_widget_arrow {        position: absolute;        border: solid 5px;        border-top-color: transparent!important;        border-right-color: transparent!important;        border-left-color: transparent!important;        top: -5px;    }</style></head>
+
+<body class=" resource theme2" style="">
+   <header>
+         <nav>
+            <div class="nav-wrapper page-scrolled">
+               <div class="container med row  site-nav">
+                  <a href="https://www.pepcoding.com/" class="brand-logo small">
+                     <img class="logo" src="./7.PepCoding _ Linked List_files/logo2.png" alt="logo">
+                  </a>
+                  <div class="hide-on-med-and-down nav-breadcrumb">
+                        <a class="breadcrumb  " data-target="ddls0" href="https://www.pepcoding.com/resources/">
+                           home
+                        </a>
+                        <a class="breadcrumb  " data-target="ddls1" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/">
+                           data-structures-and-algorithms-in-java-levelup
+                        </a>
+                        <a class="breadcrumb  " data-target="ddls2" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/">
+                           linked-list
+                        </a>
+                  </div>
+                        <a href="https://classroom.pepcoding.com/myClassroom" class="class-mode">My ClassRoom </a>
+                                    
+                     <a class="dropdown-trigger dashboard-burger" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#" data-target="ddlFeatures">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 384 384">
+                           <path d="M0 384v-43h384v43H0zm0-277l85 85l-85 85V107zm171 192v-43h213v43H171zM0 0h384v43H0V0zm171 128V85h213v43H171zm0 85v-42h213v42H171z" fill="currentColor"></path>
+                        </svg>
+                     </a><ul id="ddlFeatures" class="dropdown-content" tabindex="0">
+                     <li tabindex="0">
+                        <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#" class=" setting sidenav-trigger theme-cutomizer-trigger no-margin" data-target="editor-support-out" id="31924">
+                           <div class="row  col l12 no-padding no-margin" style="height: 100%;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;">
+                              <i class="fa fa-code" aria-hidden="true"></i>
+                              <span class="col l8 s8 m8 lp-dropdown">Editor</span>
+                           </div>
+                        </a>
+                     </li>
+                  </ul>
+                              <div class="changeTheme">
+                                          <i class="fa fa-sun-o  dropdown-trigger" href="#changeSiteTheme" style="    height: inherit;
+                                             line-height: inherit;"></i><ul id="changeSiteTheme" class="dropdown-content changeSiteTheme" tabindex="0">
+                                         <li tabindex="0">
+                                             <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#" onclick="siteThemeSelect(&#39;theme1&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme1"></div> 
+                                                  <div class="col l4">Theme1</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                          
+                                         <li tabindex="0">
+                                             <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#" onclick="siteThemeSelect(&#39;theme2&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme2"></div> 
+                                                  <div class="col l4">Theme2</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                           <li tabindex="0">
+                                             <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#" onclick="siteThemeSelect(&#39;theme3&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme3"></div> 
+                                                  <div class="col l4">Theme3</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                           <li tabindex="0">
+                                             <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#" onclick="siteThemeSelect(&#39;theme4&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme4"></div> 
+                                                  <div class="col l4">Theme4</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                       </ul>
+                               </div>
+                                                  <a class="dropdown-trigger dashboard-user" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#" data-target="ddlUserProfile">
+                        <i class="svg-user svg-header"></i>
+                     </a><ul id="ddlUserProfile" class="dropdown-content" tabindex="0" style="">
+                    <li tabindex="0">
+                      <a href="https://www.pepcoding.com/profile" class="setting">
+                        <div class="row  col l12" style="height: 100%;padding: 0px;margin: 0px;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;">
+                          <i class="col l4 s2 m2 svg-user svg-header"></i>
+                          <span class="col l8 s8 m8 lp-dropdown">Profile</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li tabindex="0">
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#" class="setting" onclick="PEP.Utilities.signOut();">
+                          <div class="row  col l12" style="height: 100%;padding: 0px;margin: 0px;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;">
+                            <i class="col l4 s2 m2 svg-logout svg-header"></i>
+                          <span class="col l8 s8 m8 lp-dropdown">Logout</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>
+               </div>
+            </div>
+         </nav>
+   </header>
+   <main>
+      <div id="siteOverlay" class="loader-overlay hide">
+      </div>
+      <div id="siteLoader" class="loader hide">
+         <div class="preloader-wrapper active">
+            <div class="spinner-layer spinner-red-only">
+               <div class="circle-clipper left">
+                  <div class="circle"></div>
+               </div>
+               <div class="gap-patch">
+                  <div class="circle"></div>
+               </div>
+               <div class="circle-clipper right">
+                  <div class="circle"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="siteOverlay-nados" class="loader-overlay-nados hide"></div>
+      <div id="siteLoader-nados" class="load-container d-flex flex-center valign-wrapper hide">
+         <h2 class="center loader-h2 bolder white-text">Redirecting to <br> NADOS
+         <div class="timmer-nados"></div></h2>
+         <div class="loader-nados"></div>
+      </div>
+      <input type="hidden" id="isShowDoubtSupport" value="false">
+         <input type="hidden" id="tawkKey" value="5e1ef6557e39ea1242a4b602">
+      <div class="container med">
+   <div class="section search-nav ">
+      <div class="row">
+         <div class="col l8 s12 m12">
+            <div class="card">
+               <div class="card-content">
+                  <div class="row">
+                     <h2 class="center bold no-margin col l12 s12"> Lectures Summary</h2>
+                  </div>
+                  <div class="row">
+                     <div class="col l4 s10 m10 search-container">
+                        <i class="search-icon fa fa-search"></i>
+                        <input id="searchBox" type="text" placeholder=" search" class="autocomplete search searchBox">
+                     </div>
+                     <div class="col l6 offset-l2">
+                        <div class="row right">
+                           <div class="col l4 s5 m4">
+                              <select id="queStatus" class="border resourcefilter-dropdown">
+                                 <option disabled="" selected="">Status</option>
+                                 <option value="">All</option>
+                                 <option value="2">To Do</option>
+                                 <option value="0">Attempted</option>
+                                 <option value="1">Solved</option>
+                              </select>
+                           </div>
+                           <div class="col l4 s5 m4">
+                              <select id="resourceType" class="border resourcefilter-dropdown">
+                                 <option disabled="" selected="">Resource Type </option>
+                                 <option value="">All</option>
+                                 <option value="video">Video</option>
+                                 <option value="ojquestion">Question</option>
+                                 <option value="mcq">MCQ</option>
+                                 <option value="topic">Topic</option>
+                              </select>
+                           </div>
+                           <div class="col l4 s4 m4">
+                              <select id="dificultyLevels" class="border resourcefilter-dropdown">
+                                 <option disabled="" selected="">Difficulty </option>
+                                 <option value="">All</option>
+                                 <option value="easy">easy</option>
+                                 <option value="medium">medium</option>
+                                 <option value="hard">hard</option>
+                              </select>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+                  
+                  <div class="row allResources no-margin no-padding">
+                     <ul class="collection  resourceList ">
+                        
+                        
+                        
+                        
+                        
+                        <li resource-id="15284" resource-type-id="1681" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion1">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/reverse-a-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Reverse A Linkedlist" class="green-text name">
+                                        Reverse A Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                        
+                        
+                        <li resource-id="15285" resource-type-id="1685" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion1">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/middle-of-a-linked-list/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Middle Of A Linked List" class="green-text name">
+                                        Middle Of A Linked List
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                        
+                        
+                        <li resource-id="15317" resource-type-id="1686" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion1">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/palindrome-linkedlist-/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Palindrome Linkedlist " class="green-text name">
+                                        Palindrome Linkedlist 
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                        
+                        
+                        <li resource-id="15318" resource-type-id="1687" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion1">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/fold-of-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Fold Of Linkedlist" class="green-text name">
+                                        Fold Of Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                        
+                        
+                        <li resource-id="15320" resource-type-id="1688" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion1">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/unfold-of-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Unfold Of Linkedlist" class="green-text name">
+                                        Unfold Of Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="15338" resource-type-id="1689" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/merge-two-sorted-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Merge Two Sorted Linkedlist" class=" name">
+                                        Merge Two Sorted Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="15413" resource-type-id="1694" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/merge-k-sorted-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Merge K Sorted Linkedlist" class=" name">
+                                        Merge K Sorted Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="15339" resource-type-id="1690" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/mergesort-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Mergesort Linkedlist" class=" name">
+                                        Mergesort Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="15412" resource-type-id="1693" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/remove-nth-node-from-end-of-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Remove Nth Node From End Of Linkedlist" class=" name">
+                                        Remove Nth Node From End Of Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="15340" resource-type-id="1691" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/segregate-even-and-odd-nodes-in-a-link-list/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Segregate Even And Odd Nodes In A Linkedlist" class=" name">
+                                        Segregate Even And Odd Nodes In A Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="15489" resource-type-id="1696" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/reverse-node-of-linkedlist-in-k-group/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Reverse Node Of Linkedlist In K Group" class=" name">
+                                        Reverse Node Of Linkedlist In K Group
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="15490" resource-type-id="1697" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/reverse-in-range/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Reverse In Range" class=" name">
+                                        Reverse In Range
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="15494" resource-type-id="1698" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/copy-linkedlist-with-random-pointers/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Copy Linkedlist With Random Pointers" class=" name">
+                                        Copy Linkedlist With Random Pointers
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="15670" resource-type-id="1712" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/is-cycle-present-in-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Is Cycle Present In Linkedlist" class=" name">
+                                        Is Cycle Present In Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="17143" resource-type-id="1761" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/cycle-node-in-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Cycle Node In Linkedlist" class=" name">
+                                        Cycle Node In Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="17144" resource-type-id="1762" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/intersection-node-in-two-linkedlist-using-difference-method/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Intersection Node In Two Linkedlist Using Difference Method" class=" name">
+                                        Intersection Node In Two Linkedlist Using Difference Method
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="17145" resource-type-id="1763" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/intersection-node-in-two-linkedlist-using-floyd-cycle-method/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Intersection Node In Two Linkedlist Using Floyd Cycle Method" class=" name">
+                                        Intersection Node In Two Linkedlist Using Floyd Cycle Method
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="16241" resource-type-id="1726" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/add-two-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Add Two Linkedlist" class=" name">
+                                        Add Two Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="16309" resource-type-id="1728" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/subtract-two-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Subtract Two Linkedlist" class=" name">
+                                        Subtract Two Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="16322" resource-type-id="1729" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/multiply-two-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Multiply Two Linkedlist" class=" name">
+                                        Multiply Two Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="17146" resource-type-id="1768" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/remove-duplicate-from-sorted-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Remove Duplicate From Sorted Linkedlist" class=" name">
+                                        Remove Duplicate From Sorted Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="17147" resource-type-id="1769" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/remove-all-duplicates-from-sorted-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Remove All Duplicates From Sorted Linkedlist" class=" name">
+                                        Remove All Duplicates From Sorted Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="18641" resource-type-id="1901" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/segregate-01-node-of-linkedlist-over-swapping-nodes/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Segregate 01 Node Of Linkedlist Over Swapping Nodes" class=" name">
+                                        Segregate 01 Node Of Linkedlist Over Swapping Nodes
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="18645" resource-type-id="1903" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/segregate-012-node-of-linkedlist-over-swapping-nodes/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Segregate 012 Node Of Linkedlist Over Swapping Nodes" class=" name">
+                                        Segregate 012 Node Of Linkedlist Over Swapping Nodes
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="18647" resource-type-id="1908" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/segregate-node-of-linkedlist-over-last-index./ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Segregate Node Of Linkedlist Over Last Index." class=" name">
+                                        Segregate Node Of Linkedlist Over Last Index.
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="18648" resource-type-id="1910" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/segregate-node-of-linkedlist-over-pivot-index/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Segregate Node Of Linkedlist Over Pivot Index" class=" name">
+                                        Segregate Node Of Linkedlist Over Pivot Index
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="18649" resource-type-id="1906" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/quicksort-in-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Quicksort In Linkedlist" class=" name">
+                                        Quicksort In Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="18860" resource-type-id="1924" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/addfirst-in-doubly-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Add First In Doubly Linkedlist" class=" name">
+                                        Add First In Doubly Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="18864" resource-type-id="1925" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/addlast-in-doubly-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Add Last In Doubly Linkedlist" class=" name">
+                                        Add Last In Doubly Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="18941" resource-type-id="1936" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/remove-first-in-doubly-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Remove First In Doubly Linkedlist" class=" name">
+                                        Remove First In Doubly Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="18942" resource-type-id="1937" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/remove-last-in-doubly-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Remove Last In Doubly Linkedlist" class=" name">
+                                        Remove Last In Doubly Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="18943" resource-type-id="1938" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/get-first-and-get-last-in-doubly-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Get First And Get Last In Doubly Linkedlist" class=" name">
+                                        Get First And Get Last In Doubly Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="23999" resource-type-id="1943" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="easyojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/get-at-in-doubly-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Get At In Doubly Linkedlist" class=" name">
+                                        Get At In Doubly Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge easy  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>easy
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="19009" resource-type-id="1954" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/add-at-in-doubly-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Add At In Doubly Linkedlist" class=" name">
+                                        Add At In Doubly Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="19010" resource-type-id="1955" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/remove-at-in-doubly-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Remove At In Doubly Linkedlist" class=" name">
+                                        Remove At In Doubly Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="19011" resource-type-id="1956" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/add-before-in-doubly-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Add Before In Doubly Linkedlist" class=" name">
+                                        Add Before In Doubly Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="19012" resource-type-id="1957" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/add-after-in-doubly-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Add After In Doubly Linkedlist" class=" name">
+                                        Add After In Doubly Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="19264" resource-type-id="1965" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/remove-after-in-doubly-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Remove After In Doubly Linkedlist" class=" name">
+                                        Remove After In Doubly Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="19265" resource-type-id="1966" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/remove-before-in-doubly-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Remove Before In Doubly Linkedlist" class=" name">
+                                        Remove Before In Doubly Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="19929" resource-type-id="2050" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/remove-node-in-doubly-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Remove Node In Doubly Linkedlist" class=" name">
+                                        Remove Node In Doubly Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="19930" resource-type-id="2049" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/display-forward-and-backward-in-doubly-linkedlist/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Display Forward And Backward In Doubly Linkedlist" class=" name">
+                                        Display Forward And Backward In Doubly Linkedlist
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                        
+                        
+                        
+                         
+                        <li resource-id="21004" resource-type-id="2088" resource-type="ojquestion" class="row collection-item no-margin no-padding searchRow  show-on-hover" searchtext="mediumojquestion2">
+                            <div class=" col  l12 s12 l-desc-icon">
+                        
+                                <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list/design-lru-chache/ojquestion" class="pageLink">
+                                    <span class="desc-icon">
+                                        <i class="fa fa-code grey-text" style="font-size: 0.86rem;padding-right:2%"></i>
+                        
+                        
+                        
+                        
+                                    </span>
+                                    <span resource-name="Design Lru Chache" class=" name">
+                                        Design Lru Chache
+                                    </span>
+                                </a>
+                        
+                                <span class="badge medium  login-badge ">
+                                    <i class=" fa fa-circle">
+                                    </i>medium
+                                </span>
+                            </div>
+                        </li>                     </ul>
+                  </div>
+               </div>
+            </div>
+         </div>
+         <div class="col l4 s12 m12">
+            <div class="card">
+               <div class="card-content">
+                  <div class="row" id="buyNowFreeCourse"><div class="col l4 s4 m4">
+    <img class="image  center " height="80px" width="80px" src="./7.PepCoding _ Linked List_files/doubt_support.svg">
+</div>
+<div class="col l8 s8 m8">
+    <p class="no-margin">Do you need more personalize experience while solving question
+        along with doubt support.</p>
+    <a class="btn" href="https://www.pepcoding.com/courses" target="_blank">
+        <h4 class="bolder ">Buy Now</h4>
+    </a>
+</div></div>
+               </div>
+            </div>
+            <div class="card">
+               <div class="card-content">
+                  <div class="row">
+                     <div class="col l12 s12 m12">
+                        <div id="stats" class="row full-height-content" purpose="studentStats">
+                           <h2 class="bold center no-margin"> Stats</h2>
+                           <div class="col l12 s12 stats-container" id="statsContainer"><ul class="collection with-header ">
+    <li class="collection-header">
+        <div class="row">
+            <span class="col l2 s2 m2 center"><i class="fa fa-trophy" aria-hidden="true"></i></span>
+            <span class="col l6 s7 m6 offset-l2"> Name</span>
+            <span class="col l2 s2 m2 no-padding">Marks</span>
+        </div>
+    </li>
+    <li class="collection-item" id="stat6853" style="padding: 1.5%;">
+        <div class="row no-margin">
+            <span class="col l2 s2 m2">1</span>
+            <span class="col l6 s7 m6 offset-l2 class-ellipsis" title="Eshan Bhatt">Eshan Bhatt</span>
+            <span class="col l2 s2 m2">450</span>
+        </div>
+    </li>
+    <li class="collection-item" id="stat1833" style="padding: 1.5%;">
+        <div class="row no-margin">
+            <span class="col l2 s2 m2">2</span>
+            <span class="col l6 s7 m6 offset-l2 class-ellipsis" title="Neha Goyal">Neha Goyal</span>
+            <span class="col l2 s2 m2">450</span>
+        </div>
+    </li>
+    <li class="collection-item" id="stat41872" style="padding: 1.5%;">
+        <div class="row no-margin">
+            <span class="col l2 s2 m2">3</span>
+            <span class="col l6 s7 m6 offset-l2 class-ellipsis" title="Nidhish Gaur">Nidhish Gaur</span>
+            <span class="col l2 s2 m2">450</span>
+        </div>
+    </li>
+    <li class="collection-item" id="stat24308" style="padding: 1.5%;">
+        <div class="row no-margin">
+            <span class="col l2 s2 m2">4</span>
+            <span class="col l6 s7 m6 offset-l2 class-ellipsis" title="Adhyan Chawla">Adhyan Chawla</span>
+            <span class="col l2 s2 m2">440</span>
+        </div>
+    </li>
+    <li class="collection-item" id="stat23406" style="padding: 1.5%;">
+        <div class="row no-margin">
+            <span class="col l2 s2 m2">5</span>
+            <span class="col l6 s7 m6 offset-l2 class-ellipsis" title="Sanjay Majhi">Sanjay Majhi</span>
+            <span class="col l2 s2 m2">440</span>
+        </div>
+    </li>
+    <li class="collection-item" id="stat22434" style="padding: 1.5%;">
+        <div class="row no-margin">
+            <span class="col l2 s2 m2">6</span>
+            <span class="col l6 s7 m6 offset-l2 class-ellipsis" title="Jayant Kumar">Jayant Kumar</span>
+            <span class="col l2 s2 m2">436.3</span>
+        </div>
+    </li>
+    <li class="collection-item" id="stat22818" style="padding: 1.5%;">
+        <div class="row no-margin">
+            <span class="col l2 s2 m2">7</span>
+            <span class="col l6 s7 m6 offset-l2 class-ellipsis" title="Vansh Aggarwal">Vansh Aggarwal</span>
+            <span class="col l2 s2 m2">430</span>
+        </div>
+    </li>
+    <li class="collection-item" id="stat1804" style="padding: 1.5%;">
+        <div class="row no-margin">
+            <span class="col l2 s2 m2">8</span>
+            <span class="col l6 s7 m6 offset-l2 class-ellipsis" title="Jaspreet Singh">Jaspreet Singh</span>
+            <span class="col l2 s2 m2">430</span>
+        </div>
+    </li>
+    <li class="collection-item" id="stat18795" style="padding: 1.5%;">
+        <div class="row no-margin">
+            <span class="col l2 s2 m2">9</span>
+            <span class="col l6 s7 m6 offset-l2 class-ellipsis" title="Mohit Gupta">Mohit Gupta</span>
+            <span class="col l2 s2 m2">430</span>
+        </div>
+    </li>
+    <li class="collection-item" id="stat20716" style="padding: 1.5%;">
+        <div class="row no-margin">
+            <span class="col l2 s2 m2">10</span>
+            <span class="col l6 s7 m6 offset-l2 class-ellipsis" title="Lakshit Pandey">Lakshit Pandey</span>
+            <span class="col l2 s2 m2">430</span>
+        </div>
+    </li>
+</ul>
+<div class="row">
+    <ul class="col l12 s12 m12 center pagination">
+        <li class="pageLi" index="1">
+            <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#!">
+                <i class="svg-chevron-left svg-header " aria-hidden="true"></i>
+            </a>
+        </li>
+        <li class="pageLi waves-effect   active" index="1">
+            <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#!">1</a>
+        </li>
+        <li class="pageLi waves-effect " index="2">
+            <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#!">2</a>
+        </li>
+        <li class="pageLi waves-effect " index="3">
+            <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#!">3</a>
+        </li>
+        <li class="pageLi waves-effect " index="4">
+            <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#!">4</a>
+        </li>
+        <li class="pageLi waves-effect " index="5">
+            <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#!">5</a>
+        </li>
+
+        <li class="pageLi" index="177">
+            <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#!">
+                <i class="svg-chevron-right svg-header" aria-hidden="true"></i>
+            </a>
+        </li>
+    </ul>
+</div>
+</div>
+                        </div>
+                     </div>
+                     <a class="offset-l4 col l5 s6 offset-s3 center bold view-more view-more-grey-base" href="https://www.pepcoding.com/data-structures-and-algorithms-in-java-levelup/67/linked-list/561/stats/false">
+                     View all Stats <span class="view-more-arrow"> ⟶</span>
+                     </a>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+</div>
+
+
+<input type="hidden" id="courseId" name="courseId" value="67">
+<input type="hidden" id="lectureId" name="lectureId" value="561">
+<input type="hidden" id="lectureCode" name="lectureCode" value="linked-list">
+<input type="hidden" id="maxIndex" value="43" <="" div="">
+
+   </main>
+   <div class="live-editor">
+       <div id="editor-support-out" class="sidenav sidenav-editor-window editor-section black right-aligned">
+           <div class="row no-margin doubt-header">
+               <div class="col l1 s3 m3 row no-margin no-padding ">
+                   <a href="https://www.pepcoding.com/index" class="brand-logo">
+                       <img class="logo" src="./7.PepCoding _ Linked List_files/logo.png" alt="logo">
+                   </a>
+               </div>
+               <div class="col l2 s2 m2 no-padding " title="Save" style="display: inline-flex;">
+                   <div id="liveEditorId"></div>&nbsp;
+               </div>
+   
+   
+               <div class="col l6 s6 m6 no-padding">
+   
+                   <div class="selectLang d-flex editorOptions  ">
+                       <div class="item">
+                         <select id="liveEditor_lang_select" class="code-lang-select text-upper" title="Select Language"></select>
+                       </div>
+                       <div class="item settings">
+                         <i class="fa fa-gear  modal-trigger" href="#liveEditor_modalSetting"></i>
+                        
+                         <i id="liveEditor_format_code" class="fa fa-format  format-code" aria-hidden="true" title="Format your code">{ } </i>
+                         <i id="liveEditor_reset_code" class="fa fa-refresh  code-refresh" aria-hidden="true" title="Reset your code"></i>
+                         <i id="liveEditor_full_screen" class="fa fa-arrows-alt code-fullscreen" aria-hidden="true" title="FullScreen"></i>
+                       </div>
+                       <div class="item">
+                         <div class="">
+                           <i id="liveEditor_compile_code" class="fa fa-play code-run btn-compile" title="Run"></i>
+                           Run
+                         </div>
+                       </div>
+                       
+                       
+                       <div id="liveEditor_modalSetting" class="modal small" style="z-index: 1003;">
+                         <div class="modal-content">
+                           <h4 class="row col l12 s12 center">
+                             Editor Settings
+                           </h4>
+                           <div class="row">
+                             <h4 class="col l6">
+                               Font Size
+                             </h4>
+                             <select id="liveEditor_font_select" title="Select Editor Font Size" class="code-font-select col l6"></select>
+                           </div>
+                           <div class="row">
+                             <h4 class="col l6">
+                               Key Binding
+                             </h4>
+                             <select id="liveEditor_key_binding" title="Select Editor Key Binding" class="key-binding col l6"></select>
+                           </div>
+                           <div class="divider"></div>
+                           <div class="row">
+                             <h4 class="col l12 center">
+                               Keyboard Shortcut
+                             </h4>
+                           </div>
+                           <ul class="collection">
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 fold
+                               </span>
+                               <span class="col l6 s6">
+                                 Alt-L|Ctrl-F1
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 unfold
+                               </span>
+                               <span class="col l6 s6">
+                                 Alt-Shift-L|Ctrl-Shift-F1
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Gotoend
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-End
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Gotostart
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-Home
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Movelinesup
+                               </span>
+                               <span class="col l6 s6">
+                                 Alt-Up
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Movelinesdown
+                               </span>
+                               <span class="col l6 s6">
+                                 Alt-Down
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Undo
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-Z
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Redo
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-Shift-Z|Ctrl-Y
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Replace
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-H
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Togglecomment
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-/
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 ToggleBlockComment
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-Shift-/
+                               </span>
+                             </li>
+                             <li class="collection-item list-item">
+                               <span class="col l6 s6">
+                                 Removeline
+                               </span>
+                               <span class="col l6 s6">
+                                 Ctrl-D
+                               </span>
+                             </li>
+                           </ul>
+                         </div>
+                       </div>                </div>
+               </div>
+               <div class="col l1 s1 m1 right" title="Close Editor">
+                   <a class="sidenav-close right " href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#">
+                       <i class="fa fa-times fa-2x " aria-hidden="true"></i>
+                   </a>
+               </div>
+   
+           </div>
+           <div id="liveCodeContainer" class="card-content row code-container">
+               <div id="liveEditor" class="col l12 s12 m12 editor "></div>
+   
+   
+               <div class="col l12 m12 s12 row  no-padding">
+                   <div class="col l12 no-margin no-padding  editor-footer no-padding ">
+                       <ul id="liveEditor_collapsible" class="collapsible no-margin colap-code  ">
+                           <li class="no-margin">
+                               <div class="collapsible-header  row no-margin console">
+                                   <div class="col l10 s10">
+                   
+                                       <span>&nbsp; &nbsp; <i class="fa fa-caret-up  downArrowToRotate"></i>
+                                           <span class="hide-on-med-and-down">
+                   
+                                           </span> Console
+                                       </span>
+                                       <span>
+                                           <i class="fa  fa-clock-o"></i>
+                                           <span id="liveEditor_compile_time" class="hide-on-med-and-down"> Time</span>
+                                       </span>
+                                       <span>
+                                           <i class="fa fa-microchip"></i><span class="hide-on-med-and-down" id="liveEditor_compile_memory">
+                                               Memory</span>
+                                       </span>
+                                       <span id="liveEditor_compile_status" class="op-heading">
+                                           <i class="fa fa-check-circle"></i>
+                   
+                                           <span id="liveEditor_message" class="hide-on-med-and-down">Status</span>
+                                   </span></div>
+                   
+                                   <div class="col l2">
+                   
+                                   </div>
+                               </div>
+                               <div class="collapsible-body" style="padding: 0px 10px;">
+                   
+                   
+                                   <div class="row  " style="margin-bottom:2px">
+                                       <div class="col s12">
+                                           <ul id="liveEditor_tab" class="tabs  output-tabs">
+                                               <li id="liveEditor_tab_output" class="tab col s3 active">
+                                                   <a class="active bolder" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#liveEditor_output_box">output</a>
+                                               </li>
+                                               <li id="liveEditor_tab_input" class="tab col s3"><a class="bolder" id="hello" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#liveEditor_input_box">input</a>
+                                               </li>
+                                           </ul>
+                                       </div>
+                                       <div id="liveEditor_output_box" class="col s12" style="height: 20vh">
+                                           <pre id="liveEditor_compile_actual_output" placeholder="Add your own input here , else programe will run against default test case" class="output no-margin " style="height:100%;overflow-y:scroll" rows="6" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></pre>
+                   
+                                           <div id="liveEditor_submit_actual_output">
+                                           </div>
+                                       </div>
+                                       <div id="liveEditor_input_box" class="col s12" style="height: 100%;line-height: 1rem;width: 98%;">
+                                           <textarea class="customArea no-margin" id="liveEditor_customInput" style="border:none;height: 100% " placeholder="Add your own input here , else programe will run against default test case" rows="6" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"></textarea>
+                                       </div>
+                                   </div>
+                   
+                               </div>
+                           </li>
+                   
+                       </ul>
+                       <input type="hidden" value="true" id="liveEditor_compileOnly">
+                   </div>
+               </div>
+   
+               <div id="slide-out-editorslist" style="transform: translateX(105%);width:36vw;top: 0;height: 90%;overflow:auto;" class="sidenav right white no-margin hide">
+   
+                   <table>
+                       <thead>
+                           <tr>
+                               <th>Id</th>
+                               <th>Name</th>
+                               <th>
+                                   <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/linked-list#" class="sidenav-close">
+                                       <i class="fa fa-times vertical-text-middle" aria-hidden="true"></i>
+                                   </a>
+                               </th>
+                           </tr>
+                       </thead>
+                       <tbody id="liveEditorNotesList" class="black-text">
+                       </tbody>
+                   </table>
+               </div>
+           </div>
+       </div>
+   </div>   <script src="./7.PepCoding _ Linked List_files/jquery.min.js.download"></script>
+   <script src="./7.PepCoding _ Linked List_files/materialize.min.js.download"></script>
+   <script type="text/javascript" src="./7.PepCoding _ Linked List_files/ace.js.download"></script>
+   <script src="./7.PepCoding _ Linked List_files/beautify.min.js.download"></script>
+   <input type="hidden" name="nadosSlug" value="">
+   <script type="text/javascript" src="./7.PepCoding _ Linked List_files/common.js.download"></script>
+   <script type="text/javascript" src="./7.PepCoding _ Linked List_files/base.js.download"></script>
+   <script type="text/javascript" src="./7.PepCoding _ Linked List_files/codeEditorWrapper.js.download"></script>
+   <script type="text/javascript" src="./7.PepCoding _ Linked List_files/liveEditor.js.download"></script>
+
+<input type="hidden" name="courseId" value="67">
+<input type="hidden" name="lectureId" value="561">
+<input type="hidden" name="resourceId" value="">
+<div id="sidenavOerlay" onclick="openCloseSideNav();" class="sidenav-overlay"></div>
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+   function closeBanner() {
+      $(".salesBanner").addClass("hide");
+   }
+   var twakTo = (function () {
+      Tawk_API.maximize();
+      Tawk_API.showWidget()
+   });
+
+
+   document.addEventListener("DOMContentLoaded", function (event) {
+      $('.payCoin').attr('disabled', false);
+      $('.payCoin').on('click', function () {
+         $('#payCoinForm').submit();
+         $(this).attr('disabled', true);
+      });
+
+
+      if (window.history.replaceState) {
+         window.history.replaceState(null, null, window.location.href);
+      }
+
+      $('.collapsible').collapsible({ inDuration: 100, outDuration: 100 });
+      $('.sidenav').sidenav({ edge: 'left' });
+      $('.sidenav-doubts-list').sidenav({ edge: 'right', });
+      $('.sidenav-doubt-window').sidenav({ edge: 'right', onOpenStart: window.PEP.InitLiveDoubts, onCloseStart: window.PEP.onDoubtWindowClosed });
+      $('.sidenav-editor-window').sidenav({ edge: 'right', onOpenStart: window.PEP.InitlizeLiveEditor });
+      $('.sidenav-notes-window').sidenav({ edge: 'right', onOpenStart: window.PEP.InitlizeLiveNotes });
+      $('.slide-out-admin-chat').sidenav({ edge: 'right', onOpenStart: window.PEP.openDoubtWindow, onCloseStart: window.PEP.closeDoubtWindow });
+      var modals = document.querySelectorAll('.modal')
+      for (var i = 0; i < modals.length; i++) {
+         M.Modal.init(modals[i]);
+      }
+
+   });
+
+   function siteThemeSelect(theme) {
+      PEP.createCookie('theme', theme, 365, true);
+      document.body.classList.remove('theme1');
+      document.body.classList.remove('theme2');
+      document.body.classList.remove('theme3');
+      document.body.classList.remove('theme4');
+      document.body.classList.add(theme);
+      saveUserPreferences(theme);
+   }
+
+
+   window.addEventListener("pageshow", function (event) {
+      var historyTraversal = event.persisted ||
+         (typeof window.performance != "undefined" &&
+            window.performance.navigation.type === 2);
+      if (historyTraversal) {
+         // Handle page restore.
+         window.location.reload();
+      }
+   });
+</script>
+<script type="text/javascript">
+   var key = $('#tawkKey').val();
+
+   if (key && key.length > 0) {
+      var Tawk_API = {
+         onLoad: function () {
+
+            //if ($('#isShowDoubtSupport').val() == 'true') {
+            Tawk_API.hideWidget()
+            Tawk_API.minimize();
+            // }
+         },
+      };
+      var Tawk_LoadStart = new Date();
+      (function () {
+         var s1 = document.createElement("script"),
+            s0 = document.getElementsByTagName("script")[0];
+         s1.async = true;
+         s1.src = 'https://embed.tawk.to/' + key + '/default';
+         s1.charset = 'UTF-8';
+         s1.setAttribute('crossorigin', '*');
+         s0.parentNode.insertBefore(s1, s0);
+      })();
+   }
+
+
+</script>
+<!-- Start Alexa Certify Javascript -->
+<script type="text/javascript">
+   _atrk_opts = { atrk_acct: "pU35u1SZw320l9", domain: "pepcoding.com", dynamic: true };
+   (function () { var as = document.createElement('script'); as.type = 'text/javascript'; as.async = true; as.src = "https://certify-js.alexametrics.com/atrk.js"; var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(as, s); })();
+</script>
+<noscript><img src="https://certify.alexametrics.com/atrk.gif?account=pU35u1SZw320l9" style="display:none" height="1"
+      width="1" alt="" /></noscript>
+<!-- End Alexa Certify Javascript -->
+<!--End of Tawk.to Script-->
+<script type="text/javascript" src="./7.PepCoding _ Linked List_files/allResources.js.download"></script>
+<script type="text/javascript">
+   setTimeout(getCourseMasterDetails, 10000);
+   setTimeout(()=>showStats(1), 6000);
+   function getCourseMasterDetails() {
+       var courseId = PEP.Resources.CourseId();
+       $.ajax({
+           url: '/master/course/' + courseId,
+           dataType: 'json',
+           method: 'get',
+           success: function (response) {
+               if (response && response.data) {
+                   $("#buyNowFreeCourse").empty().append(response.data);
+               }
+               window.PEP.hideLoader();
+           },
+           error: function (err) {
+               window.PEP.handleException(err);
+           }
+       });
+   }
+   
+</script>
+
+<style>
+</style>
+
+<div class="sidenav-overlay"></div><div class="drag-target"></div><div class="sidenav-overlay"></div><div class="drag-target right-aligned"></div><script async="" charset="UTF-8" src="./7.PepCoding _ Linked List_files/en.js.download"></script></body></html>
