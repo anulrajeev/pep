@@ -1,0 +1,45 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+void longestConsecutive(vector<int>& num) {
+
+    unordered_set<int> s(num.begin(), num.end());
+    int start, count=0, max_count=0, local_start;
+    vector<int> v, res;
+    int prev=-1;
+    for(int i=0;i<num.size();i++)
+      if(s.count(num[i]-1))
+        continue;
+      else
+       {
+           count=0;
+           local_start=num[i];
+           for(int j=0;s.count(num[i]+j);j++)
+              count++;
+           if(count>max_count)
+            {
+                start=local_start;
+                max_count=count;
+            }
+       }
+    int n=start;
+    while(s.count(n))
+       cout<<n++<<'
+';
+    
+}
+
+int main()
+{
+  vector<int>arr;
+  int n;
+  cin >> n;
+  for (int i = 0 ; i < n; i++) {
+    int data;
+    cin >> data;
+    arr.push_back(data);
+  }
+  longestConsecutive(arr);
+
+  return 0;
+}

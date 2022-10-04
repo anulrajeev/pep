@@ -1,0 +1,55 @@
+#include <bits/stdc++.h>
+using namespace std;
+void display(vector<int>a) {
+  for (int i = 0; i < a.size(); i++)
+  {
+    cout << a[i] << endl;
+  }
+}
+vector<int> solve(vector<int>A)
+{
+  
+  stack<int> st;
+  vector<int> res(A.size());
+  for(int i=0; i<A.size();i++)
+        if(st.size()==0)
+        {
+            res[i]=1;
+            st.push(i);
+        }
+        else if(A[i]<A[st.top()])
+        {
+            res[i]=1;
+            st.push(i);
+        }
+        else
+        {
+            while(st.size() && A[st.top()]<=A[i])
+                st.pop();
+            if(st.size()==0)
+            {
+                res[i]=i+1;
+                st.push(i);
+            }
+            else
+            {
+                res[i]=i-st.top();
+                st.push(i);
+            }
+        }
+    return res;
+}
+int main(int argc, char** argv)
+{
+  int n;
+  cin >> n;
+  vector<int>arr(n, 0);
+  for (int i = 0; i < n; i++)
+  {
+    cin >> arr[i];
+  }
+  vector<int>span(n, 0);
+  span = solve(arr);
+  display(span);
+  return 0;
+}

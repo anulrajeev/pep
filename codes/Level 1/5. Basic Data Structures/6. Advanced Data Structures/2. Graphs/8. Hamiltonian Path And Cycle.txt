@@ -1,0 +1,72 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+	_main();
+	return 0;
+}
+
+void DFSRec(vi adj[], int V, int src, int u, bool visited[], int count, string psf)
+{
+	visited[u]=true;
+	if(count==V)
+	{
+		cout<<psf;
+		bool cycle=false;
+		for(int v : adj[u])
+			if(v==src)
+			{
+				cout<<"*";
+				cycle=true;
+				break;
+			}
+		if(!cycle)
+			cout<<".";
+	}
+	else
+	{
+		for(int v : adj[u])
+			if(visited[v]==false)
+				DFSRec(adj,V,src,v,visited,count+1,psf+to_string(v));
+	}
+
+	visited[u]=false;
+}
+
+
+void hamiltonian(vi adj[], int V, int src)
+{
+	bool visited[V]={false};
+	DFSRec(adj,V,src,src,visited,1,to_string(src));
+}
+
+void _main()
+{
+  	int V,k;
+  	cin>>V>>k;
+  	int u,v,wt,src;
+  	vi adj[V];
+  	for(int i=0;i<k;i++)
+  	{
+  		cin>>u>>v>>wt;
+  		adj[u].push_back(v);
+  		adj[v].push_back(u);
+  	}
+  	cin>>src;
+  	hamiltonian(adj,V,src);
+}

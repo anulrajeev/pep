@@ -1,0 +1,76 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+int evaluate(string s)
+{
+	stack<int> st1;
+	stack<char> st2;
+	for(auto x : s)
+		if(x==' ')
+			continue;
+		else if(x>='0' && x<='9')
+			st1.push(x-'0');
+		else if(x=='(')
+			st2.push('(');
+		else if(x==')')
+		{
+			while(st2.top()!='(')
+			{
+				int a=st1.top(); st1.pop();
+				int b=st1.top(); st1.pop();
+				switch(st2.top())
+					{
+						case '+': st1.push(b+a); st2.pop(); break;
+						case '-': st1.push(b-a); st2.pop(); break;
+						case '*': st1.push(b*a); st2.pop(); break;
+						case '/': st1.push(b/a); st2.pop(); break;							
+					}
+			}
+			st2.pop();
+		}
+		else
+		{
+			if(st2.size()==0)
+				st2.push(x);
+			else
+			{
+				if(st2.top()=='/'||st2.top()=='*')
+				{
+					int a=st1.top(); st1.pop();
+					int b=st1.top(); st1.pop();
+					switch(st2.top())
+					{
+						case '+': st1.push(b+a); st2.pop(); break;
+						case '-': st1.push(b-a); st2.pop(); break;
+						case '*': st1.push(b*a); st2.pop(); break;
+						case '/': st1.push(b/a); st2.pop(); break;							
+					}
+
+				}
+				st2.push(x);
+			}
+
+		}
+
+	while(st1.size()!=1)
+	{
+		int a=st1.top(); st1.pop();
+		int b=st1.top(); st1.pop();
+		switch(st2.top())
+		{
+			case '+': st1.push(b+a); st2.pop(); break;
+			case '-': st1.push(b-a); st2.pop(); break;
+			case '*': st1.push(b*a); st2.pop(); break;
+			case '/': st1.push(b/a); st2.pop(); break;							
+		}
+	}
+	return st1.top();
+}
+
+int main()
+{
+	string s;
+	getline(cin, s);
+	cout<<evaluate(s);
+	return 0;
+}

@@ -1,0 +1,64 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+
+void DFSRec(vi adj[], int V, int u, bool visited[], vi psf, vvi &res)
+{
+	visited[u]=true;
+	psf.push_back(u);
+	bool neighbour=false;
+	for(int v : adj[u])
+		if(visited[v]==false)
+		{
+			neighbour=true;
+			DFSRec(adj,V,v,visited, psf, res);
+		}
+	if(neighbour==false)
+		res.push_back(psf);
+}
+
+void DFS(vi adj[], int V)
+{
+	bool visited[V]={false};
+	vvi res;
+	vi psf;
+	for(int i=0;i<V;i++)
+		if(visited[i]==false)
+			DFSRec(adj,V,i,visited, psf, res);
+	cout<<'[';
+	int count=1;
+	for(auto v : res)
+	{
+		cout<<'[';
+		for(int i=0;i<v.size()-1;i++)
+			cout<<v[i]<<", ";
+		cout<<v[v.size()-1];
+		cout<<"]";
+		if(count!=res.size())
+			cout<<", ";
+		count++;
+	}
+	cout<<']';
+}
+
+
+int main()
+{
+  	int src,dest, criteria, k;
+  	int V, edge_count;
+  	int u,v,wt;
+  	cin>>V>>edge_count;
+  	
+  	vi adj[V];
+  	for(int i=0;i<edge_count;i++)
+  	{
+  		cin>>u>>v>>wt;
+  		adj[u].push_back(v);
+  		adj[v].push_back(u);
+  		
+   	}
+   	
+   	 DFS(adj,V);
+   	 return 0;
+}

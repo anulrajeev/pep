@@ -1,0 +1,42 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+void DFSRec(vvi &grid, int i, int j)
+{
+	int m=grid.size(), n=grid[0].size();
+	if(i<0 || i>=m || j<0 || j>=n || grid[i][j]==1)
+			return;
+	grid[i][j]=1;
+
+	DFSRec(grid,i+1,j);
+	DFSRec(grid,i-1,j);
+	DFSRec(grid,i,j+1);
+	DFSRec(grid,i,j-1);
+}
+
+int countIslands(vvi &grid)
+{
+	int m=grid.size(), n=grid[0].size();
+	int count=0;
+	for(int i=0;i<m;i++)
+		for(int j=0;j<n;j++)
+			if(grid[i][j]==0)
+			{
+				count++;
+				DFSRec(grid,i,j);
+			}
+	return count;
+}
+
+int main()
+{
+  	int m,n;
+  	cin>>m>>n;
+  	vvi grid(m,vi(n,0));
+  	for(int i=0;i<m;i++)
+  		for(int j=0;j<n;j++)
+  			cin>>grid[i][j];
+  	cout<<countIslands(grid);
+    return 0;
+}

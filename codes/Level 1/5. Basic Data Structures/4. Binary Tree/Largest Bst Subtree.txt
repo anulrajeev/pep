@@ -1,0 +1,164 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+	_main();
+	return 0;
+}
+
+struct Node
+{
+	int data;
+	Node *left, *right;
+	Node(int x)
+	{
+		data=x;
+		left=right=NULL;
+	}
+};
+
+Node* cTree(vi &v)
+{
+	stack<pair<Node*,int>> st;
+	Node *root=new Node(v[0]);
+	st.push({root, 0});
+	for(int i=1;i<v.size();i++)
+	{
+		Node *temp=st.top().first;
+		int &state=st.top().second;
+		if(v[i]==-1)
+		{
+			if(state==0)
+				state++;
+			else 
+				st.pop();
+		}
+		else
+		{
+			if(state==0)
+			{
+				temp->left=new Node(v[i]);
+				state++;
+				st.push({temp->left,0});
+			}
+			else 
+			{
+				temp->right=new Node(v[i]);
+				st.pop();
+				st.push({temp->right, 0});
+			}
+		}
+	}
+	return root;
+}
+
+void display(Node *root)
+{
+	if(root==NULL)
+		return;
+	cout<<root->data<<" --> ";
+	if(root->left)
+		cout<<root->left->data<<" ";
+	else
+		cout<<".  ";
+	if(root->right)
+		cout<<root->right->data<<" ";
+	else
+		cout<<".  ";
+	cout<<'
+';
+	if(root->left)
+		display(root->left);
+	if(root->right)
+		display(root->right);
+}
+
+void preOrder(Node *root)
+{
+	if(root==NULL)
+		return;
+	cout<<root->data<<' ';
+	preOrder(root->left);
+	preOrder(root->right);
+}
+
+struct Info
+{
+	bool isBST;
+	int min_val, max_val;
+	Node *node;
+	int count;
+};
+
+void display(Info obj)
+{
+	cout<<obj.isBST<<' '<<obj.min_val<<' '<<obj.max_val<<' '<<obj.node->data<<' '<<obj.count<<'
+';
+}
+
+Info largestBST(Node *root)
+{
+	if(root==NULL)
+	//////////////////////////////
+		return {true, INT_MAX, INT_MIN, NULL, 0};
+	else if(root->left==NULL && root->right==NULL)
+		return {true, root->data, root->data, root, 1};
+	else
+	{
+		Info lBST=largestBST(root->left), rBST=largestBST(root->right);
+		if(lBST.isBST && rBST.isBST && (lBST.max_val<root->data && root->data<rBST.min_val))
+		{
+			Info res;
+			res.isBST   = true;
+			res.min_val = min(lBST.min_val, root->data);
+			res.max_val = max(rBST.max_val, root->data);
+			res.node    = root;
+			res.count   = rBST.count+lBST.count+1;
+			return res; 	
+		}
+		// if(root->data==75)
+		// 	display(lBST);
+		if(lBST.count>rBST.count)
+			return {false, 0,0, lBST.node, lBST.count};
+		else
+			return {false, 0,0, rBST.node, rBST.count};
+	}
+}
+
+
+void f(Node *root)
+{
+	Info res=largestBST(root);
+	cout<<res.node->data<<'@'<<res.count;
+}
+void _main()
+{
+  	int n;
+  	cin>>n;
+  	vi v(n);
+  	string s;
+  	for(int i=0;i<n;i++)
+  	{
+  		cin>>s;
+  		v[i]=(s=="n"?-1:stoi(s));
+  	}
+  	Node *root=cTree(v);
+  	// display(root);
+  	f(root);
+
+}

@@ -1,0 +1,52 @@
+#includebitsstdc++.h
+using namespace std;
+
+unordered_mapchar, string m;
+void initialise(){
+	m['0']=.;;
+    m['1']=abc;
+    m['2']=def;
+    m['3']=ghi;
+    m['4']=jkl;
+    m['5']=mno;
+    m['6']=pqrs;
+    m['7']=tu;
+    m['8']=vwx;
+    m['9']=yz;
+}
+vectorstring getKPC(string s, int index=0) {
+  vectorstring ans;
+  if(index==s.length()-1)
+     {
+         vectorstring res;
+         string dummy;
+         for(auto x  m[s[index]])
+              res.push_back(dummy+x);
+        return res;
+     }
+   vectorstring res = getKPC(s,index+1);
+   for(auto x  m[s[index]])
+       for(int i=0;ires.size();i++)
+           ans.push_back(x + res[i]);
+    return ans;
+  
+}
+
+
+int main() {
+  initialise();
+  string s;
+  cin  s;
+  vectorstring ans = getKPC(s);
+  int cnt = 0;
+
+  cout  '[';
+  for (string str  ans) {
+    if (cnt != ans.size() - 1)
+      cout  str  , ;
+    else
+      cout  str;
+    cnt++;
+  }
+  cout  ']';
+}

@@ -1,0 +1,12 @@
+#include<bits/stdc++.h>
+using namespace std;
+int main()
+{
+    string s;
+	cin>>s;
+	int freq[26]={0};
+	for(auto x : s)
+		freq[x-'a']++;  	
+	cout<<char('a'+(max_element(freq,freq+26)-freq));
+    return 0;
+}

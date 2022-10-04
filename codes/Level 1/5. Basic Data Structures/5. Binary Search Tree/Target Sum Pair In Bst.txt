@@ -1,0 +1,175 @@
+#include <bits/stdc++.h>
+using namespace std;
+struct Node
+{
+	int data;
+	Node *left, *right;
+	Node(int x)
+	{
+		data=x;
+		left=right=NULL;
+	}
+};
+
+Node *cTree(int A[], int n)
+{
+	stack<pair<Node*,int>> st;
+	Node *root = new Node(A[0]);
+	st.push({root,0});
+	for(int i=1;i<n;i++)
+	{
+		Node *temp=st.top().first;
+		int &state=st.top().second;
+		if(A[i]==-1)
+		{
+			if(state==0)
+				state++;
+			else
+				st.pop();
+		}
+		else if(state==0)
+		{
+			temp->left=new Node(A[i]);
+			state++;
+			st.push({temp->left,0});
+		}
+		else if(state==1)
+		{
+			temp->right=new Node(A[i]);
+			st.pop();
+			st.push({temp->right,0});
+		}
+			
+	}
+	return root;
+}
+
+void display(Node *root)
+{
+	stack<pair<Node*, int>> st;
+	st.push({root, 0});
+	while(st.size())
+	{
+		Node *temp=st.top().first;
+		int &state=st.top().second;
+		if(state==0)
+		{
+			if(temp->left)
+				cout<<temp->left->data;
+			else
+				cout<<" .";
+			cout<<" <-- "<<temp->data<<" --> ";
+			if(temp->right)
+				cout<<temp->right->data;
+			else
+				cout<<" .";
+			state++;
+			cout<<'
+';
+			if(temp->left)
+				st.push({temp->left,0});
+		}
+		else if(state==1)
+		{
+			state++;
+			if(temp->right)
+				st.push({temp->right, 0});
+		}
+		else
+			st.pop();
+	}
+}
+
+Node *getNextfromNormalInorder(stack<pair<Node*,int>> &st)
+{
+	while(st.size())
+	{
+		Node *temp=st.top().first;
+		int &state=st.top().second;
+		if(state==0)
+		{
+			state++;
+			if(temp->left)
+				st.push({temp->left,0});
+		}
+		else if(state==1)
+		{
+			state++;
+			if(temp->right)
+				st.push({temp->right,0});
+			return temp;
+
+		}
+		else
+			st.pop();
+	}
+
+
+	return NULL;
+}
+
+Node *getNextfromReverseInorder(stack<pair<Node*,int>> &st)
+{
+	while(st.size())
+	{
+		Node *temp=st.top().first;
+		int &state=st.top().second;
+		if(state==0)
+		{
+			state++;
+			if(temp->right)
+				st.push({temp->right,0});
+		}
+		else if(state==1)
+		{
+			state++;
+			if(temp->left)
+				st.push({temp->left,0});
+			return temp;
+
+		}
+		else
+			st.pop();
+	}
+
+
+	return NULL;
+}
+
+int main()
+{
+  	string s;
+  	int n;
+  	cin>>n;
+  	int A[n];
+  	for(int i=0;i<n;i++)
+  	{
+  		cin>>s;
+  		if(s=="n")
+  			A[i]=-1;
+  		else
+  			A[i]=stoi(s);
+  	}
+  	int sum;
+  	cin>>sum;
+  	Node *root=cTree(A,n);
+  	// display(root);
+  	stack<pair<Node*,int>> ls, rs;
+  	ls.push({root, 0});
+  	rs.push({root, 0});
+  	Node *left=getNextfromNormalInorder(ls), *right=getNextfromReverseInorder(rs);
+  	while(left!=right)
+  	{
+  		if(left->data+right->data==sum)
+  			{
+  				cout<<left->data<<" "<<right->data<<'
+';
+  				left=getNextfromNormalInorder(ls), right=getNextfromReverseInorder(rs);
+  			}
+  		else if(left->data+right->data<sum)
+  			left=getNextfromNormalInorder(ls);
+  		else
+  			right=getNextfromReverseInorder(rs);
+  	}
+  	return 0;
+}

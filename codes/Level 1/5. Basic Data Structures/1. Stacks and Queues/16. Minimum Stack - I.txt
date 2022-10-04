@@ -1,0 +1,106 @@
+#include<iostream>
+#include <string>
+#include <stack>
+
+using namespace std;
+
+
+class MinStack {
+
+
+  stack<int> allData;
+  stack<int> minData;
+
+
+public:
+  int size() {
+    return allData.size();
+  }
+
+public:
+  void push(int val) {
+    allData.push(val);
+    if(allData.size()==1 || val<=minData.top())
+        minData.push(val);
+  }
+
+public:
+  int pop() {
+    if(allData.size()==0)
+    {
+        cout<<"Stack underflow
+";
+        return -1;
+    }
+    int item=allData.top();
+    allData.pop();
+    if(item==minData.top())
+        minData.pop();
+    return item;
+  }
+
+public:
+  int top() {
+     if(allData.size()==0)
+    {
+        cout<<"Stack underflow
+";
+        return -1;
+    }
+  return allData.top();
+  }
+
+public:
+  int min() {
+    if(minData.size()==0)
+    {
+        cout<<"Stack underflow
+";
+        return -1;
+    }
+    return minData.top();
+  }
+
+};
+
+
+int main() {
+  MinStack st;
+
+  string str;
+  cin >> str;
+
+  while (str != "quit") {
+
+    if (str == "push") {
+      int val;
+      cin >> val;
+      st.push(val);
+    }
+    else if (str == "pop") {
+      int val = st.pop();
+      if (val != -1) {
+        cout << val << endl;
+      }
+    }
+    else if (str == "top") {
+      int val = st.top();
+      if (val != -1) {
+        cout << val << endl;
+      }
+    }
+    else if (str == "size") {
+      cout << st.size() << endl;
+    }
+    else if (str == "min" ) {
+      int val = st.min();
+      if (val != -1) {
+        cout << val << endl;
+      }
+    }
+
+    cin >> str;
+
+  }
+
+}

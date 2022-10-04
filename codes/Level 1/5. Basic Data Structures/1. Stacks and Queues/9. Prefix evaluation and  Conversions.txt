@@ -1,0 +1,86 @@
+#include <bits/stdc++.h>
+using namespace std;
+void eveluate(string s)
+{
+	string dummy="",A,B;
+	int a,b;
+	stack<int> vs;
+	stack<string> is, ps;
+	for(int i=s.length()-1;i>=0;i--)
+	{
+		char x = s[i];
+		switch(x)
+			{
+				case '*':	a = vs.top(); vs.pop();
+							b = vs.top(); vs.pop();
+							vs.push(a*b);
+
+							A = is.top(); is.pop();
+							B = is.top(); is.pop();
+							is.push("("+A+"*"+B+")");
+
+							A = ps.top(); ps.pop();
+							B = ps.top(); ps.pop();
+							ps.push(A+B+"*");
+
+							break;
+
+				case '+':	a = vs.top(); vs.pop();
+							b = vs.top(); vs.pop();
+							vs.push(a+b);
+
+							A = is.top(); is.pop();
+							B = is.top(); is.pop();
+							is.push("("+A+"+"+B+")");
+
+							A = ps.top(); ps.pop();
+							B = ps.top(); ps.pop();
+							ps.push(A+B+"+");
+
+							break;
+
+				case '-':	a = vs.top(); vs.pop();
+							b = vs.top(); vs.pop();
+							vs.push(a-b);
+
+							A = is.top(); is.pop();
+							B = is.top(); is.pop();
+							is.push("("+A+"-"+B+")");
+
+							A = ps.top(); ps.pop();
+							B = ps.top(); ps.pop();
+							ps.push(A+B+"-");
+
+							break;
+
+				case '/':	a = vs.top(); vs.pop();
+							b = vs.top(); vs.pop();
+							vs.push(a/b);
+
+							A = is.top(); is.pop();
+							B = is.top(); is.pop();
+							is.push("("+A+"/"+B+")");
+
+							A = ps.top(); ps.pop();
+							B = ps.top(); ps.pop();
+							ps.push(A+B+"/");
+
+							break;
+
+				default : vs.push(x-'0');
+						  is.push(dummy+x);
+						  ps.push(dummy+x);	
+			}
+	}
+	cout<<vs.top()<<'
+'<<is.top()<<'
+'<<ps.top();
+}
+
+int main()
+{
+  	string s;
+  	cin>>s;
+  	eveluate(s);
+  	return 0;
+}

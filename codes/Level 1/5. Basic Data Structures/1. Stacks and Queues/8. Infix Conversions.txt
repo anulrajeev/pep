@@ -1,0 +1,217 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<string> vs;
+typedef long long ll;
+typedef pair<int, int> pii;
+ll mod = 1000000009;
+
+void _main();
+int main(){
+ 
+	_main();
+	return 0;
+}
+
+string postfix(string s)
+{
+	stack<char> st_op;
+	stack<string> st2;
+	string dummy;	
+	s="("+s+")";
+	int n=s.length();
+	// cout<<s<<'
+';
+	for(int i=0;i<n;i++)
+		switch(s[i])
+	      {
+	      	case '(': st_op.push('('); break;
+	      	case ')':
+	      	          while(st_op.top()!='(')
+	      	          {
+	      	          	char ch=st_op.top(); st_op.pop();
+	      	          	string b=st2.top(); st2.pop();
+	      	          	string a=st2.top(); st2.pop();
+	      	          	switch(ch)
+	      	          	{
+	      	          		case '+': st2.push(a+b+'+'); break;
+	      	          		case '-': st2.push(a+b+'-'); break;
+	      	          		case '/': st2.push(a+b+'/'); break;
+	      	          		case '*': st2.push(a+b+'*'); break;	      	          		
+	      	          	}
+	      	          }
+	      	          st_op.pop();
+	      	          break;
+
+	      	case '+': 
+	      	case '-':
+	      	          while(st_op.top()!='(')
+	      	          {
+	      	          	char ch=st_op.top(); st_op.pop();
+	      	          	string b=st2.top(); st2.pop();
+	      	          	string a=st2.top(); st2.pop();
+	      	          	switch(ch)
+	      	          	{
+	      	          		case '+': st2.push(a+b+'+'); break;
+	      	          		case '-': st2.push(a+b+'-'); break;
+	      	          		case '/': st2.push(a+b+'/'); break;
+	      	          		case '*': st2.push(a+b+'*'); break;	      	          		
+	      	          	}
+	      	          
+	      	          }
+	      	          if(s[i]=='+')
+	      	          	st_op.push('+');
+	      	          else
+	      	          	st_op.push('-');
+	      	          break;
+	      	case '*':
+	      	case '/':  while(st_op.top()!='(' && st_op.top()!='+' &&  st_op.top()!='-')
+	      	          {
+	      	          	char ch=st_op.top(); st_op.pop();
+	      	          	string b=st2.top(); st2.pop();
+	      	          	string a=st2.top(); st2.pop();
+	      	          	switch(ch)
+	      	          	{
+	      	          		case '/': st2.push(a+b+'/'); break;
+	      	          		case '*': st2.push(a+b+'*'); break;	      	          		
+	      	          	}
+	      	          
+	      	          }
+	      	          if(s[i]=='*')
+	      	          	st_op.push('*');
+	      	          else
+	      	          	st_op.push('/');
+	      	          break;
+
+	      	default : st2.push(dummy+s[i]);
+	      }
+
+
+	return st2.top();
+
+
+}
+
+
+string prefix(string s)
+{
+	stack<char> st_op;
+	stack<string> st2;
+	string dummy;	
+	s="("+s+")";
+	int n=s.length();
+	// cout<<s<<'
+';
+	for(int i=0;i<n;i++)
+		switch(s[i])
+	      {
+	      	case '(': st_op.push('('); break;
+	      	case ')':
+	      	          while(st_op.top()!='(')
+	      	          {
+	      	          	char ch=st_op.top(); st_op.pop();
+	      	          	string b=st2.top(); st2.pop();
+	      	          	string a=st2.top(); st2.pop();
+	      	          	switch(ch)
+	      	          	{
+	      	          		case '+': st2.push('+'+a+b); break;
+	      	          		case '-': st2.push('-'+a+b); break;
+	      	          		case '/': st2.push('/'+a+b); break;
+	      	          		case '*': st2.push('*'+a+b); break;	      	          		
+	      	          	}
+	      	          }
+	      	          st_op.pop();
+	      	          break;
+
+	      	case '+': 
+	      	case '-':
+	      	          while(st_op.top()!='(')
+	      	          {
+	      	          	char ch=st_op.top(); st_op.pop();
+	      	          	string b=st2.top(); st2.pop();
+	      	          	string a=st2.top(); st2.pop();
+	      	          	switch(ch)
+	      	          	{
+	      	          		case '+': st2.push('+'+a+b); break;
+	      	          		case '-': st2.push('-'+a+b); break;
+	      	          		case '/': st2.push('/'+a+b); break;
+	      	          		case '*': st2.push('*'+a+b); break;	      	          		
+	      	          	}
+	      	          
+	      	          }
+	      	          if(s[i]=='+')
+	      	          	st_op.push('+');
+	      	          else
+	      	          	st_op.push('-');
+	      	          break;
+	      	case '*':
+	      	case '/':  while(st_op.top()!='(' && st_op.top()!='+' &&  st_op.top()!='-')
+	      	          {
+	      	          	char ch=st_op.top(); st_op.pop();
+	      	          	string b=st2.top(); st2.pop();
+	      	          	string a=st2.top(); st2.pop();
+	      	          	switch(ch)
+	      	          	{
+	      	          		case '/': st2.push('/'+a+b); break;
+	      	          		case '*': st2.push('*'+a+b); break;	      	          		
+	      	          	}
+	      	          
+	      	          }
+	      	          if(s[i]=='*')
+	      	          	st_op.push('*');
+	      	          else
+	      	          	st_op.push('/');
+	      	          break;
+
+	      	default : st2.push(dummy+s[i]);
+	      }
+
+
+	return st2.top();
+
+
+}
+
+
+string fn1(string s)
+{
+	cout<<s<<'
+';
+	return s+"1";
+}
+
+
+
+string fn2(string s)
+{
+	cout<<s<<'
+';
+	return s+"2";
+}
+
+
+
+string fn3(string s)
+{
+	cout<<s<<'
+';
+	return s+"3";
+}
+
+
+
+void _main()
+{
+  	string s;
+  	cin>>s;  	
+  	cout<<postfix(s)<<'
+'<<prefix(s);
+  	// cout<<fn1(s)<<'
+'<<fn2(s)<<'
+'<<fn3(s)<<'
+';
+  	// int a=5, b=a+1;
+  	// cout<<a<<'
+'<<b;
+}

@@ -1,0 +1,95 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+
+	_main();
+	return 0;
+}
+
+void addEdge(vector<pii> adj[],int u, int v, int wt)
+{
+	adj[u].push_back({v,wt});
+	adj[v].push_back({u,wt});
+}
+
+bool BFS(vector<pii> adj[], int V, int src, int dest)
+{
+	bool visited[V]={false};
+	queue<int> q;
+	q.push(src);
+	while(q.size())
+	{
+		int u=q.front(); q.pop();
+		if(u==dest)
+			return true;
+		for(auto p : adj[u])
+		{
+			int v = p.first; 
+			if(visited[v]==false)
+			{
+				visited[v]=true;
+				q.push(v);
+			}
+		}
+	}
+	return false;
+}
+
+
+void DFSRec(vector<pii> adj[], int V, int u, int dest,string s, bool visited[], vs &res)
+{
+	visited[u]=true;
+	if(u==dest)
+		res.push_back(s+to_string(u));
+	else
+		for(auto p : adj[u])
+		{
+			int v=p.first;
+			if(visited[v]==false)
+			   DFSRec(adj,V,v,dest,s+to_string(u),visited,res);
+		}
+	visited[u]=false;
+}
+
+void getPaths(vector<pii> adj[], int V, int src, int dest)
+{
+	bool visited[V]={false};
+	vector<string> res;
+	DFSRec(adj, V,src, dest,"", visited, res);
+	
+	for(auto s : res)
+		cout<<s<<'
+';
+}
+
+
+void _main()
+{
+  	int src, dest, V, n;
+  	cin>>V>>n;
+  	int u,v,wt;
+  	vector<pii> adj[V];
+  	for(int i=0;i<n;i++)
+  	{
+  		cin>>u>>v>>wt;
+  		addEdge(adj,u,v,wt);
+  	}
+  	cin>>src>>dest;
+  	
+  	getPaths(adj, V, src, dest);
+
+}

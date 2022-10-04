@@ -1,0 +1,39 @@
+#include <bits/stdc++.h>
+using namespace std;
+bool evaluate(string s)
+{
+	stack<int> st;
+	for(auto x : s)
+		switch(x)
+			{
+				case ')':if(st.size() && st.top()=='(')
+								st.pop();
+						  else
+						  	return false;
+						  break;
+				case ']':if(st.size() && st.top()=='[')
+								st.pop();
+						  else
+						  	return false;
+						  break;
+				case '}': if(st.size() && st.top()=='{')
+								st.pop();
+						  else
+						  	return false;
+						  break;
+				case '(':
+				case '[':
+				case '{': st.push(x); 
+			}
+
+	return (st.size()==0);
+
+}
+
+int main()
+{
+  	string s;
+  	getline(cin,s);
+  	cout<<(evaluate(s)?"true":"false");
+  	return 0;
+}

@@ -1,0 +1,153 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+
+	_main();
+	return 0;
+}
+
+struct Node
+{
+	int data;
+	Node *next;
+	Node(int n)
+	{
+		data=n;
+		next=NULL;
+	}
+}*head;
+
+
+Node* getMid(Node *head)
+{
+	if(head==NULL || head->next==NULL)
+		return head;
+
+	Node *first=head, *second=head;
+	while(second->next!=NULL && second->next->next!=NULL)
+	{
+		first=first->next;
+		second=second->next->next;
+	}
+	return first;
+}
+
+Node* reverse(Node *head)
+{
+	if(head==NULL || head->next==NULL)
+			return head;
+	Node *first=NULL, *second=head, *third=head->next;
+	while(second)
+	{
+		second->next=first;
+		first=second;
+		second=third;
+		if(third)
+			third=third->next;
+	}
+	return first;
+}
+
+void display(Node *temp)
+{
+	while(temp)
+	{
+		cout<<temp->data<<' ';
+		temp=temp->next;
+	}
+	cout<<'
+';
+}
+
+void addFirst(int n)
+{
+	Node *temp=new Node(n);
+	if(head==NULL)
+		head=temp;
+	else 
+	{
+		temp->next=head;
+		head=temp;
+	}
+}
+
+void addLast(int n)
+{
+	if(head==NULL)
+		head=new Node(n);
+	else
+	{
+		Node *temp=head;
+		while(temp->next)
+			temp=temp->next;
+		temp->next=new Node(n);
+	}
+}
+
+void fold(Node *head)
+{
+	Node *mid=getMid(head);
+	mid->next=reverse(mid->next);
+	Node *first=head, *second=mid->next ,*p;
+	Node *nfirst, *nsecond;
+	while(first && second)
+	{
+		nfirst=first->next, nsecond=second->next;
+		first->next=second, second->next=nfirst;
+		p=second;
+		first=nfirst, second=nsecond;
+	}
+	if(first==mid)
+		mid->next=NULL;
+	else
+		p->next=NULL;
+
+}
+
+void _main()
+{
+	head=NULL;
+  	int n,x;
+  	cin>>n;
+  	for(int i=0;i<n;i++)
+  	{
+  		cin>>x;
+  		Node *temp=new Node(x);
+  		if(head==NULL)
+  			head=temp;
+  		else
+  		{
+  			Node *t=head;
+  			while(t->next)
+  				t=t->next;
+  			t->next=temp;
+  		}
+  	}
+
+  	display(head);
+  	fold(head);
+	display(head);
+
+  	int a,b;
+  	cin>>a>>b;
+  	addFirst(a);
+  	addLast(b);
+  	display(head);
+
+}

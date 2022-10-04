@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main()
+{
+  	int n,k;
+  	cin>>n;
+  	int A[n];
+  	for(int i=0;i<n;i++)
+  		cin>>A[i];
+  	cin>>k;
+  	deque<int> dq;
+  	dq.push_back(0);
+  	for(int i=1;i<k;i++)
+  	{
+  		if(A[i]<A[dq.back()])
+  			dq.push_back(i);
+  		else
+  		{
+  			while(dq.size() && A[dq.back()]<=A[i])
+  				dq.pop_back();
+  			dq.push_back(i);
+  		}
+  	}
+  	cout<<A[dq.front()]<<' ';
+
+  	for(int i=k;i<n;i++)
+  	{
+  		
+  		while(dq.size() && dq.front()+k-1<i)
+  			dq.pop_front();
+  		if(A[i]<A[dq.back()])
+  			dq.push_back(i);
+  		else
+  		{
+  			while(dq.size() && A[dq.back()]<=A[i])
+  				dq.pop_back();
+  			dq.push_back(i);
+  		}
+  		cout<<A[dq.front()]<<' ';
+  	}
+
+    return 0;
+}

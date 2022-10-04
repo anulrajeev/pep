@@ -1,0 +1,43 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef vector<int> vi;
+
+void DFSRec(vi adj[], int V, int u, bool visited[], stack<int> &st)
+{
+	visited[u]=true;
+	for(int v : adj[u])
+		if(visited[v]==false)
+		DFSRec(adj,V,v,visited,st);
+	st.push(u);
+}
+
+void topoSort(vi adj[], int V)
+{
+	stack<int> st;
+	bool visited[V]={false};
+	for(int i=0;i<V;i++)
+		if(visited[i]==false)
+			DFSRec(adj,V,i,visited,st);
+	while(st.size())
+	{
+		cout<<st.top()<<'
+';
+		st.pop();
+	}
+}
+
+int main()
+{
+  	int V,k;
+  	cin>>V>>k;
+  	vi adj[V];
+  	int u,v,wt;
+  	for(int i=0;i<k;i++)
+  	{
+  		cin>>u>>v;
+  		adj[u].push_back(v);
+  		
+  	}
+  	topoSort(adj,V);
+  	return 0;
+}

@@ -1,0 +1,47 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef vector<int> vi;
+
+void DFSRec(vi adj[], int V, int u, bool visited[], int &count)
+{
+	count++;
+	visited[u]=true;
+	for(int v : adj[u])
+		if(visited[v]==false)
+			DFSRec(adj,V,v,visited, count);
+}
+
+int countIslands(vi adj[], int V)
+{
+	int count=0;
+	vi res;
+	bool visited[V]={false};
+	for(int i=0;i<V;i++)
+		if(visited[i]==false)
+		{
+			int count=0;
+			DFSRec(adj,V,i,visited, count);
+			res.push_back(count);
+		}
+	int ans=0;
+	for(int i=0;i<res.size();i++)
+		for(int j=i+1;j<res.size();j++)
+				ans+=res[i]*res[j];
+	return ans;
+}	
+
+int main()
+{
+  	int V,k;
+  	cin>>V>>k;
+  	int u,v;
+  	vi adj[V];
+  	for(int i=0;i<k;i++)
+  	{
+  		cin>>u>>v;
+  		adj[u].push_back(v);
+  		adj[v].push_back(u);
+  	}
+  	cout<<countIslands(adj,V);
+  	return 0;
+}

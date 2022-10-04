@@ -1,0 +1,59 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+
+	_main();
+	return 0;
+}
+
+void getPaths(vvi &maze, int i, int j, string psf)
+{
+	int m=maze.size(), n=maze[0].size();
+	// cout<<i<<' '<<j<<'
+';
+	maze[i][j]=1;
+	if(i==m-1 && j==n-1)
+		cout<<psf<<'
+';
+	else
+	{
+		if(i-1>=0 && maze[i-1][j]==0) //top
+			getPaths(maze,i-1,j,psf+"t");
+		if(j-1>=0 && maze[i][j-1]==0) //left
+			getPaths(maze,i,j-1,psf+"l");
+		if(i+1<m && maze[i+1][j]==0) //down
+			getPaths(maze,i+1,j,psf+"d");
+		if(j+1<n && maze[i][j+1]==0) //right
+			getPaths(maze,i,j+1,psf+"r");
+	}
+	maze[i][j]=0;
+}
+
+
+void _main()
+{
+  	int m,n;
+  	cin>>m>>n;
+  	vvi maze(m, vi(n));
+  	for(int i=0;i<m;i++)
+  		for(int j=0;j<n;j++)
+  			cin>>maze[i][j];
+  	getPaths(maze,0,0,"");
+
+}

@@ -1,0 +1,97 @@
+#include <iostream>
+#include <exception>
+#include <stack>
+using namespace std;
+
+class StackToQueueAdapter {
+public:
+  stack<int> mainS;
+  stack<int> helperS;
+
+  int size() {
+    return mainS.size();
+  }
+
+  void add(int data) {
+    mainS.push(data);
+  }
+
+  int peek() {
+    if(mainS.empty())
+       {
+           cout<<"Queue underflow
+";
+           return -1;
+       }
+    else
+      {
+        while(mainS.size())
+           {
+               helperS.push(mainS.top());
+               mainS.pop();
+           }
+        int res=helperS.top(); // helperS.pop();
+        while(helperS.size())
+        {
+            mainS.push(helperS.top());
+            helperS.pop();
+        }
+        return res;
+      }
+  }
+
+  int remove() {
+     if(mainS.empty())
+       {
+           cout<<"Queue underflow
+";
+           return -1;
+       }
+    else
+      {
+        while(mainS.size())
+           {
+               helperS.push(mainS.top());
+               mainS.pop();
+           }
+        int res=helperS.top();  helperS.pop();
+        while(helperS.size())
+        {
+            mainS.push(helperS.top());
+            helperS.pop();
+        }
+        return res;
+      }
+  }
+};
+
+int main() {
+  StackToQueueAdapter q;
+  string str;
+  cin >> str;
+
+  while (str != "quit") {
+    if (str == "add") {
+      int val;
+      cin >> val;
+      q.add(val);
+    }
+    else if (str == "remove") {
+      int val = q.remove();
+      if (val != -1) {
+        cout << val << endl;
+      }
+    }
+    else if (str == "peek") {
+      int val = q.peek();
+      if (val != -1) {
+        cout << val << endl;
+      }
+    }
+    else if (str == "size") {
+      cout << q.size() << endl;
+    }
+    cin >> str;
+  }
+  return 0;
+}

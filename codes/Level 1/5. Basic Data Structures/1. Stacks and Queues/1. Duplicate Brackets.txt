@@ -1,0 +1,31 @@
+#include bitsstdc++.h
+using namespace std;
+bool evaluate(string s)
+{
+	stackint st;
+	for(auto x  s)
+		if(x!=')')
+			st.push(x);
+		else
+		{
+			bool found=false;
+			while(st.size()&& st.top()!='(')
+			{
+				found=true;
+				st.pop();
+			}
+			if(!found)
+				return true;
+			st.pop();
+		}
+	return false;
+
+}
+
+int main()
+{
+	string s;
+	getline(cin, s);
+	cout(evaluate(s)truefalse);
+	return 0;
+}

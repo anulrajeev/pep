@@ -1,0 +1,128 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+typedef pair<int, string> pis ;
+ll mod = 1000000009;
+
+void _main();
+int main(){
+	_main();
+	return 0;
+}
+
+void findPath(vi adj[], int V, int src, int dest)
+{
+	bool visited[V]={false};
+	queue<pair<int,string>> q;
+	q.push({src,to_string(src)});
+	visited[src]=true;
+	vector<string> res;
+	while(q.size())
+	{
+		auto p=q.front(); q.pop();
+		int u=p.first;
+		string psf=p.second;
+		if(u==dest)
+			res.push_back(psf);
+		else
+			for(int j=adj[u].size()-1;j>=0;j--)
+			{
+				int v=adj[u][j];
+				if(visited[v]==false)
+				{
+					q.push({v, psf+to_string(v)});
+					visited[v]=true;
+				}
+			}
+			
+	}
+	sort(res.begin(), res.end());
+	for(auto s : res)
+		cout<<s<<' ';
+}
+
+struct Details
+{
+	int largest=INT_MIN, smallest=INT_MAX;
+	int just_larger=INT_MAX, just_smaller=INT_MIN;
+	string largest_path, smallest_path, just_smaller_path, just_larger_path; 
+};
+
+
+
+void DFSRec(vector<pair<int,int>> adj[], int V, int u, bool visited[],int dest, int criteria, int k, Details &res, string psf, int sum, priority_queue<pis, vector<pis>, greater<pis>> &pq)
+{
+	visited[u]=true;
+	// cout<<psf<<'';
+	if(u==dest)
+	{
+		if(sum>res.largest)
+			res.largest=sum, res.largest_path=psf;
+		if(sum<res.smallest)
+			res.smallest=sum, res.smallest_path=psf;
+		if(sum>criteria && sum<res.just_larger)
+			res.just_larger=sum, res.just_larger_path=psf;
+		if(sum<criteria && sum>res.just_smaller)
+			res.just_smaller=sum, res.just_smaller_path=psf;	
+		if(pq.size()<k)
+			pq.push({sum,psf});
+		else
+			if(pq.top().first<sum)
+			{
+				pq.push({sum, psf});
+				pq.pop();
+			}
+	}
+	else 
+		for(auto p : adj[u])
+		{
+			int v=p.first, wt=p.second;
+			if(visited[v]==false)
+				DFSRec(adj,V,v,visited,dest,criteria,k,res,psf+to_string(v), sum+wt,pq);
+		}
+	visited[u]=false;
+}
+
+
+void multisolver(vector<pair<int,int>> adj[], int V, int src, int dest, int criteria, int k)
+{
+	bool visited[V]={false};
+	Details res;
+	priority_queue<pis, vector<pis>, greater<pis>> pq;
+	DFSRec(adj,V,src,visited,dest,criteria,k,res,to_string(src), 0,pq);
+	cout<<"Smallest Path = "<<res.smallest_path<<'@'<<res.smallest<<' ';
+	cout<<"Largest Path = "<<res.largest_path<<'@'<<res.largest<<' ';
+	cout<<"Just Larger Path than "<<criteria<<" = "<<res.just_larger_path<<'@'<<res.just_larger<<' ';
+	cout<<"Just Smaller Path than "<<criteria<<" = "<<res.just_smaller_path<<'@'<<res.just_smaller<<' ';
+	cout<<k<<"th largest path = "<<pq.top().second<<'@'<<pq.top().first;
+}
+
+
+void _main()
+{
+  	int src,dest, criteria, k;
+  	int V, edge_count;
+  	int u,v,wt;
+  	cin>>V>>edge_count;
+  	vector<pair<int,int>> adj[V];
+  	for(int i=0;i<edge_count;i++)
+  	{
+  		cin>>u>>v>>wt;
+  		adj[u].push_back({v,wt});
+  		adj[v].push_back({u,wt});
+   	}
+   	cin>>src>>dest>>criteria>>k;
+   	multisolver(adj,V,src,dest,criteria,k);
+   	 
+}

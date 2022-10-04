@@ -1,0 +1,110 @@
+#include <iostream>
+#include <exception>
+using namespace std;
+
+class CustomQueue {
+public:
+  int* arr;
+  int sizeQ;
+  int front;
+  int arrSize;
+
+  CustomQueue(int cap) {
+    sizeQ = 0;
+    front = -1;
+    arr = new int[cap];
+    arrSize = cap;
+  }
+
+  int size() {
+     return sizeQ;
+  }
+
+  void add(int data) {
+    if(front==-1)
+    {
+        arr[0]=data;
+        front=0, sizeQ=1;
+    }
+    else if(front+sizeQ<arrSize)
+        arr[front+sizeQ++]=data;
+    else
+        cout<<"Queue overflow
+";
+  }
+
+  int peek() {
+    if(sizeQ!=0)
+        return arr[front];
+    else
+        cout<<"Queue underflow
+";
+    return -1;
+  }
+
+  int remove() {
+    if(front==-1)
+    {
+        cout<<"Queue underflow
+";
+        return -1;
+    }
+    else if(sizeQ==1)
+    {
+        int ans=arr[front];
+        front=-1, sizeQ=0;
+        return ans;
+    }
+    else
+    {
+        int ans=arr[front];
+        for(int i=0;i<sizeQ-1;i++)
+            arr[front+i]=arr[front+i+1];
+        sizeQ--;
+        return ans;
+    }
+  }
+
+  void display() {
+    for(int i=0;i<sizeQ;i++)
+        cout<<arr[front+i]<<' ';
+    cout<<'
+';
+  }
+};
+
+int main() {
+  int n;
+  cin >> n;
+  CustomQueue q(n);
+  string str;
+  cin >> str;
+
+  while (str != "quit") {
+    if (str == "add") {
+      int val;
+      cin >> val;
+      q.add(val);
+    }
+    else if (str == "remove") {
+      int val = q.remove();
+      if (val != -1) {
+        cout << val << endl;
+      }
+    }
+    else if (str == "peek") {
+      int val = q.peek();
+      if (val != -1) {
+        cout << val << endl;
+      }
+    }
+    else if (str == "size") {
+      cout << q.size() << endl;
+    }
+    else if (str == "display") {
+      q.display();
+    }
+    cin >> str;
+  }
+  return 0;
+}

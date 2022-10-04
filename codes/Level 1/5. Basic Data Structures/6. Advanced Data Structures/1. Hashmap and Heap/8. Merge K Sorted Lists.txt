@@ -1,0 +1,47 @@
+#include<bits/stdc++.h>
+using namespace std;
+typedef pair<int,int> pii;
+typedef pair<int,pii> data_type;
+vector<int>mergeKSortedLists(vector<vector<int>>& list) {
+  vector<int> res;
+  priority_queue<data_type, vector<data_type>, greater<data_type>> pq;
+  for(int i=0;i<list.size();i++)
+      pq.push({list[i][0],{i,0}});
+  while(pq.size())
+  {
+      int ele = pq.top().first;
+      int i=pq.top().second.first, j=pq.top().second.second;
+      pq.pop();
+      res.push_back(ele);
+      if(j+1<list[i].size())
+           pq.push({list[i][j+1], {i,j+1}});
+      
+  }
+  return res;
+}
+
+int main() {
+  int k;
+  cin >> k;
+  vector<vector<int>>lists;
+  for (int i = 0; i < k; i++) {
+    vector<int>list;
+
+    int n;
+    cin >> n;
+    for (int j = 0; j < n; j++) {
+      int data;
+      cin >> data;
+      list.push_back(data);
+    }
+
+    lists.push_back(list);
+  }
+
+  vector<int> mlist = mergeKSortedLists(lists);
+  for (int val : mlist) {
+    cout << val << " ";
+  }
+  cout << endl;
+  return 0;
+}

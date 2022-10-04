@@ -1,0 +1,70 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+	_main();
+	return 0;
+}
+
+bool BFS(vi adj[], int V, int src, bool visited[], int colour[])
+{
+	queue<int> q;
+	q.push(src);
+	visited[src]=true;
+	colour[src]=1;
+	while(q.size())
+	{
+		int u=q.front(); q.pop();
+		for(int v : adj[u])
+			if(visited[v]==false)
+			{
+				colour[v]=(colour[u]==1?2:1);
+				q.push(v);
+				visited[v]=true;
+			} 
+			else if(colour[v]==colour[u])
+				return false;
+	}
+	return true;
+}
+
+bool bipartite(vi adj[], int V)
+{
+	bool visited[V]={false};
+	int colour[V]={0};
+	for(int i=0;i<V;i++)
+		if(visited[i]==false)
+			if(!BFS(adj,V,i,visited,colour))
+				return false;
+	return true;
+}
+
+void _main()
+{
+  	int V,k;
+  	int u,v,wt,src;
+  	cin>>V>>k;
+  	vi adj[V];
+  	for(int i=0;i<k;i++)
+  	{
+  		cin>>u>>v>>wt;
+  		adj[u].push_back(v);
+  		adj[v].push_back(u);
+  	}
+  	cout<<(bipartite(adj,V)?"true":"false");
+}
