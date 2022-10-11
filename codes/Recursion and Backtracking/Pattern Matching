@@ -1,0 +1,68 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+
+	_main();
+	return 0;
+}
+
+void patternMatching(string str, int index, string pat, int level, unordered_map<char, string> &m)
+{
+	if(level==pat.length())
+	{
+		if(index==str.length())
+		{
+			unordered_set<char> s;
+			for(auto x : pat)
+				if(s.count(x)==0)
+				{
+					cout<<x<<" -> "<<m[x]<<", ";
+					s.insert(x);
+
+				}
+			cout<<".\n";
+		}
+	}
+	else 
+		for(int i=index; i<str.length(); i++)
+		{
+			string s=str.substr(index, i-index+1);
+			char ch=pat[level];
+			if(m.count(ch))
+			{
+				if(m[ch]==s)
+					patternMatching(str, i+1, pat, level+1, m);
+			}
+			else
+			{
+				m[ch]=s;
+				patternMatching(str,i+1,pat,level+1,m);
+				m.erase(ch);
+			}
+		}
+
+}
+
+void _main()
+{
+    string str, pat;
+    cin>>str>>pat;
+    unordered_map<char, string> m;
+    patternMatching(str,0, pat,0, m); 	
+
+}

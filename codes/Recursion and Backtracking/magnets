@@ -1,0 +1,195 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+
+	_main();
+	return 0;
+}
+
+
+
+bool found=false;
+void display(vvc &grid)
+{
+	int m=grid.size(), n=grid[0].size();
+	for(int i=0;i<m;i++)
+	{
+		for(int j=0;j<n;j++)
+			cout<<grid[i][j]<<' ';
+		cout<<'\n';
+	}
+	cout<<'\n';
+	found=true;
+}
+
+int nextRow(int i, int j, int m, int n)
+{
+	return (j==n-1?i+1:i);
+}
+
+int nextCol(int i, int j, int m, int n)
+{
+	return (j==n-1?0:j+1);
+}
+
+bool matchCount(vvc &grid, int left[], int right[], int top[], int bottom[])
+{
+	int m=grid.size(), n=grid[0].size();
+	int l[m]={0}, r[m]={0}, t[n]={0}, b[n]={0};
+
+	for(int i=0;i<m;i++)
+		for(int j=0;j<n;j++)
+			switch(grid[i][j])
+				{
+					case '+' : l[i]++, t[j]++; break;
+					case '-' : r[i]++, b[j]++; break; 
+				}
+	for(int i=0;i<n;i++)
+		if( (top[i]==-1 || top[i]==t[i]) && (bottom[i]==-1 || bottom[i]==b[i]))
+			continue;
+		else
+			return false;
+	for(int i=0;i<m;i++)
+		if( (right[i]==-1 || right[i]==r[i]) && (left[i]==-1 || left[i]==l[i]))
+			continue;
+		else
+			return false;
+
+	return true;
+}
+
+void placeMagnets(vvc &grid, int i, int j, int left[], int right[], int top[], int bottom[])
+{
+	int m=grid.size(), n=grid[0].size();
+	if(i==m)
+	{
+		if(matchCount(grid,left, right, top, bottom))
+			display(grid);
+	}
+	else
+	{
+		if(grid[i][j]=='+' || grid[i][j]=='-' || grid[i][j]=='X')
+			if(found==false)
+				placeMagnets(grid, nextRow(i,j,m,n), nextCol(i,j,m,n), left, right, top, bottom);
+			else 
+				return;
+
+		else if(grid[i][j]=='L')
+		{
+			// + -
+			if((j==0||grid[i][j-1]!='+') && (i==0 || grid[i-1][j]!='+') && (i==0 || grid[i-1][j+1]!='-'))
+			{
+				grid[i][j]='+';           
+				grid[i][j+1]='-';
+				if(found==false)
+					placeMagnets(grid, nextRow(i,j,m,n), nextCol(i,j+1,m,n), left, right, top, bottom);
+				else 
+					return;
+			}
+
+			// - +
+			if((j==0 || grid[i][j-1]!='-')  && (i==0 || grid[i-1][j]!='-') && (i==0 || grid[i-1][j+1]!='+'))
+			{
+				grid[i][j]='-';
+				grid[i][j+1]='+';
+				if(found==false)
+					placeMagnets(grid, nextRow(i,j,m,n), nextCol(i,j+1,m,n), left, right, top, bottom);
+				else 
+					return;
+			}
+
+			//X X
+			grid[i][j]='X';
+			grid[i][j+1]='X';
+			if(found==false)
+				placeMagnets(grid, nextRow(i,j,m,n), nextCol(i,j+1,m,n), left, right, top, bottom);
+			else 
+				return;
+
+			grid[i][j]='L', grid[i][j+1]='R';
+
+		}
+
+		else if(grid[i][j]=='T')
+		{
+			// + 
+			// -
+			if((j==0||grid[i][j-1]!='+') && (j==n-1 || grid[i][j+1]!='+') && (i==0 || grid[i-1][j]!='+'))
+			{
+				grid[i][j]='+';
+				grid[i+1][j]='-';
+				if(found==false)
+					placeMagnets(grid, nextRow(i,j,m,n), nextCol(i,j,m,n), left, right, top, bottom);
+				else 
+					return;
+			}
+
+			// - 
+			// +
+			if((j==0||grid[i][j-1]!='-') && (j==n-1 || grid[i][j+1]!='-') && (i==0 || grid[i-1][j]!='-'))
+			{
+				grid[i][j]='-';
+				grid[i+1][j]='+';
+				if(found==false)
+					placeMagnets(grid, nextRow(i,j,m,n), nextCol(i,j,m,n), left, right, top, bottom);
+				else 
+					return;
+			}
+
+			//X
+			//X
+			grid[i][j]='X';
+			grid[i+1][j]='X';
+			if(found==false)
+				placeMagnets(grid, nextRow(i,j,m,n), nextCol(i,j,m,n), left, right, top, bottom);
+			else 
+				return;
+
+			grid[i][j]='T', grid[i+1][j]='B';
+		}
+
+
+	}
+
+
+}
+
+void _main()
+{
+  	int m,n;
+  	cin>>m>>n;
+  	vvc grid(m, vc(n));
+  	for(int i=0;i<m;i++)
+  		for(int j=0;j<n;j++)
+  			cin>>grid[i][j];
+  	int left[m], right[m], top[n], bottom[n];
+  	for(int i=0;i<n;i++)
+  		cin>>top[i];
+  	for(int i=0;i<m;i++)
+  		cin>>left[i];
+  	for(int i=0;i<m;i++)
+  		cin>>right[i];
+  	for(int i=0;i<n;i++)
+  		cin>>bottom[i];
+
+  	placeMagnets(grid, 0, 0, left, right, top, bottom);
+  	if(found==false)
+  		cout<<"No Solution";
+
+}

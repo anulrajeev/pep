@@ -1,0 +1,63 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+
+	_main();
+	return 0;
+}
+
+void swap_v(string s, int index, int k, string &max_num)
+{
+	if(index==s.length() || k==0)
+		{
+			if(max_num<s)
+				max_num=s;
+			return;
+		}
+	int pos=index;
+	for(int i=index;i<s.length();i++)
+		if(s[pos]<s[i])
+			pos=i;
+
+	if(s[pos]==s[index])
+		swap_v(s,index+1,k, max_num);
+	else
+	{
+
+		for(int i=index+1;i<s.length();i++)
+			if(s[i]==s[pos])
+				{
+					swap(s[index], s[i]);
+					swap_v(s,index+1,k-1, max_num);
+					swap(s[index], s[i]);
+				}
+	}
+}
+
+void _main()
+{
+   string s, max_num;
+   cin>>s;
+   	int k;
+   	cin>>k;
+   	 max_num=s;
+   	swap_v(s,0,k, max_num);
+   	cout<<max_num;
+
+
+}

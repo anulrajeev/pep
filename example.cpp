@@ -27,12 +27,38 @@ int main(){
 	return 0;
 }
 
+void wordsCombination(string ustr, int k, string asf, int ci)
+{
+	if(ci==ustr.length())
+	{
+		if(asf.length()==k)
+			cout<<asf<<'\n';
+	}
+	else
+	{
+		asf.push_back(ustr[ci]);
+		wordsCombination(ustr,k,asf,ci+1);
+		asf.pop_back();
+
+		wordsCombination(ustr,k,asf,ci+1);
+	}
+}
+
 void _main()
 {
-  	multiset<int> ms;
-  	ms.insert(10);
-  	ms.insert(10);
-  	cout<<ms.count(10);
+	string s;
+	cin>>s;
+	int k;
+	cin>>k;
+	string ustr;
+	int freq[26]={0};
+	for(auto x : s)
+		if(freq[x-'a']==0)
+		{
+			freq[x-'a']++;
+			ustr.push_back(x);	
+		}
 
+	wordsCombination(ustr,k,"",0);
 }
 

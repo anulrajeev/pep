@@ -1,4 +1,2 @@
-sea
-eat
-10
-7
+aabbbccdde
+3
