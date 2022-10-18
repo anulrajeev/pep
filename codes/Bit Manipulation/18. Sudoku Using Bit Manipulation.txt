@@ -1,0 +1,134 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+
+	_main();
+	return 0;
+}
+
+
+void display(vvi &sudoku)
+{
+	int n=sudoku.size();
+	for(int i=0;i<n;i++)
+	{
+		for(int j=0;j<n;j++)
+			cout<<sudoku[i][j]<<' ';
+		cout<<'
+';
+	}
+}
+
+
+int nextRow(int r, int c)
+{	return ((c==8)?r+1:r); 	}
+
+int nextCol(int r, int c)
+{	return ((c==8)?0:c+1);  }
+
+
+void solveSudoku(vvi &sudoku, int i, int j, int row[], int col[], vvi &grid)
+{
+	int n=sudoku.size();
+	if(i==n)
+		display(sudoku);
+	else
+	{
+		if(sudoku[i][j])
+			solveSudoku(sudoku,nextRow(i,j),nextCol(i,j),row,col,grid);
+		else
+		{
+			for(int ele=1;ele<=9;ele++)
+				if(
+					((row[i]&(1<<ele))==0) &&
+					((col[j]&(1<<ele))==0) &&
+					((grid[i/3][j/3]&(1<<ele))==0)
+
+					)
+				{
+					row[i]=(row[i]|(1<<ele));
+					col[j]=(col[j]|(1<<ele));
+					grid[i/3][j/3]=(grid[i/3][j/3]|(1<<ele));
+					sudoku[i][j]=ele;
+					solveSudoku(sudoku,nextRow(i,j),nextCol(i,j),row,col,grid);
+					sudoku[i][j]=0;
+					row[i]=(row[i]^(1<<ele));
+					col[j]=(col[j]^(1<<ele));
+					grid[i/3][j/3]=(grid[i/3][j/3]^(1<<ele));
+					
+
+				}
+		}
+	}
+}
+
+void _main()
+{
+	int n=9;
+  	vvi sudoku(9, vi (9, 0));
+  	for(int i=0;i<9;i++)
+  		for(int j=0;j<9;j++)
+  			cin>>sudoku[i][j];
+
+  	int row[9]={0}, col[9]={0};
+  	vvi grid(3, vi(3, 0));
+
+  	for(int i=0;i<n;i++)
+  		for(int j=0;j<n;j++)
+  			if(sudoku[i][j])
+  				row[i]=(row[i]|(1<<sudoku[i][j]));
+
+  	for(int j=0;j<n;j++)
+  		for(int i=0;i<n;i++)
+  			if(sudoku[i][j])
+  				col[j]=(col[j]|(1<<sudoku[i][j]));
+
+  	for(int i=0;i<n;i++)
+  		for(int j=0;j<n;j++)
+  			if(sudoku[i][j])
+  				grid[i/3][j/3]|=(1<<sudoku[i][j]);
+/*
+
+  	for(int i=0;i<n;i++)
+  		cout<<row[i]<<' ';
+  	cout<<'
+';
+  	for(int j=0;j<n;j++)
+  		cout<<col[j]<<' ';
+
+  	for(int i=0;i<3;i++)
+  	{	for(int j=0;j<3;j++)
+  			cout<<grid[i][j]<<' ';
+  		cout<<'
+';
+  	}
+*/
+  	solveSudoku(sudoku,0,0,row,col,grid);
+
+
+}
+
+
+/*
+
+256	128	 64	 32	 16	 8	 4	 2	 1
+8	 7	 6	 5	 4	 3	 2	 1	 0
+
+
+*/

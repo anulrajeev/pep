@@ -1,0 +1,96 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef vector<int> vi;
+typedef pair<int, int> pii;
+
+int find(int x, int parent[])
+{
+	if(x==parent[x])
+		return x;
+	parent[x]=find(parent[x], parent);
+	return parent[x];
+}
+
+void unionn(int x, int y, int parent[], vi &rank)
+{
+	int x_rep = find(x, parent);
+	int y_rep = find(y, parent);
+
+	if(rank[x_rep]<rank[y_rep])
+		parent[x_rep]=y_rep;
+	else if(rank[y_rep]<rank[x_rep])
+		parent[y_rep]=x_rep;
+	else
+	{
+		parent[y_rep]=x_rep;
+		rank[x_rep]++;
+	}
+}
+
+int main()
+{
+	  int V,E;
+	  cin>>V>>E;
+	  pair<int,pii> edge[E];
+	  V++;
+
+	  for(int i=0;i<E;i++)
+	  	  cin>>edge[i].first>>edge[i].second.first>>edge[i].second.second;
+
+
+	  sort(edge,edge+E, greater<pair<int,pii>>());
+
+
+	  int parentAlice[V], parentBob[V];
+	  for(int i=0;i<V;i++)
+	  		parentAlice[i]=parentBob[i]=i;
+	  vector<int> rankAlice(V,0), rankBob(V,0);
+
+	  int removed=0, countAlice=0, countBob=0;
+	  for(int i=0;i<E;i++)
+	  {
+	  	  int type=edge[i].first, u=edge[i].second.first, v=edge[i].second.second;
+	  	  if(type==3)
+	  	  {
+	  	  		if(find(u,parentAlice)!=find(v,parentAlice) && find(u,parentBob)!=find(v,parentBob))
+	  	  		{
+	  	  			unionn(u,v,parentAlice,rankAlice);
+	  	  			countAlice++;
+
+	  	  			unionn(u,v,parentBob,rankBob);
+	  	  			countBob++;
+	  	  		}
+
+	  	  		else
+	  	  			removed++;
+	  	  }
+	  	  else if(type==2)
+	  	  {
+	  	  		if(find(u,parentBob)!=find(v,parentBob))
+	  	  		{
+	  	  			unionn(u,v,parentBob,rankBob);
+	  	  			countBob++;
+	  	  		}
+	  	  		else
+	  	  			removed++;
+	  	  }
+	  	  else
+	  	  {
+	  	  		if(find(u,parentAlice)!=find(v,parentAlice))
+	  	  		{
+	  	  			unionn(u,v,parentAlice,rankAlice);
+	  	  			countAlice++;
+	  	  		}
+	  	  		else
+	  	  			removed++;
+	  	  }
+	  }
+
+
+
+	if(countAlice==V-2&&countBob==V-2)	//zero excluded
+		cout<<removed;
+	else
+		cout<<-1;
+	return 0;
+}

@@ -1,0 +1,2144 @@
+<!DOCTYPE html>
+<!-- saved from url=(0123)https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/optimize_water_distribution/topic -->
+<html dir="ltr" lang="en-US"><script type="text/javascript" async="" src="./PepCoding _ Optimize Water Distribution_files/analytics.js.download"></script><script type="text/javascript" async="" src="./PepCoding _ Optimize Water Distribution_files/js"></script><script>(function(){window['_docs_annotate_canvas_by_ext']='kohfgcgbkjodfcfkcackpagifgbcmimk';})();</script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+   <!-- Global site tag (gtag.js) - Google Analytics -->
+   <script async="" src="./PepCoding _ Optimize Water Distribution_files/js(1)"></script>
+   <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() { dataLayer.push(arguments); }
+      gtag('js', new Date());
+
+      gtag('config', 'UA-109728305-1');
+   </script>
+   <meta name="google-site-verification" content="p2kNyH1NDKhkZLl2aBdmmvosWqHZOxD0rmvS1n8LcDA">
+   <meta name="google-signin-client_id" content="458958442206-nstdi8m8r1ru8qbfd9qmpmhllq5gbui7.apps.googleusercontent.com">
+         
+         
+         
+   <title>PepCoding | Optimize Water Distribution</title>
+   <link rel="shortcut icon" href="https://www.pepcoding.com/images/favicon.ico">
+   <link rel="apple-touch-icon-precomposed" href="https://www.pepcoding.com/images/apple-touch-icon.png">
+   <meta property="og:url" content="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/optimize_water_distribution/topic">
+   <meta property="title" content="PepCoding | Optimize Water Distribution">
+   <meta property="og:title" content="PepCoding | Optimize Water Distribution">
+   <meta property="keywords" content="">
+   <meta property="og:image" content="https://www.pepcoding.com/images/logo.png">
+   <meta property="og:alt" content="pepcoding">
+   <meta property="og:type" content="website">
+   <meta name="description" content="Optimize Water Distribution">
+   <meta property="og:description" content="Optimize Water Distribution">
+   <script type="application/ld+json">
+         {
+           "@context" : "http://schema.org",
+           "@type": "EducationalOrganization",
+           "name" : "Pepcoding",
+           "url" : "https://www.pepcoding.com",
+           "logo":"https://www.pepcoding.com/images/logo.png",
+           "description": "Free online videos of Data Structure using Java and C++. Best coding institute in Delhi, Best computer programming institute in Delhi, Best java training classes, Coding classes in Delhi, Coding courses in Delhi, best computer programming institute in Delhi-NCR, Delhi's best programming institute offers courses in Java, C++, Web Development, Nodejs.",
+          "sameAs" : [
+            "https://www.facebook.com/pepcoding/",
+            "https://www.youtube.com/results?search_query=pepcoding",
+            "https://www.instagram.com/pepcoding/",
+            "https://in.linkedin.com/company/pepcoding-education",
+            "https://twitter.com/pepcoding"
+            ],
+         
+          "openingHours": "Mo 08:30-21:30 Tu, We 08:00-21:30 Th, Fr, Sa, Su 08:00-09:30",
+           "contactPoint": {
+             "@type": "ContactPoint",
+             "telephone": "011-40194461",
+             "contactType": "Reception desk"
+           },
+          "address": {
+             "@type": "PostalAddress",
+             "streetAddress": "PepCoding, 3rd Floor, 15 Vaishali, Pitampura Opposite",
+             "addressLocality": "Pitampura",
+             "addressRegion": "Delhi",
+             "postalCode": "110034",
+             "addressCountry": "India"
+           },
+            "hasMap": "https://www.google.com/maps/place/PepCoding.com/@28.699367,77.138281,17z/data=!4m5!3m4!1s0x0:0x4fd0fdfc3f27ffaf!8m2!3d28.6993666!4d77.1382814?hl=en-US"
+         }
+      </script>
+   <link rel="stylesheet" href="./PepCoding _ Optimize Water Distribution_files/site.css">
+   <link rel="stylesheet" href="./PepCoding _ Optimize Water Distribution_files/video.css">
+   
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <link href="./PepCoding _ Optimize Water Distribution_files/css" rel="stylesheet">
+   <link href="./PepCoding _ Optimize Water Distribution_files/font-awesome.min.css" rel="stylesheet">
+</head>
+
+<body class=" resource theme2">
+   
+   <header>
+         <nav>
+            <div class="nav-wrapper page-scrolled">
+               <div class="container med row  site-nav">
+                  <a href="https://www.pepcoding.com/" class="brand-logo small">
+                     <img class="logo" src="./PepCoding _ Optimize Water Distribution_files/logo2.png" alt="logo">
+                  </a>
+                  <div class="hide-on-med-and-down nav-breadcrumb">
+                        <a class="breadcrumb  " data-target="ddls0" href="https://www.pepcoding.com/resources/">
+                           home
+                        </a>
+                        <a class="breadcrumb  " data-target="ddls1" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/">
+                           data-structures-and-algorithms-in-java-levelup
+                        </a>
+                        <a class="breadcrumb  " data-target="ddls2" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/">
+                           graphs
+                        </a>
+                        <a class="breadcrumb  " data-target="ddls3" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/">
+                           optimize_water_distribution
+                        </a>
+                  </div>
+                        <a href="https://classroom.pepcoding.com/myClassroom" class="class-mode">My ClassRoom </a>
+                  <ul id="ddlUserProfile" class="dropdown-content">
+                    <li>
+                      <a href="https://www.pepcoding.com/profile" class="setting">
+                        <div class="row  col l12" style="height: 100%;padding: 0px;margin: 0px;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;">
+                          <i class="col l4 s2 m2 svg-user svg-header"></i>
+                          <span class="col l8 s8 m8 lp-dropdown">Profile</span>
+                        </div>
+                      </a>
+                    </li>
+                    <li>
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/optimize_water_distribution/topic#" class="setting" onclick="PEP.Utilities.signOut();">
+                          <div class="row  col l12" style="height: 100%;padding: 0px;margin: 0px;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;">
+                            <i class="col l4 s2 m2 svg-logout svg-header"></i>
+                          <span class="col l8 s8 m8 lp-dropdown">Logout</span>
+                        </div>
+                      </a>
+                    </li>
+                  </ul>                  <ul id="ddlFeatures" class="dropdown-content">
+                     <li>
+                        <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/optimize_water_distribution/topic#" class=" setting sidenav-trigger theme-cutomizer-trigger no-margin" data-target="editor-support-out" id="31924">
+                           <div class="row  col l12 no-padding no-margin" style="height: 100%;display: flex;flex-direction: row;align-items: center;justify-content: flex-end;">
+                              <i class="fa fa-code" aria-hidden="true"></i>
+                              <span class="col l8 s8 m8 lp-dropdown">Editor</span>
+                           </div>
+                        </a>
+                     </li>
+                  </ul>
+                     <a class="dropdown-trigger dashboard-burger" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/optimize_water_distribution/topic#" data-target="ddlFeatures">
+                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" focusable="false" width="1em" height="1em" style="-ms-transform: rotate(360deg); -webkit-transform: rotate(360deg); transform: rotate(360deg);" preserveAspectRatio="xMidYMid meet" viewBox="0 0 384 384">
+                           <path d="M0 384v-43h384v43H0zm0-277l85 85l-85 85V107zm171 192v-43h213v43H171zM0 0h384v43H0V0zm171 128V85h213v43H171zm0 85v-42h213v42H171z" fill="currentColor"></path>
+                        </svg>
+                     </a>
+                              <div class="changeTheme">
+                                          <i class="fa fa-sun-o  dropdown-trigger" href="#changeSiteTheme" style="    height: inherit;
+                                             line-height: inherit;"></i>
+                               </div>
+                             <ul id="changeSiteTheme" class="dropdown-content changeSiteTheme">
+                                         <li>
+                                             <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/optimize_water_distribution/topic#" onclick="siteThemeSelect(&#39;theme1&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme1"></div> 
+                                                  <div class="col l4">Theme1</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                          
+                                         <li>
+                                             <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/optimize_water_distribution/topic#" onclick="siteThemeSelect(&#39;theme2&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme2"></div> 
+                                                  <div class="col l4">Theme2</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                           <li>
+                                             <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/optimize_water_distribution/topic#" onclick="siteThemeSelect(&#39;theme3&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme3"></div> 
+                                                  <div class="col l4">Theme3</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                           <li>
+                                             <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/optimize_water_distribution/topic#" onclick="siteThemeSelect(&#39;theme4&#39;)">
+                                                <div class="row   ">
+                                                     <div class="col l1  heart theme4"></div> 
+                                                  <div class="col l4">Theme4</div>
+                                                </div>
+                                             </a>
+                                          </li>
+                                       </ul>                     <a class="dropdown-trigger dashboard-user" href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/optimize_water_distribution/topic#" data-target="ddlUserProfile">
+                        <i class="svg-user svg-header"></i>
+                     </a>
+               </div>
+            </div>
+         </nav>
+   </header>
+   <main>
+      <div id="siteOverlay" class="loader-overlay hide">
+      </div>
+      <div id="siteLoader" class="loader hide">
+         <div class="preloader-wrapper active">
+            <div class="spinner-layer spinner-red-only">
+               <div class="circle-clipper left">
+                  <div class="circle"></div>
+               </div>
+               <div class="gap-patch">
+                  <div class="circle"></div>
+               </div>
+               <div class="circle-clipper right">
+                  <div class="circle"></div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <div id="siteOverlay-nados" class="loader-overlay-nados hide"></div>
+      <div id="siteLoader-nados" class="load-container d-flex flex-center valign-wrapper hide">
+         <h2 class="center loader-h2 bolder white-text">Redirecting to <br> NADOS
+         <div class="timmer-nados"></div></h2>
+         <div class="loader-nados"></div>
+      </div>
+      <input type="hidden" id="isShowDoubtSupport" value="false">
+         <input type="hidden" id="tawkKey" value="5e1ef6557e39ea1242a4b602">
+      <div class="container full  ">
+
+
+    <div class="section full no-padding">
+        <div class="row" style="display: flex; flex-flow: column;">
+            <div id="side-open-nav" class="sidenav sidenav-fixed sidenav-res search-nav row  " style="">
+            
+              <div class="col l1 s1 m1 no-padding">
+            
+                <span class="sidenav-icon open">
+            
+            
+                  <div id="toggleResourceNav" class=" mobile-nav menu-ico ">
+                    <span class="side-nav"></span>
+                    <span class="side-nav"></span>
+                    <span class="side-nav"></span>
+                  </div>
+            
+                </span>
+            
+                <span class="hide " style="margin-top:200px; position: absolute;">
+            
+                  <div id="resourceNotice " class="resource-notice">
+            
+                    <i class="fa fa-flag-o " aria-hidden="true"></i>
+                  </div>
+            
+                </span>
+            
+              </div>
+            
+              <div class="col l11 s11 m11 ">
+                <ul class="row col l12 s12 m12  no-padding" style="    height: 8vh;">
+            
+                  <li class="search-container">
+                    <i class="search-icon fa fa-search"></i>
+                    <input id="searchBox" type="text" placeholder=" search" class=" row col l9 s9 autocomplete search searchBox">
+            
+                  </li>
+            
+                </ul>
+            
+            
+                <ul class="row col l12 s12 m12  no-padding" style="    height: 92vh;
+                overflow-y: scroll;">
+            
+            
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/coloring-a-border-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Coloring A Border" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Coloring A Border
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/number-of-enclaves-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Number Of Enclaves" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Number Of Enclaves
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/number-of-distinct-island-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Number Of Distinct Island" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Number Of Distinct Island
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/zero-one-matrix-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Zero One Matrix" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Zero One Matrix
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/rotting-oranges-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Rotting Oranges" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Rotting Oranges
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/as-far-from-land-as-possible-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="As Far From Land As Possible" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        As Far From Land As Possible
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/shortest-bridge-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Shortest Bridge" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Shortest Bridge
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/bus-routes-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Bus Routes" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Bus Routes
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/sliding-puzzle-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Sliding Puzzle" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Sliding Puzzle
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/minimum-number-of-swaps-required-to-sort-an-array-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Minimum Number Of Swaps Required To Sort An Array" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Minimum Number Of Swaps Required To Sort An Array
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/pepcoder-and-reversing-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Pepcoder And Reversing" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Pepcoder And Reversing
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/pepcoding-course-schedule/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Pepcoding Course Schedule" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Pepcoding Course Schedule
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/alien-dictionary-official/ojquestion">
+            
+                      
+            
+            
+                      
+            
+                      <span title="Alien Dictionary" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Alien Dictionary
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/kruskal-algorithm-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Kruskal Algorithm" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Kruskal Algorithm
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/optimize-water-distribution-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Optimize Water Distribution" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Optimize Water Distribution
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/swim-in-rising-water-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Swim In Rising Water" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Swim In Rising Water
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/minimum-cost-to-connect-all-cities-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Minimum Cost To Connect All Cities" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Minimum Cost To Connect All Cities
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/bellman-ford-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Bellman Ford" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Bellman Ford
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/negative-weight-cycle-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Negative Weight Cycle Detection" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Negative Weight Cycle Detection
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/kosaraju-algorithm-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Kosaraju Algorithm" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Kosaraju Algorithm
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/mother-vertex-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Mother Vertex" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Mother Vertex
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/articulation-point-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Articulation Point" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Articulation Point
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/critical-connection-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Critical Connection" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Critical Connection
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/remove-max-number-of-edges-to-keep-graph-fully-traversable-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Remove Max Number Of Edges To Keep Graph Fully Traversable" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Remove Max Number Of Edges To Keep Graph Fully Traversable
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/number-of-island-2-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Number Of Island 2" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Number Of Island 2
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/regions-cut-by-slashes-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Regions Cut By Slashes" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Regions Cut By Slashes
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/reconstruct-itinerary-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Reconstruct Itinerary" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Reconstruct Itinerary
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/rank--transform-of-a-matrix-official/ojquestion">
+            
+                      
+            
+            
+                      
+            
+                      <span title="Rank Transform Of A Matrix" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Rank Transform Of A Matrix
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/accounts-merge-official/ojquestion">
+            
+                      
+            
+            
+                      
+            
+                      <span title="Accounts Merge" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Accounts Merge
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/minimize-malware-spread-official/ojquestion">
+            
+                      
+            
+            
+                      
+            
+                      <span title="Minimize Malware Spread" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Minimize Malware Spread
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/minimize-malware-spread-ii-official/ojquestion">
+            
+                      
+            
+            
+            
+                      <span title="Minimize Malware Spread 2" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Minimize Malware Spread 2
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/redundant-connection-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Redundant Connection" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Redundant Connection
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/minimize-hamming--distance-after-swap-operations-official/ojquestion">
+            
+                      
+            
+            
+                      
+            
+                      <span title="Minimize Hamming Distance After Swap Operations" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Minimize Hamming Distance After Swap Operations
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/redundant-connection-2-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Redundant Connection 2" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Redundant Connection 2
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/satisfiability-of-equality-equation-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Satisfiability Of Equality Equation" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Satisfiability Of Equality Equation
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/sentence_similarity_official/ojquestion">
+            
+                      
+            
+            
+                      
+            
+                      <span title="Sentence Similarity" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Sentence Similarity
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/park-regions-official/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Park Regions" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Park Regions
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/kill-the-most-monsters/ojquestion">
+            
+                      
+            
+            
+                      
+            
+                      <span title="Kill The Most Monsters" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Kill The Most Monsters
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/number-of-connections-to-make-pipeline-connected/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Number Of Connections To Make Pipeline Connected" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Number Of Connections To Make Pipeline Connected
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/number-of-provinces/ojquestion">
+            
+                      
+            
+                      
+            
+            
+            
+                      <span title="Number Of Provinces" class="bold  ">
+            
+            
+            
+            
+            
+            
+                        <i class="fa fa-code " style="padding-right:4%"></i>
+            
+            
+            
+                        Number Of Provinces
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/bellman_ford/topic">
+            
+                      
+            
+            
+            
+                      <span title="Bellman Ford" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Bellman Ford
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/pepcoder_and_reversing/topic">
+            
+                      
+            
+            
+            
+                      <span title="Pepcoder and Reversing" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Pepcoder and Reversing
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/satisfibility_of_equality_equation/topic">
+            
+                      
+            
+            
+            
+                      <span title="Satisfibility Of Equality Equation" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Satisfibility Of Equality Equation
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/negative_weight_cycle_detection/topic">
+            
+                      
+            
+            
+            
+                      <span title="Negative Weight Cycle Detection" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Negative Weight Cycle Detection
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/kosaraju%20_algorithm/topic">
+            
+                      
+            
+            
+            
+                      <span title="Kosaraju Algorithm" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Kosaraju Algorithm
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/mother_vertex/topic">
+            
+                      
+            
+            
+            
+                      <span title="Mother Vertex" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Mother Vertex
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/zero_one_matrix/topic">
+            
+                      
+            
+            
+            
+                      <span title="Zero One Matrix" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Zero One Matrix
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/rotting_oranges/topic">
+            
+                      
+            
+            
+            
+                      <span title="Rotting Oranges" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Rotting Oranges
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/as_far_from_land_as_possible/topic">
+            
+                      
+            
+            
+            
+                      <span title="As Far from Land as Possible" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        As Far from Land as Possible
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/shortest_bridge/topic">
+            
+                      
+            
+            
+            
+                      <span title="Shortest Bridge" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Shortest Bridge
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/alien_dictionary/topic">
+            
+                      
+            
+            
+            
+                      <span title="Alien Dictionary" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Alien Dictionary
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/sliding_puzzle/topic">
+            
+                      
+            
+            
+            
+                      <span title="Sliding Puzzle" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Sliding Puzzle
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow active">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/optimize_water_distribution/topic">
+            
+                      
+            
+            
+            
+                      <span title="Optimize Water Distribution" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Optimize Water Distribution
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/number_of_island_2/topic">
+            
+                      
+            
+            
+            
+                      <span title="Number of Island 2" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Number of Island 2
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/kruskal_algorithm/topic">
+            
+                      
+            
+            
+            
+                      <span title="Kruskal Algorithm" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Kruskal Algorithm
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/sentence_similarity/topic">
+            
+                      
+            
+            
+            
+                      <span title="Sentence Similarity" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Sentence Similarity
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/minimum_number_of_swaps_required_to_sort_an_array/topic">
+            
+                      
+            
+            
+            
+                      <span title="Minimum Number Of Swaps Required to Sort an Array" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Minimum Number Of Swaps Required to Sort an Array
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li class=" searchRow">
+                    
+                    
+                    
+            
+                      <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/remove_max_number_of_edges_to_keep_graph_fully_traversable/topic">
+            
+                      
+            
+            
+            
+                      <span title="Remove Max Number of Edges to keep graph fully Traversable" class="bold  ">
+            
+            
+            
+            
+            
+            
+            
+                        <i class="svg-resources svg-topic"></i>
+            
+            
+                        Remove Max Number of Edges to keep graph fully Traversable
+                      </span>
+                    </a>
+                  </li>
+            
+                  <li></li>
+                  <li></li>
+                </ul>
+              </div>
+            
+            </div>            
+            <div id="resource-card" class="resource-card no-margin flex  ">
+
+                        <div id="resourceContent" class="col l12 full-height-content" style="margin:0px 0px 10px 50px;">
+                                <div class="topicData col l12 s12 m12">
+                                     <div class="row col l12 s12 m12  "> 
+                                <br>
+                                            <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/sliding_puzzle/topic" class="prev-link"> <i class=" fa fa-chevron-left red-text"> </i>&nbsp;&nbsp;Prev </a>
+                                            <a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/number_of_island_2/topic" class="next-link"> <i class=" fa fa-chevron-right red-text"> </i>&nbsp;&nbsp;Next </a>
+                                            <div id="summaryTxt"><div class="article1">
+                                    <div class="article-1-outerbox">
+                                        <div class="Circles hide-on-med-and-down">
+                                            <div class="c1"></div>
+                                            <div class="c2"></div>
+                                        </div>
+                                
+                                        <div class="topic-name">
+                                            <p>Optimize Water Distribution</p>
+                                        </div>
+                                
+                                        <a class="ca3-scroll-down-link ca3-scroll-down-arrow " data-ca3_iconfont="ETmodules" data-ca3_icon="">
+                                            <i class="fa fa-chevron-down"></i>
+                                        </a>
+                                        <br><br><br><br>
+                                
+                                        <div class="qoute">
+                                            <br><br>
+                                            <p>
+                                                Sometimes it takes a good fall to really know where you stand
+                                                <br>-Hayley Williams
+                                            </p>
+                                            <i class="fa fa-quote-right qoute-icon"></i>
+                                        </div>
+                                    </div>
+                                
+                                    <div class="question-logo"><i class="fa fa-quora"></i></div>
+                                    <div class="ques-info">Optimize Water Distribution</div>
+                                    <div class="article-info">
+                                        <div class="article-divider" style="margin-top:0px ;"></div>
+                                        <div class="article-content">
+                                            <p>
+                                                Hello dear coder. We meet again. Today we are going to solve another question from graph theory,
+                                                "Optimize Water Distribution".
+                                                Don't forget to check out the problem first.
+                                            </p>
+                                            <p>Don't forget to check out the problem first.</p>
+                                            <p><a href="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/optimize-water-distribution-official/ojquestion" target="_black">Optimize Water Distribution- Problem link</a></p>
+                                        </div>
+                                
+                                
+                                        <div class="understandingProb">
+                                            <div class="sub-heading-1">
+                                                <p>PROBLEM DISCUSSION</p>
+                                            </div>
+                                            <div class="content">
+                                                <ul>
+                                                    <li style="list-style: disc;">There are n construction sites in a town. We want to supply water for all the construction sites
+                                                        by building wells and laying pipes.</li>
+                                                    <li style="list-style: disc;">For each site i, we can either build a well inside it directly with cost of wells[i-1], or pipe
+                                                        in water from another well to it.</li>
+                                                    <li style="list-style: disc;">The costs to lay pipes between sites are given by the 2d array cost, where each row of cost
+                                                        contains 3 numbers ai, bi and wi where wi is the cost to connect ai to bi. These connections are
+                                                        bidirectional.</li>
+                                                    <li style="list-style: disc;">We have to return the minimum total cost to supply water to all the construction sites.</li>
+                                                </ul>
+                                
+                                                <p>We understand this problem for figure 1.</p>
+                                                <div class="img"><img class="articleImages" name="optimize_water_distribution_1.png" alt="img"></div>
+                                                <p>Here, we are given 5 construction sites which are denoted by the vertices 1 to 5. Against each
+                                                    vertex, the cost to build a well at that construction site is given. The edges between the vertices
+                                                    represent the pipelines/connections between them. The numbers beside the edges denote the cost
+                                                    required to connect the 2 edges.</p>
+                                                <p>Now we are required to find out the minimum cost to supply water at all the construction sites.</p>
+                                            </div>
+                                
+                                        </div>
+                                
+                                        <div class="approach" id="approach">
+                                            <div class="sub-heading-1">APPROACH</div>
+                                            <div class="content">
+                                                <p>We know to solve this problem, at least one well must be dug at some construction site so that it can
+                                                    supply water to the other sites through pipelines.</p>
+                                                <p>Reader, you know that if we did not have the problem of digging any well and the water was supplied
+                                                    just through pipelines, then the minimum cost could be calculated through Minimum Spanning Tree
+                                                    (MST).</p>
+                                                <p>However, since at least one well is to be dug, we make some modifications in our graph to apply MST
+                                                    on it.</p>
+                                                <div class="img"><img class="articleImages" name="optimize_water_distribution_2.png" alt="img"></div>
+                                                <p>In figure 2, we add a dummy node, the 0th construction site and from this node we connect every other
+                                                    construction site. This node contains a combined well from which water can be supplied to the other
+                                                    sites.</p>
+                                                <p>Now the cost of supplying water from this 0th node to any other node through pipelines is equivalent
+                                                    to the given cost of digging a well in the other node.</p>
+                                                <p>This reduced problem can now easily be solved through Minimum Spanning Tree.</p>
+                                                <p>We suggest you watch the solution video of Minimum Spanning Tree, if you haven't already.</p>
+                                                <div class="youtube-video">
+                                                    <iframe width="560" height="315" src="./PepCoding _ Optimize Water Distribution_files/Vw-sktU1zmc.html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                                </div>
+                                                <p>Hence, this problem is just an application of MST.</p>
+                                            </div>
+                                        </div>
+                                
+                                
+                                        <div class="sub-heading-2">CODE</div>
+                                        <div class="content">
+                                            <p>Reader, if you know how to solve the Prim's Algorithm (i.e. Minimum Spanning Tree) and have carefully
+                                                studied
+                                                the approach then you will have no trouble in coding this question.</p>
+                                        </div>
+                                
+                                        <div class="codeEditor" id="1">
+                                            <div class="editorialCode">
+                                                import java.io.*;
+                                                import java.util.*;
+                                
+                                                class Main {
+                                                public static void main(String[] args) throws NumberFormatException, IOException {
+                                                BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+                                
+                                                String[] st = br.readLine().split(" ");
+                                                int v = Integer.parseInt(st[0]);
+                                                int e = Integer.parseInt(st[1]);
+                                
+                                                int[] wells = new int[v];
+                                                String[] words = br.readLine().split(" ");
+                                
+                                                for (int i = 0; i &lt; wells.length; i++) { wells[i]=Integer.parseInt(words[i]); } int[][] pipes=new
+                                                    int[e][3]; for (int i=0; i &lt; e; i++) { String[] st1=br.readLine().split(" ");
+                                                                        pipes[i][0] = Integer.parseInt(st1[0]);
+                                                                        pipes[i][1] = Integer.parseInt(st1[1]);
+                                                                        pipes[i][2] = Integer.parseInt(st1[2]);
+                                                                    
+                                                                        }
+                                                                        System.out.println(minCostToSupplyWater(v, wells, pipes));
+                                                                    
+                                                                    }
+                                                                    
+                                                                    public static int minCostToSupplyWater(int n, int[] wells, int[][] pipes) {
+                                                                        ArrayList<arraylist<pair>&gt;graph=new ArrayList&lt;&gt;();
+                                                                        for(int i=0;i &lt;= n;i++){
+                                                                            graph.add(new ArrayList&lt;&gt;());
+                                                                        }
+                                                                        for(int i=0;i<pipes.length;i++){ int="" u="pipes[i][0];" v="pipes[i][1];" wt="pipes[i][2];" graph.get(u).add(new="" pair(v,wt));="" graph.get(v).add(new="" pair(u,wt));="" }="" for(int="" i="1;i" <="n;i++){" graph.get(i).add(new="" pair(0,wells[i-1]));="" graph.get(0).add(new="" pair(i,wells[i-1]));="" ans="0;" priorityqueue<pair="">pq=new PriorityQueue&lt;&gt;();
+                                                                        pq.add(new Pair(0,0));
+                                                                        boolean[]vis=new boolean[n+1];
+                                                                        while(pq.size()&gt;0){
+                                                                            Pair rem=pq.remove();
+                                                                            if(vis[rem.vtx]==true){
+                                                                                continue;
+                                                                            }
+                                                                            ans+=rem.wt;
+                                                                            vis[rem.vtx]=true;
+                                                                            ArrayList<pair> nbrs=graph.get(rem.vtx);
+                                                                            for(Pair nbr:nbrs){
+                                                                                if(vis[nbr.vtx]==false){
+                                                                                    pq.add(nbr);
+                                                                                }
+                                                                            }
+                                                                        }
+                                                                        return ans;
+                                                                    }
+                                                                    public static class Pair implements Comparable<pair>{
+                                                                        int vtx;
+                                                                        int wt;
+                                                                        Pair(int vtx,int wt){
+                                                                            this.vtx=vtx;
+                                                                            this.wt=wt;
+                                                                        }
+                                                                        public int compareTo(Pair o){
+                                                                            return this.wt-o.wt;
+                                                                        }
+                                                                    }
+                                                                    }
+                                                                    
+                                                    
+                                                                </pair></pair></pipes.length;i++){></arraylist<pair></div>
+                                                                <pre class="output">                                                                </pre>
+                                                                <span type="text" class="language" style="width:40%;margin-right:5%">java</span>;
+                                                                <span type="text" style="width:40%" class="canRunCode" name="canRunCode">true</span>" ;
+                                                    </div>
+                                
+                                                    <div class="analysis">
+                                                        <div class="sub-heading-1">TIME &amp; SPACE COMPLEXITY</div>
+                                                        <div class="">
+                                                            <div class="sub-heading-2">TIME COMPLEXITY- O(E+VlogV)</div>
+                                                            <div class="content">
+                                                                <p>
+                                                                    Time Complexity is similar to Dijkstra's algorithm, since we have just replaced the
+                                                                    weight so far with the current edge weight. Hence, total time complexity will be O(E
+                                                                    +
+                                                                    VlogV) where E = number of edges and V = number of vertices.
+                                                                </p>
+                                                            </div>
+                                                        </div>
+                                                        <div class="">
+                                                            <div class="sub-heading-2">SPACE COMPLEXITY- O(N)</div>
+                                                            <div class="content">
+                                                                <p>
+                                                                    We are using a priority queue, which will take O(N) space, where N is equal to the
+                                                                    maximum pair objects pushed, and is equivalent to the number of vertices. Also, we
+                                                                    have
+                                                                    declared a visited array of size N.
+                                                                </p>
+                                                                <p>We end this discussion here. We expect that you have help understanding the problem
+                                                                    through this article.</p>
+                                                                <p>We recommend you to also watch the solution video of this question.</p>
+                                                                <div class="youtube-video">
+                                                                    <iframe width="560" height="315" src="./PepCoding _ Optimize Water Distribution_files/Vw-sktU1zmc(1).html" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                
+                                                    <div class="article-tags">
+                                                        <div class="tag">Graphs</div>
+                                                        <div class="tag">Comparable</div>
+                                                        <div class="tag">ArrayList</div>
+                                                        <div class="tag">Arrays</div>
+                                                        <div class="tag">PriorityQueue</div>
+                                                    </div>
+                                                    <div class="author">
+                                                        <div class="sub-heading-2">AUTHOR
+                                                            <span>Article by Shreeya Gupta</span>
+                                                        </div>
+                                                    </div>
+                                            </div>
+                                            <div class="share-options">
+                                                <p class="share-options-heading">Share this article</p>
+                                                <div class="">
+                                                    <div class="span"><i class="fa fa-facebook"></i>
+                                                        <p class="social-media-name">Facebook</p>
+                                                    </div>
+                                                    <div class="span"><i class="fa fa-twitter"></i>
+                                                        <p class="social-media-name">Twitter</p>
+                                                    </div>
+                                                    <div class="span"><i class="fa fa-instagram"></i>
+                                                        <p class="social-media-name">Instagram</p>
+                                                    </div>
+                                                    <div class="span"><i class="fa fa-whatsapp"></i>
+                                                        <p class="social-media-name">Whatsapp</p>
+                                                    </div>
+                                                    <div class="span"><i class="fa fa-linkedin"></i>
+                                                        <p class="social-media-name">Linkedin</p>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="lineBreak" style="margin-top: 30px;"></div>
+                                            <div class="img-zoom-div">
+                                                <div class="img-zoom-div-close-btn"><i class="fa fa-times"></i></div>
+                                                <div class="img-zoom-div-img"><img src="https://www.pepcoding.com/resources/data-structures-and-algorithms-in-java-levelup/graphs/optimize_water_distribution/topic" alt=""></div>
+                                            </div>
+                                
+                                            <link rel="preconnect" href="https://fonts.googleapis.com/">
+                                            <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="">
+                                            <link href="./PepCoding _ Optimize Water Distribution_files/css2" rel="stylesheet">
+                                            <link rel="stylesheet" href="./PepCoding _ Optimize Water Distribution_files/monokai.css">
+                                            <link href="./PepCoding _ Optimize Water Distribution_files/css2(1)" rel="stylesheet"></div></div></div></div></div></div></div></div></div></main><iframe id="nr-ext-rsicon" style="position: absolute; display: none; width: 50px; height: 50px; z-index: 2147483647; border-style: none; background: transparent;"></iframe></body></html>

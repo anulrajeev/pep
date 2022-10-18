@@ -1,0 +1,107 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+	_main();
+	return 0;
+}
+
+int no_of_buses(vvi &bus_route, int src, int dest)
+{
+	if(src==dest)
+		return 0;
+
+	unordered_set<int> visited_buses;
+	unordered_set<int> vistied_busStops;
+	unordered_map<int, vi> m;
+	int count=0;
+	
+	for(int i=0;i<bus_route.size();i++)
+  		for(int j=0;j<bus_route[i].size();j++)
+  			m[bus_route[i][j]].push_back(i);
+/*
+  	while(m.size())
+  	{
+  		vi v=(*m.begin()).second;
+  		cout<<(*m.begin()).first<<" --> ";
+  		for(auto x : v)
+  			cout<<x<<' ';
+  		m.erase(m.begin());
+  		cout<<'
+';
+  	}
+*/
+  	queue<int> q;
+  	q.push(src);
+  	vistied_busStops.insert(src);
+
+  	while(q.size())
+  	{
+  		int size=q.size();
+  		for(int i=0;i<size;i++)
+  		{
+	  		int busStop=q.front(); q.pop();
+	  		// cout<<busStop<<" --> ";
+	  		
+	  		for(int bus : m[busStop])
+	  		{
+	  			// cout<<bus<<' ';  			
+	  			if(visited_buses.count(bus)==0)
+	  			{
+	  				visited_buses.insert(bus);
+			  		for(int new_busStop : bus_route[bus])
+			  			{
+			  				if(new_busStop==dest)
+			  					return count+1;
+			  				if(vistied_busStops.count(new_busStop)==0)
+			  				{
+			  					q.push(new_busStop);
+			  					vistied_busStops.insert(new_busStop);
+			  				}
+
+			  			}
+		  		}
+		  	}
+		  	// cout<<'
+';
+		  }
+	  	
+  		count++;
+  		// cout<<"count = "<<count<<'
+';
+  		
+  	}
+
+  	return -1;
+}
+
+void _main()
+{
+  	int m,n;
+  	cin>>m>>n;
+  	vvi bus_route(m,vi(n));
+  	for(int i=0;i<m;i++)
+  		for(int j=0;j<n;j++)
+  			cin>>bus_route[i][j];
+  	int src, dest;
+  	cin>>src>>dest;
+  	// cout<<'
+';
+  	cout<<no_of_buses(bus_route,src,dest);
+
+}

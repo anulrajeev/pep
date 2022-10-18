@@ -1,0 +1,104 @@
+//mask
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+	_main();
+	return 0;
+}
+
+ll count_set_bits(ll n)
+{
+	ll count=0;
+	while(n)
+	{
+		count++;
+		n=(n&(n-1));
+	}
+	return count;
+}
+
+long long C(ll n, ll r)
+{
+    if(n<r)
+        return 0;
+	long long res=1;
+	for(ll i=0;i<r;i++)
+		{
+		    res*=(n-i);
+		    res/=(i+1);
+		}
+	return res;
+}
+
+ll f(ll n, ll bit_count, ll set_bit)
+{
+	if(set_bit==0 || bit_count==set_bit)
+		return 0;
+	ll mask=(long) 1<<(bit_count-1);
+	if(n&mask)
+		return f(n,bit_count-1,set_bit-1)+C(bit_count-1,set_bit);
+	else
+		return f(n,bit_count-1,set_bit);
+}
+
+int csb(long n){
+        int res = 0;
+        
+        while(n > 0){
+            long rsb = n & -n;
+            n -= rsb;
+            res++;
+        }
+        
+        return res;
+    }
+long ncr(long n, long r){
+        if(n < r){
+            return 0L;    
+        }
+        
+        long res = 1L;
+        
+        for(long i = 0L; i < r; i++){
+            res = res * (n - i);
+            res = res / (i + 1);
+        }
+        
+        return res;
+    }
+long  solution(long n,long k,int i)
+{
+    if(i==0) return 0;
+    long mask=(long)1<<i;
+    if((n&mask)==0) return solution(n,k,i-1);
+    else{
+        long ans1=solution(n,k-1,i-1);
+        long ans0=C(i,k);
+        
+        return ans0+ans1;
+    }
+}
+
+void _main()
+{
+  	ll N;
+  	cin>>N;
+  	cout<<solution(N,csb(N),63);
+	
+}

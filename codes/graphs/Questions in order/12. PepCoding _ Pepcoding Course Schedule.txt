@@ -1,0 +1,61 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+	_main();
+	return 0;
+}
+
+void khansAlgo(vi adj[], int V)
+{
+	queue<int> q;
+	int indegree[V]={0};
+	vi res;
+	for(int u=0;u<V;u++)
+		for(int v : adj[u])
+			indegree[v]++;
+	for(int i=0;i<V;i++)
+		if(indegree[i]==0)
+			q.push(i);
+	while(q.size())
+	{
+		int u=q.front(); q.pop();
+		res.push_back(u);
+		for(int v : adj[u])
+			if(--indegree[v]==0)
+				q.push(v);
+	}
+	if(res.size()==V)
+		for(auto x : res)
+			cout<<x<<' ';
+	else
+		cout<<-1;
+}
+
+void _main()
+{
+  	int V,E,u,v;
+  	cin>>V>>E;	
+  	vi adj[V];
+  	for(int i=0;i<E;i++)
+  	{
+  		cin>>u>>v;
+  		adj[v].push_back(u);
+  	}
+  	khansAlgo(adj,V);
+}
