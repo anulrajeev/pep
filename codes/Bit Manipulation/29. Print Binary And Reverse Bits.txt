@@ -1,0 +1,65 @@
+#include <bits/stdc++.h>
+using namespace std;
+typedef long long ll;
+typedef unsigned long long ull;
+typedef vector<int> vi;
+typedef vector<vi> vvi;
+typedef vector<ll> vll;
+typedef vector<vll> vvll;
+typedef vector<bool> vb;
+typedef vector<vb> vvb;
+typedef vector<string> vs;
+typedef vector<char> vc;
+typedef vector<vc> vvc;
+typedef pair<int, int> pii;
+
+ll mod = 1000000009;
+
+void _main();
+int main(){
+
+	_main();
+	return 0;
+}
+
+void solution(int n)
+{
+	bool flag=false;
+	int rev=0, j=0;
+	for(int i=31;i>=0;i--)
+	{
+		int mask=(1<<i);
+		if(flag)
+		{
+			if(n&mask)
+			{
+				cout<<1;
+				rev|=(1<<j);
+			}
+			else
+				cout<<0;
+
+			j++;
+		}
+		else
+		{
+			if(n&mask)
+			{
+				flag=true;
+				cout<<1;
+				rev=(1<<j++);
+			}
+		}
+	}
+	cout<<'
+';
+	cout<<rev;
+}
+
+void _main()
+{
+  	int n;
+  	cin>>n;
+  	solution(n);
+
+}
