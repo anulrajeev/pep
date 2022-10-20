@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool checkPalindrome(string s, int left, int right, bool found)
+{
+    while(left<=right)
+    {
+        if(s[left]==s[right])
+            left++, right--;
+        else
+        {
+            if(found)
+                return false;
+            else
+               return checkPalindrome(s,left+1,right,true) || 
+                      checkPalindrome(s,left,right-1,true);
+        }
+    }
+}
+
+int main()
+{
+    string s;
+    cin>>s;
+    cout<<(checkPalindrome(s,0,s.length()-1,false)?"true":"false");
+    return 0;
+}

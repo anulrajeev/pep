@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+int minBoats(int A[], int n, int limit)
+{
+	sort(A,A+n);
+	int count=0;
+	int left=0, right=n-1;
+	while(left<=right)
+	{
+		if(A[left]+A[right]<=limit)
+			left++, right--;
+		else
+			right--;
+		count++;
+	}
+	return count;
+}
+
+int main()
+{
+  	int n;
+  	cin>>n;
+  	int A[n];
+  	for(int i=0;i<n;i++)
+  		cin>>A[i];
+  	int limit;
+  	cin>>limit;
+  	cout<<minBoats(A,n,limit);
+    return 0;
+}

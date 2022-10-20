@@ -1,0 +1,27 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+bool myComp(char a, char b)
+    {  return a>b; }
+
+int main()
+{
+    string s;
+    cin>>s;
+    string new_s=s;
+    int n=s.length();
+    sort(new_s.begin(), new_s.end(), myComp);
+    for(int i=0;i<n;i++)
+        if(s[i]!=new_s[i])
+            {
+               for(int j=n-1;j>=0;j--)
+                    if(s[j]==new_s[i])
+                        {
+                            swap(s[j], s[i]);
+                            break;
+                        }
+                break;
+            }
+    cout<<s;
+    return 0;
+}

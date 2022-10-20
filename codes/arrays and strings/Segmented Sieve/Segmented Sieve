@@ -1,4 +1,4 @@
- #include <bits/stdc++.h>
+#include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
 typedef unsigned long long ull;
@@ -17,12 +17,6 @@ ll mod = 1000000009;
 
 void _main();
 int main(){
- #ifndef ONLINE_JUDGE
-    // for getting input from input.txt
-    freopen("input.txt", "r", stdin);
-    // for writing output to output.txt
-    freopen("output.txt", "w", stdout);
- #endif
 	_main();
 	return 0;
 }
@@ -43,6 +37,7 @@ vi initialise(int n)
 			v.push_back(i);
 	return v;
 }
+
 
 vi getPrimes(int a, int b, vi &v)
 {
@@ -74,6 +69,6 @@ void _main()
   	vi v = initialise(sqrt(b));
   	vi res = getPrimes(a,b,v);
   	for(auto x : res)
-  		cout<<x<<'\n';
+  		cout<<x<<'
+';
 }
-

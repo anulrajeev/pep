@@ -1,0 +1,27 @@
+1. Max Chunks To Make Array Sorted 2    -  using Partition Array Into Disjoint Intervals
+
+2. Min Jumps With +i -i Moves   - extra distance logic
+
+3. Best Meeting Point	- median of x coordinates, y coordinates
+
+4. Segmented Sieve  - two corner cases - a) when multiple = 1
+								 b) when a=1
+5. Shortest Unsorted Continuous Subarray
+
+6. Wiggle Sort   - pairwise swap
+
+7. Wiggle Sort 2 - a b c d e f --> a f b e c d
+
+8. Number Of Subarrays With Bounded Maximum - normal, okay, bounded elements
+
+9. Smallest Range Covering Elements From K Lists -  push the first elements of all the k lists into a pq and process them one by one.
+
+10. Minimum Domino Rotations For Equal Row -  consider those elements with frequency = n
+
+11. Boats To Save People - two pointer approach
+
+12. Pascal's triangle 2  - print a row of pascal's triangle in O(n)
+
+13. Find All Duplicates In An Array
+
+11. 
