@@ -24,4 +24,7 @@
 
 13. Find All Duplicates In An Array
 
-11. 
+14. Consecutive numbers - mathematical interpretation
+
+15. Push dominoes - bfs on positions with 'L' and 'R'
+ 
