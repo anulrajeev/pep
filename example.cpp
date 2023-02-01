@@ -27,19 +27,32 @@ int main(){
 	return 0;
 }
 
-int f(int n)
+int getMaxProfit(int A[], int n)
 {
-	int count=0;
-	for(int k=1;k*(k-1)<=2*n;k++)
-		if((n-k*(k-1))%k==0)
-			count++;
-	return count;
+	int res=INT_MIN;
+	int min_value=A[0];
+
+	for(int i=1;i<n;i++)
+	{
+		// if(A[i]>min_value)
+			res=max(res, A[i]-min_value);
+			min_value=min(min_value,A[i]);
+		// else
+			// min_value=A[i];
+	}
+
+	return res;
 }
+
 
 void _main()
 {
   	int n;
   	cin>>n;
-  	cout<<f(n);
+  	int A[n];
+  	for(int i=0;i<n;i++)
+  		cin>>A[i];
+  	cout<<getMaxProfit(A,n);
+
 }
 

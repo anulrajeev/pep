@@ -26,5 +26,9 @@
 
 14. Consecutive numbers - mathematical interpretation
 
-15. Push dominoes - bfs on positions with 'L' and 'R'
+15. Push dominoes - bfs on positions with 'L' and 'R' (using locally_changed hashset)
+
+16. The k-th Lexicographical String of All Happy Strings of Length n  - bfs
+
+17.
  
